@@ -1,0 +1,27 @@
+\contentsline {section}{\numberline {1}Introduction and status labels}{2}{section.1}%
+\contentsline {section}{\numberline {2}Conformal--Bondi data and AldS charge fluxes}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Conventions}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Free data and conserved charges}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Bondi-gauge obstruction to a naive news field}{5}{subsection.2.3}%
+\contentsline {section}{\numberline {3}The asymptotic super-Poynting radiation detector}{5}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Definitions and the \(\Lambda >0\) theorem}{5}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Why \(\Lambda <0\) is different}{6}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Cut-wise outgoing flux and conditional positivity}{6}{section.4}%
+\contentsline {section}{\numberline {5}What should count as news?}{7}{section.5}%
+\contentsline {subsection}{\numberline {5.1}A scaling obstruction to the oversimplified target}{7}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}The cut-news proposal}{8}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Constraints on \(X_A\)}{8}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Codazzi uniqueness and the zero-set condition}{9}{subsection.5.4}%
+\contentsline {section}{\numberline {6}Obstructions to pointwise linear news squares}{9}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Scaling of the detector}{9}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}A finite-dimensional no-go theorem}{10}{subsection.6.2}%
+\contentsline {section}{\numberline {7}Linearized de Sitter waves}{10}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Variation of the boundary Cotton and stress tensors}{10}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Explicit TT modes and Hamiltonian fluxes}{11}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Conformal phase-space flux}{12}{subsection.7.3}%
+\contentsline {section}{\numberline {8}Exact-solution benchmark}{12}{section.8}%
+\contentsline {section}{\numberline {9}The \(\Lambda \to 0\) limit}{13}{section.9}%
+\contentsline {section}{\numberline {10}Lean formalization of the conditional core}{13}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Core scaffold}{13}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Mathlib scaffold}{14}{subsection.10.2}%
+\contentsline {section}{\numberline {11}Conclusion and open problems}{14}{section.11}%

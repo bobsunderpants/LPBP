@@ -1,0 +1,675 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,mathtools,mathrsfs,amsthm,bm}
+\usepackage{natbib}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{problem}[theorem]{Open problem}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+
+\newcommand{\I}{\mathscr{I}}
+\newcommand{\scri}{\mathscr{I}}
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cE}{\mathcal{E}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cH}{\mathcal{H}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\STF}{\mathrm{STF}}
+\newcommand{\Div}{\operatorname{Div}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\diff}{\mathrm{d}}
+
+\newcommand{\statusL}{\textsf{[L]}}
+\newcommand{\statusD}{\textsf{[D]}}
+\newcommand{\statusF}{\textsf{[F]}}
+\newcommand{\statusO}{\textsf{[O]}}
+
+\title{Towards a Bondi--Sachs--Penrose Formalism for \(\Lambda>0\):\\
+Radiation Detectors, Flux Laws, and Obstructions to News}
+
+\author{Working manuscript}
+\date{24 November 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We assess whether a complete Bondi--Sachs--Penrose package exists for isolated systems with positive cosmological constant.  It does not: the boundary \(\scri^\pm\) is spacelike, there is no accepted intrinsic news tensor, no universal no-incoming-radiation condition, no general mass-positivity theorem, no BMS analogue or peeling theorem, and no universal \(\Lambda\to0\) boundary limit.  We collect the partial structures that are available: the AldS conformal--Bondi charge and flux calculus, the asymptotic super-Poynting radiation detector, the cut-wise news proposal, conditional outgoing-sector positivity, linearized de Sitter tests, exact-solution checks, and controlled flat limits.  Several new consistency results are derived: a scaling obstruction to representing all AldS charge fluxes by one \(\xi\)-independent news square; a linear-gauge obstruction showing that a Bondi shear coefficient is fixed when \(\Lambda\neq0\); a precise harmonic characterization of the cut-news source \(X_A\); and a finite-dimensional no-go theorem for pointwise linear news-square ans{\"a}tze.  The conditional logical core has been formalized in Lean without asserting the open physics theorem.
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduction and status labels}
+
+The Bondi--Sachs--Penrose (BSP) formalism in asymptotically flat spacetime is a package rather than a single statement.  It contains: null infinity \(\scri^\pm\), a characteristic initial-value formulation, an intrinsic Bondi news tensor \(N_{AB}\), a no-incoming-radiation condition, Bondi mass loss and positivity, the BMS group, Nelson--Penrose peeling, and a robust scattering framework.  For \(\Lambda>0\), \(\scri^\pm\) is spacelike and this package breaks apart.  Some components survive in modified form; others have no known analogue \cite{ashtekar2017implications,poole2019bondi,poole2025charges}.
+
+To avoid conflating different kinds of statements, we use the following labels throughout.
+
+\begin{center}
+\begin{tabular}{ll}
+\statusL & rigorous statement established in the cited literature;\\[2mm]
+\statusD & statement derived in this manuscript from cited equations and standard calculus;\\[2mm]
+\statusF & formal or proposal-level statement, not yet a theorem of the physical theory;\\[2mm]
+\statusO & open problem or target.
+\end{tabular}
+\end{center}
+
+The main conclusion is:
+
+\begin{quote}
+There is currently no complete rigorous BSP package for generic isolated systems with \(\Lambda>0\).  What exists is a radiation detector, partial charge/flux laws, conditional outgoing-sector positivity, restricted monotonicity examples, and controlled flat limits for special families.
+\end{quote}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{p{0.25\linewidth}p{0.32\linewidth}p{0.35\linewidth}}
+\hline
+Benchmark & \(\Lambda=0\) BSP package & \(\Lambda>0\) status\\
+\hline
+Infinity & null \(\scri^\pm\) & spacelike \(\scri^\pm\)\\
+Gauge / well-posedness & characteristic Cauchy problem & conformal/Cauchy problem at spacelike \(\scri\); no universal Bondi gauge\\
+News & intrinsic \(N_{AB}\) on 2-cuts & no accepted intrinsic news; detector available\\
+No incoming radiation & well-defined at \(\scri^-\) & no universal incoming/outgoing split; all radiation crosses spacelike \(\scri\)\\
+Charges / mass loss & Bondi four-momentum, mass loss, positivity & AldS charges and flux laws; general positivity open\\
+Symmetries & BMS & diffusion/conformal proposals; no universal BMS analogue\\
+Peeling & NP peeling & no general peeling analogue\\
+\(\Lambda\to0\) & built in & controlled retarded families work; universal boundary limit singular\\
+\hline
+\end{tabular}
+\caption{Benchmark used throughout.}
+\end{table}
+
+\section{Conformal--Bondi data and AldS charge fluxes}
+
+\subsection{Conventions}
+
+Let \(\Lambda=3/\ell^2>0\) and set \(H=\sqrt{\Lambda/3}=1/\ell\).  We write a four-dimensional Fefferman--Graham (FG) expansion near spacelike infinity as
+\begin{equation}
+  g_{ab}
+  =
+  \frac{\ell^2}{\rho^2}
+  \left[
+    -\diff \rho^2
+    +
+    \left(
+      h_{ij}+\rho^2 h^{(2)}_{ij}+\rho^3 h^{(3)}_{ij}+\cdots
+    \right)\diff x^i \diff x^j
+  \right].
+\end{equation}
+The induced metric on \(\scri\) is \(h_{ij}=g^{(0)}_{ij}\).  The holographic stress is, up to conventional powers of \(\ell\),
+\begin{equation}
+  \cT_{ij}
+  =
+  -\frac{3\ell^2}{2\kappa^2}h^{(3)}_{ij},
+  \qquad \kappa^2=8\pi G,
+\end{equation}
+and is symmetric, trace-free, and divergence-free with respect to \(h_{ij}\) after the usual counterterm choice \cite{poole2025charges}.  Different authors absorb factors of \(\ell\) into the definition of the conformal representative; all zero sets and structural identities below are unaffected.
+
+\subsection{Free data and conserved charges}
+
+\statusL \textsl{Friedrich-type asymptotic data} at \(\scri\) consist of a Riemannian three-metric \(h_{ij}\) and a symmetric trace-free divergence-free tensor \(\cT_{ij}\).  These are the analogue of the characteristic free data at null infinity, but they live on a spacelike three-manifold rather than on a null hypersurface.
+
+For a boundary vector field \(\xi^i\) and a two-surface \(S\subset\scri\) with unit normal \(n_i\) inside \(\scri\), define
+\begin{equation}
+  Q_\xi[S]
+  =
+  \int_S \cT^{ij}\xi_i n_j\,\diff S .
+\end{equation}
+
+\begin{proposition}[\statusD: conservation for conformal Killing fields]
+If \(D_i\cT^{ij}=0\), \(\cT^i{}_i=0\), and \(\xi\) is a conformal Killing vector of \(h\), then \(Q_\xi[S]\) is independent of the cut \(S\).
+\end{proposition}
+\begin{proof}
+Let \(j^i=\cT^{ij}\xi_j\).  Then
+\begin{equation}
+  D_i j^i
+  =
+  (D_i\cT^{ij})\xi_j+\cT^{ij}D_i\xi_j
+  =
+  \cT^{ij}D_{(i}\xi_{j)} .
+\end{equation}
+For a conformal Killing vector, \(D_{(i}\xi_{j)}=\frac13(D_k\xi^k)h_{ij}\), so the trace-free tensor \(\cT^{ij}\) annihilates this strain.  Hence \(D_i j^i=0\), and Stokes' theorem gives cut-independence.
+\end{proof}
+
+For a region \(B_{12}\subset\scri\) bounded by cuts \(S_1,S_2\), the flux law is
+\begin{equation}\label{eq:aldS-flux}
+  Q_\xi[S_2]-Q_\xi[S_1]
+  =
+  -\int_{B_{12}} \cT^{ij}D_i\xi_j\,\diff\mu .
+\end{equation}
+This is the AldS analogue of the Bondi balance law \cite{poole2025charges}.  Equivalently, since \(\cT\) is trace-free, only the trace-free part of \(D_i\xi_j\) contributes.
+
+\subsection{Bondi-gauge obstruction to a naive news field}
+
+\statusL In Bondi gauge with \(\Lambda\neq0\), the order-\(r^{-1}\) angular metric coefficient \(\gamma_1\) is fixed rather than free.  In the conventions of Poole--Skenderis--Taylor \cite{poole2019bondi},
+\begin{equation}\label{eq:gamma1-obstruction}
+  \Lambda\gamma_1
+  =
+  -\frac32 e^{-2\beta_0}
+  \left(
+    \cot\theta\,U_0
+    -U_{0,\theta}
+    -2U_0\gamma_{0,\theta}
+    -2\gamma_{0,u}
+  \right),
+\end{equation}
+with signs and normalizations depending on conventions.  Thus \(\gamma_1\) is algebraically determined by \((\gamma_0,\beta_0,U_0)\), unlike the asymptotically flat case where the corresponding shear coefficient is the free Bondi news candidate.
+
+\begin{proposition}[\statusD: flat-limit scaling requirement]
+For \(\gamma_1\) to remain finite as \(\Lambda\to0\) in the Bondi gauge scheme of \eqref{eq:gamma1-obstruction}, the bracket on the right-hand side must satisfy
+\begin{equation}
+  \cot\theta\,U_0-U_{0,\theta}-2U_0\gamma_{0,\theta}-2\gamma_{0,u}
+  =
+  O(\Lambda).
+\end{equation}
+Without this scaling the flat limit is singular at the level of the Bondi expansion.
+\end{proposition}
+
+This is a necessary condition within that gauge scheme.  It is not by itself a universal \(\Lambda\to0\) theorem.
+
+\section{The asymptotic super-Poynting radiation detector}
+
+\subsection{Definitions and the \(\Lambda>0\) theorem}
+
+Let \(\Omega\) be the defining function of \(\scri\), normalized so that
+\begin{equation}
+  N_\alpha=\partial_\alpha\Omega,
+  \qquad
+  N^\alpha N_\alpha=-\frac{\Lambda}{3}.
+\end{equation}
+For \(\Lambda>0\), the unit timelike normal to spacelike \(\scri\) is
+\begin{equation}
+  n_\alpha=\sqrt{\frac{3}{\Lambda}}\,N_\alpha .
+\end{equation}
+Let \(d_{\alpha\beta\gamma\delta}\) denote the rescaled Weyl tensor.  Define the electric and magnetic parts relative to \(n\):
+\begin{equation}
+  D_{ab}=n^\mu n^\nu d_{a\mu b\nu},
+  \qquad
+  C_{ab}=n^\mu n^\nu\,{}^\star d_{a\mu b\nu}.
+\end{equation}
+Here \(D_{ab}\) is proportional to the holographic stress \(\cT_{ab}\), whereas \(C_{ab}\) is proportional to the Cotton--York tensor \(Y_{ab}\) of \((\scri,h)\); e.g. \(C_{ab}=-3Y_{ab}/\Lambda\) in a common normalization \cite{fabSen2025characterization}.  Nonzero constants are irrelevant for zero sets.
+
+The canonical asymptotic super-Poynting vector is, up to a nonzero \(\Lambda\)-dependent factor,
+\begin{equation}\label{eq:p-detector}
+  p_i
+  =
+  2\epsilon_i{}^{jk}C_{j\ell}D^\ell{}_k
+  =
+  \epsilon_i{}^{jk}[C,D]_{jk},
+  \qquad [C,D]=CD-DC .
+\end{equation}
+
+\begin{theorem}[\statusL: Senovilla; Fern{\'a}ndez-{\'A}lvarez--Senovilla \cite{senovilla2022radiation,fabSen2020radiation,fabSen2025characterization}]
+For \(\Lambda>0\), absence of radiation on an open subset of \(\scri\) is equivalent to
+\begin{equation}
+  p_i=0
+  \iff
+  [C,D]=0 .
+\end{equation}
+\end{theorem}
+
+\begin{proof}[\statusD: algebraic core]
+Both \(C\) and \(D\) are symmetric, so \([C,D]\) is skew.  The map
+\begin{equation}
+  \mathfrak{so}(3)\to\mathbb{R}^3,
+  \qquad
+  \omega_{ij}\mapsto \epsilon_i{}^{jk}\omega_{jk},
+\end{equation}
+is the Hodge dual on two-forms and is an isomorphism.  Hence its kernel is trivial, and \(\epsilon_i{}^{jk}[C,D]_{jk}=0\) iff \([C,D]=0\).
+\end{proof}
+
+The detector is a \emph{radiation detector}, not yet news.  It tells us whether radiation is present, but it does not provide a trace-free symmetric two-tensor on cuts whose square represents the AldS charge flux.
+
+\subsection{Why \(\Lambda<0\) is different}
+
+For \(\Lambda<0\), \(\scri\) is Lorentzian and there is no canonical timelike normal observer.  The criterion must be imposed on the asymptotic super-Poynting vectors measured by all unit timelike observers tangent to \(\scri\).  The resulting condition is not commutation but proportionality:
+\begin{equation}
+  \text{no radiation}
+  \iff
+  C_{ab}\ \text{and}\ D_{ab}\ \text{are proportional}.
+\end{equation}
+Explicit photon-rocket Robinson--Trautman solutions with \(\Lambda<0\) have commuting but non-proportional Cotton--York and stress tensors, and radiate nevertheless \cite{fabSen2026rockets}.  This does not contradict the \(\Lambda>0\) theorem: there the canonical timelike normal removes the observer ambiguity.
+
+\section{Cut-wise outgoing flux and conditional positivity}
+
+Senovilla's cut formulation decomposes the super-Poynting vector as
+\begin{equation}
+  p^\alpha\;\stackrel{\scri}{=}\;\bar W\,\bar n^\alpha+\bar p^a e^\alpha{}_a,
+  \qquad
+  \dot{\bar W}+\bar\nabla_a\bar p^a=0 ,
+\end{equation}
+and introduces radiant super-momenta
+\begin{equation}
+  Q_\pm^\alpha
+  =
+  -D^\alpha{}_{\mu\nu\rho}k_\pm^\mu k_\pm^\nu k_\pm^\rho,
+  \qquad
+  k_\pm^\mu=\bar n^\mu\pm m^\mu ,
+\end{equation}
+where \(m^a\) is the unit normal to the cut inside \(\scri\) \cite{senovilla2022radiation}.  The condition \(Q_-^\mu=0\) is a proposed way to isolate an outgoing sector.
+
+Under \(Q_-^\mu=0\), the electric Weyl data satisfy
+\begin{equation}
+  \cF_A=\epsilon_{AB}C^B,
+  \qquad
+  \hat{\cF}_{AB}=\epsilon_{AD}\hat C_B{}^D ,
+\end{equation}
+so the stress is fixed by the Cotton tensor except for one Coulombian scalar.  Senovilla obtains
+\begin{equation}\label{eq:outgoing-pm}
+  p_m=\bar p_a m^a
+  =
+  -2\left(
+    \hat C_{AB}\hat C^{AB}+C_A C^A
+  \right)
+  \le 0,
+  \qquad
+  p_m=0\Rightarrow \bar p_a=0 .
+\end{equation}
+Moreover, Proposition 2 of \cite{senovilla2022radiation} gives
+\begin{align}
+  Q_-^\mu=Q_+^\mu=0
+  &\iff Q_-^\mu=0,\ p_m=0
+  \iff Q_-^\mu=0,\ \bar p_a=0\\
+  &\iff
+  \hat{\cF}_{AB}=\hat C_{AB}=0,
+  \quad
+  \cF_A=C_A=0 .
+\end{align}
+This is the sharpest outgoing-sector rigidity statement currently available.  It is still conditional on \(Q_-^\mu=0\) and is not a construction of a news tensor.
+
+\section{What should count as news?}
+
+\subsection{A scaling obstruction to the oversimplified target}
+
+The simplified target often states that a news tensor \(\mathcal N_{AB}\) should satisfy
+\begin{equation}
+  \Delta Q_\xi=-\int \mathcal N_{AB}\mathcal N^{AB}\,\diff\mu .
+\end{equation}
+This cannot hold for all boundary vector fields \(\xi\) if the right-hand side is independent of \(\xi\).
+
+\begin{proposition}[\statusD: charge-linearity obstruction]
+Assume the charge flux \(F_\xi:=\Delta Q_\xi\) is homogeneous of degree one in \(\xi\), as in \eqref{eq:aldS-flux}.  Suppose a single \(\xi\)-independent density \(\sigma\ge0\) satisfies \(F_\xi=-\int\sigma\,\diff\mu\) for every \(\xi\).  Then \(F_\xi=0\) for all \(\xi\).
+\end{proposition}
+\begin{proof}
+For any \(a\in\mathbb{R}\), \(F_{a\xi}=aF_\xi\), whereas the proposed representation gives \(F_{a\xi}=F_\xi\).  Taking \(a=2\) yields \(2F_\xi=F_\xi\), hence \(F_\xi=0\).
+\end{proof}
+
+A viable news representation must therefore be refined in one of the following ways:
+\begin{enumerate}
+  \item fix a particular translation-like vector field \(\xi\);
+  \item allow a \(\xi\)-dependent weight, for instance \(-\int f_\xi \mathcal N^2\,\diff\mu\) with \(f_\xi\) linear in the trace-free strain \(D_{(i}\xi_{j)}\); or
+  \item introduce a news object whose bilinear pairings, not one scalar square, represent the flux functional \(\xi\mapsto\Delta Q_\xi\).
+\end{enumerate}
+This refinement is absent from many informal statements of the problem.
+
+\subsection{The cut-news proposal}
+
+\statusF Senovilla's 2022 program proposes a cut-wise news tensor
+\begin{equation}\label{eq:N-decomposition}
+  N_{AB}=V_{AB}+M_{AB}
+\end{equation}
+on a compact spherical cut \(S\subset\scri^+\).  Let \(q_{AB}\) be the induced metric, \(m^a\) the unit normal in \(\scri\), \(\varkappa_{AB}\) the second fundamental form, and write
+\begin{equation}
+  \varkappa_{AB}=\Sigma_{AB}+\frac12\varkappa q_{AB},
+  \qquad \Sigma^A{}_A=0 .
+\end{equation}
+Let \(S_{AB}\) be the Schouten tensor of the cut and let \(\rho_{AB}\) be the unique Codazzi tensor of trace equal to the Gaussian curvature \(K\).  Then
+\begin{equation}
+  U_{AB}
+  =
+  S_{AB}
+  -\frac12\Sigma_A{}^D\Sigma_{BD}
+  +\frac{\varkappa}{2}\Sigma_{AB}
+  +\frac{\varkappa^2}{8}q_{AB},
+  \qquad
+  V_{AB}=U_{AB}-\rho_{AB}.
+\end{equation}
+The tensor \(V_{AB}\) is symmetric, trace-free, gauge invariant, and intrinsic to \((\scri,h)\) and the cut.  The unknown part \(M_{AB}\) is symmetric, trace-free and gauge invariant, and satisfies
+\begin{equation}
+  D_{[C}M_{A]B}
+  =
+  X_{CAB}
+  -\frac12\sqrt{\frac{\Lambda}{3}}\epsilon_{CA}C_B
+  +D_{[C}\!\left(\Sigma_{A]E}\Sigma_B{}^E\right)
+  -\frac12 D_B\Sigma_{[C}{}^E\Sigma_{A]E},
+\end{equation}
+with
+\begin{equation}
+  X_{CAB}=X_{[CA]B}=2q_{B[C}X_{A]} .
+\end{equation}
+Equivalently,
+\begin{equation}
+  \frac12 D_C M^C{}_A
+  =
+  X_A
+  +\frac12\sqrt{\frac{\Lambda}{3}}\epsilon_{AB}C^B
+  -\frac38 D_A(\Sigma_{DE}\Sigma^{DE})
+  +\frac12\Sigma^{CE}D_C\Sigma_{EA}.
+\end{equation}
+Finally,
+\begin{equation}
+  D_{[C}N_{A]B}=X_{CAB}.
+\end{equation}
+The essential open input is the choice of the one-form \(X_A\).
+
+\subsection{Constraints on \(X_A\)}
+
+\statusD \textsl{Gauge weight.}  Under a conformal rescaling of the cut metric, \(X_A\) must transform as
+\begin{equation}
+  \tilde X_A=\omega^{-2}X_A .
+\end{equation}
+The canonical super-Poynting vector instead has weight \(\omega^{-5}\), so a scalar built directly from \([C,\cF]\) does not automatically have the correct weight to serve as the dimensionless gauge-invariant input of the ansatz below.
+
+\statusL \textsl{CKV integrability.}  Solvability of the Codazzi equation requires six orthogonality conditions on \(S^2\):
+\begin{equation}\label{eq:CKV-integrability}
+  \int_S \xi^A X_A\,\diff S=0
+  \qquad
+  \text{for every conformal Killing vector }\xi^A .
+\end{equation}
+This is eq. (77) of \cite{senovilla2022radiation}.
+
+\statusD \textsl{Hodge content.}  On \(S^2\) there are no harmonic one-forms, so
+\begin{equation}
+  X_A=\epsilon_A{}^B D_B x+D_A X ,
+\end{equation}
+with potentials defined only up to additive constants.  Condition \eqref{eq:CKV-integrability} removes the \(s=1\) spherical-harmonic parts of \(x\) and \(X\); the \(s=0\) parts are gauge.  Thus admissible sources have only \(s\ge2\) harmonic content.
+
+\statusL \textsl{Suggested ansatz.}  Senovilla suggests
+\begin{equation}\label{eq:X-ansatz}
+  X_A=\Delta f\,D_A f
+\end{equation}
+with gauge-invariant dimensionless \(f\).  Lemma 4 of \cite{senovilla2022radiation} gives \(\int_S \Delta f\,\pounds_\xi f=0\) for every CKV \(\xi\), so the ansatz automatically satisfies integrability.  On a connected \(S^2\), \(X_A=0\) iff \(f\) is constant.
+
+No canonical \(f\) is known.  In the outgoing sector one might try to build \(f\) from Cotton and \(\cF\) potentials, but the potentials in the decomposition of STF tensors on \(S^2\) are ambiguous by \(s=0,1\) pieces, and the paper supplies no formula linking \(X_A\) to \(\bar p_a\) or \(Q_-^\mu\).  The bridge is only conceptual: \(V_{AB}\) is intrinsic geometry, so \(M_{AB}\), hence \(X_A\), must carry the \(\cF_{ab}\)-dependence absent from \(V_{AB}\).
+
+\subsection{Codazzi uniqueness and the zero-set condition}
+
+On \(S^2\), trace-free Codazzi tensors vanish identically.  Therefore, once a solution of \(D_{[C}N_{A]B}=X_{CAB}\) exists,
+\begin{equation}
+  X_A=0 \text{ on } S
+  \iff
+  D_{[C}N_{A]B}=0
+  \iff
+  N_{AB}=0 .
+\end{equation}
+Thus the paper's target condition \(X_A=0\iff N_{AB}=0\) is automatic after solvability.  The genuinely open requirement is to choose \(X_A\) so that its zero set matches the physical no-radiation detector \([C,\cF]=0\).
+
+\section{Obstructions to pointwise linear news squares}
+
+\subsection{Scaling of the detector}
+
+A tensor built only from the STF part of the super-Poynting vector cannot be the AldS news.  The detector \(p_i\) is linear in the electric Weyl/stress tensor \(D_{ij}\); a tensor obtained linearly from \(p_i\) is at least linear in \(D\), and its square is at least quadratic in \(D\).  The AldS flux \eqref{eq:aldS-flux}, however, is linear in \(\cT\), hence linear in \(D\).  This rules out the most naive “dual of the detector” ans{\"a}tze.
+
+\subsection{A finite-dimensional no-go theorem}
+
+Under \(Q_-^\mu=0\), the positive density is
+\begin{equation}
+  -p_m=2(\hat C_{AB}\hat C^{AB}+C_A C^A)\ge0,
+\end{equation}
+where \(\hat C_{AB}\) and \(C_A\) are independent.  Consider a pointwise linear ansatz
+\begin{equation}
+  N_{AB}=L(\hat C)_{AB}+K(C)_{AB}
+\end{equation}
+into the two-dimensional space of STF tensors on the cut.
+
+\begin{theorem}[\statusD]
+Let \(E\) be the two-dimensional real vector space of STF cut tensors with Euclidean norm induced by \(q_{AB}\).  There do not exist linear maps \(L,K:E\to E\) such that
+\begin{equation}
+  \|Lx\|=\|x\|,\qquad \|Ky\|=\|y\|,
+\end{equation}
+and
+\begin{equation}
+  \|Lx+Ky\|^2=\|x\|^2+\|y\|^2
+\end{equation}
+for all \(x,y\in E\).
+\end{theorem}
+\begin{proof}
+The first condition makes \(L\) injective; finite-dimensionality makes it surjective.  Choose \(y\neq0\).  Pick \(x\) with \(Lx=Ky\).  Then
+\begin{equation}
+  \|Lx+Ky\|^2=\|2Ky\|^2=4\|Ky\|^2,
+\end{equation}
+whereas
+\begin{equation}
+  \|x\|^2+\|y\|^2=\|Ky\|^2+\|Ky\|^2=2\|Ky\|^2,
+\end{equation}
+a contradiction since \(Ky\neq0\).
+\end{proof}
+
+The Lean file proves this as \texttt{NewsSquareObstruction.no\_linear\_pointwise\_square}.  The theorem rules out a purely pointwise linear square of the outgoing Cotton data.  It does not rule out the cut-Codazzi construction \(N_{AB}=V_{AB}+M_{AB}\), nor nonlocal or total-derivative corrections.
+
+\section{Linearized de Sitter waves}
+
+\subsection{Variation of the boundary Cotton and stress tensors}
+
+\statusD Work on the round \(S^3\) boundary of de Sitter with
+\begin{equation}
+  h_{ij}=\ell^2(q_{ij}+\varepsilon\kappa_{ij}),
+  \qquad
+  D^i\kappa_{ij}=0,
+  \qquad
+  q^{ij}\kappa_{ij}=0 .
+\end{equation}
+Using the FG relation \(D_{ij}\propto h^{(3)}_{ij}\) and \(C_{ij}\propto -\ell^2Y_{ij}\), a direct variation on the unit round \(S^3\) gives
+\begin{equation}
+  \delta P_{ij}
+  =
+  -\frac12(\Delta+1)\kappa_{ij},
+  \qquad
+  \delta Y_{ij}
+  =
+  -\frac12
+  \epsilon_{(i}{}^{kl}
+  D_k(\Delta+1)\kappa_{j)l}.
+\end{equation}
+The detector is bilinear:
+\begin{equation}\label{eq:detector-bilinear}
+  \bar{\cP}_i
+  \propto
+  3\ell^2
+  \epsilon_i{}^{jk}
+  Y_{j\ell}h^{(3)\ell}{}_k .
+\end{equation}
+
+Consequences:
+\begin{itemize}
+  \item Around pure de Sitter, \(Y^{(0)}=D^{(0)}=0\), so \(Y,D=O(\varepsilon)\) and \(\bar{\cP}=O(\varepsilon^2)\).  The super-Poynting detector has no first-order part and cannot itself be linear Bondi news.
+  \item Around a nonradiating Coulomb background such as Kottler, \(Y^{(0)}=0\) but \(D^{(0)}\neq0\), so
+  \begin{equation}
+    \bar{\cP}^{(1)}_i
+    \propto
+    3\ell^2
+    \epsilon_i{}^{jk}
+    \delta Y_{j\ell}D^{(0)\ell}{}_k
+  \end{equation}
+  can be linear in the wave amplitude.
+\end{itemize}
+The bilinear algebra is recorded in Lean as \texttt{commutator\_scaleSym\_scaleSym}, \texttt{superPoynting\_scaleSym\_scaleSym}, and \texttt{linearized\_superPoynting\_is\_quadratic}.
+
+\subsection{Explicit TT modes and Hamiltonian fluxes}
+
+\statusL Ashtekar--Bonga--Kesavan solve the linearized field equations on the Poincaré patch of de Sitter \cite{ashtekar2015linear}.  Writing \(g_{ab}=a^2(\eta)(\mathring g_{ab}+\epsilon h_{ab})\), \(a=-1/(H\eta)\), \(\Omega=-H\eta\), TT modes satisfy
+\begin{equation}
+  \mathring{\Box}h_{ab}+\frac{2}{\eta}h'_{ab}=0,
+  \qquad
+  h_{\vec k}^{(s)\prime\prime}-\frac{2}{\eta}h_{\vec k}^{(s)\prime}+k^2h_{\vec k}^{(s)}=0,
+\end{equation}
+with solution
+\begin{equation}
+  h_{\vec k}^{(s)}
+  =
+  -2H\left[
+    E_{\vec k}^{(s)}
+    \left(\eta\cos k\eta-k^{-1}\sin k\eta\right)
+    -
+    B_{\vec k}^{(s)}
+    \left(\eta\sin k\eta+k^{-1}\cos k\eta\right)
+  \right].
+\end{equation}
+The rescaled Weyl data at \(\scri^+\) are
+\begin{equation}
+  \cE_{ab}|_{\scri^+}
+  =
+  k^2E_{\vec k}^{(s)}\mathfrak e^{(s)}_{ab},
+  \qquad
+  \cB_{ab}|_{\scri^+}
+  =
+  k^2B_{\vec k}^{(s)}{}^\ast\mathfrak e^{(s)}_{ab}.
+\end{equation}
+Gauge-invariant quadratic charges include
+\begin{equation}
+  \cH_T
+  =
+  \frac{1}{2H\kappa}
+  \int_{\scri^+}
+  \cE_{cd}
+  \left(
+    \cL_T h_{ab}+2Hh_{ab}
+  \right)
+  \mathring q^{ac}\mathring q^{bd}.
+\end{equation}
+The \(B_{\vec k}^{(s)}=0\) branch preserves conformal flatness of the first-order boundary geometry and carries zero energy, momentum, and angular momentum.  These quadratic Hamiltonian fluxes are robust linear-theory objects, not nonlinear news tensors.
+
+\subsection{Conformal phase-space flux}
+
+\statusL Hoque--Krtou{\v{s}}--Pe{\'o}n-Nieto show that the flat-space Geroch--Xanthopoulos regularization fails for \(\Lambda>0\): flat perturbations can be rescaled to \(O(\Omega)\), while \(\Lambda>0\) consistency forces \(O(1)\) falloff \cite{hoque2025conformal}.  Nevertheless the presymplectic flux is finite and nonzero:
+\begin{equation}
+  \bm F_\xi
+  =
+  \frac{\ell}{16\pi G}
+  \int_{\scri^+}
+  |\tilde\gamma|^{1/2}
+  \delta\tilde e^{ab}
+  \cL_{\tilde\xi}\delta\tilde\gamma_{ab}.
+\end{equation}
+This is a phase-space flux at spacelike \(\scri^+\); it does not identify a local news tensor or a mass-aspect positivity theorem.
+
+\section{Exact-solution benchmark}
+
+The detector has been tested on the available exact families.  The following table summarizes the outcomes; it validates the detector, not a news-square theorem.
+
+\begin{center}
+\begin{tabular}{p{0.27\linewidth}p{0.64\linewidth}}
+\hline
+Solution & Detector / flux status\\
+\hline
+de Sitter & \(C_{ab}=\cF_{ab}=0\), \(p_a=0\); exact nonradiating reference.\\[1mm]
+Kottler / Schwarzschild--de Sitter & Spherical symmetry gives commuting Cotton and stress; \(p_a=0\).  AldS charges are nonzero mass charges.\\[1mm]
+Kerr--de Sitter & Cotton and stress are proportional through the induced conformal Killing field; \(p_a=0\).\\[1mm]
+Robinson--Trautman-dS & Generic boundary Cotton and stress fail to commute, so \(p_a\neq0\).  Restricted monotonic charges exist; positivity is representative-dependent.\\[1mm]
+Photon rockets & In an oriented frame,
+\(\bar{\cP}^{\hat a}=-2(p^2+q^2)\delta^{\hat a}{}_{\hat1}+4q(m-p)\delta^{\hat a}{}_{\hat2}\);
+vanishing iff \(p=q=0\), the generalized Kinnersley cases \cite{fabSen2026rockets}.\\[1mm]
+C-metric & \(\bar{\cP}^a\propto\alpha m^2\delta^a_p\), nonzero for acceleration \(\alpha\neq0\) \cite{fabSen2020radiation}.\\[1mm]
+\hline
+\end{tabular}
+\end{center}
+
+For Robinson--Trautman-dS, \cite{poole2025charges} also finds monotonic charges for suitable representatives and Calabi functionals.  With the Bondi-time translation and a different representative, the flux contains a \(\Lambda\)-dependent term
+\begin{equation}
+  \frac{\diff E}{\diff u_B}
+  =
+  -\frac{\epsilon^2}{16\pi G}
+  \oint \diff^2 S
+  \left[
+    (\dot f''-\cot\theta\,\dot f')^2
+    +\frac{3m}{\ell^2}\partial_{u_B}(f'^2)
+  \right],
+\end{equation}
+so positivity is not representative-independent even in this restricted class.
+
+\section{The \(\Lambda\to0\) limit}
+
+\statusL In a controlled retarded one-parameter family with source scale \(D_o\ll\ell\), \(H\Delta t_{\rm source}\ll1\), and finite source duration, Ashtekar--Bonga--Kesavan show that the de Sitter quadrupole flux approaches the Einstein quadrupole formula in the physical \((t,\vec x)\) chart \cite{ashtekar2015quadrupole}.  The tail correction is \(O(H)\) and vanishes as \(H\to0\).  The flux has the schematic form
+\begin{equation}
+  E_T
+  =
+  \frac{G}{8\pi}
+  \int_{\scri^+}\diff T\,\diff^2S\,
+  \cR_{ab}\cR^{TT}_{cd}\mathring q^{ac}\mathring q^{bd},
+\end{equation}
+with \(\cR_{ab}\) reducing, in the nonrelativistic short-duration regime, to the third time derivative of the mass quadrupole plus \(O(H)\) corrections.
+
+This is a controlled limit of special families, not a universal boundary limit.  Reasons include:
+\begin{itemize}
+  \item linearized dS energy can be arbitrarily negative for every \(\Lambda>0\), whereas flat energy is positive definite \cite{ashtekar2015linear};
+  \item all dS Killing fields become spacelike near \(\scri^+\), so the notion of time translation degenerates;
+  \item flux formulas can pass continuously to Bondi form while the asymptotic symmetry algebra jumps from the finite \(\Lambda>0\) algebra to BMS \cite{bonga2023radiation};
+  \item recovery of no-incoming Bondi data has subtle differences \cite{ashtekar2019noincoming};
+  \item the Bondi-gauge relation \eqref{eq:gamma1-obstruction} requires the \(O(\Lambda)\) scaling condition for regularity.
+\end{itemize}
+
+A candidate AldS news must therefore come with both an outgoing/no-incoming condition and a scaling prescription.  The detector alone does not provide either.
+
+\section{Lean formalization of the conditional core}
+
+Two Lean files were produced and verified.
+
+\subsection{Core scaffold}
+
+\texttt{LambdaPositiveBondi\_Plan.lean} uses integers and no Mathlib import.  It proves the abstract flux lemmas
+\texttt{conserved\_of\_flux\_free}, \texttt{charge\_nonincreasing}, \texttt{equal\_charge\_iff\_zero\_flux}, and a toy model \texttt{toy\_charge\_nonincreasing}.  The open physics is represented by structures \texttt{RigidityTarget} and \texttt{DesiredNewsConstruction}, not by axioms.
+
+\subsection{Mathlib scaffold}
+
+\texttt{pnp-mathlib/PNP/LambdaPositiveBondi.lean} uses real-valued Bochner integrals and contains:
+\begin{itemize}
+  \item \texttt{AldSFluxModel}, \texttt{FluxFreeVector}, and the associated flux/logic lemmas;
+  \item finite-dimensional boundary algebra: \texttt{SymTensor3}, \texttt{Cotton}, \texttt{Stress}, \texttt{commutator}, \texttt{superPoynting};
+  \item the \(\Lambda>0\) equivalence \texttt{canonicalSuperPoyntingZero\_iff\_commutatorZero} and \texttt{noRadiation\_iff\_commuting};
+  \item the \(\Lambda<0\) proportionality target and the explicit commuting-but-not-proportional example;
+  \item exact-solution algebra \texttt{rocket\_noRadiation\_iff} and \texttt{outgoing\_noRadiation\_iff};
+  \item outgoing flux positivity \texttt{OutgoingCutData.normalFlux\_nonpos};
+  \item the conditional cut-news skeleton \texttt{CutNews.CutNewsCandidate}, with \texttt{source\_zero\_iff\_news\_zero}, \texttt{news\_zero\_iff\_detector\_zero}, and the contrapositive \texttt{news\_nonzero\_iff\_radiation};
+  \item the linearized algebra \texttt{scaleSym}, \texttt{commutator\_scaleSym\_scaleSym}, \texttt{superPoynting\_scaleSym\_scaleSym}, and \texttt{linearized\_superPoynting\_is\_quadratic};
+  \item the flux-linearity obstruction \texttt{LinearFluxObstruction.no\_nonzero\_constant\_square};
+  \item the pointwise news-square obstruction \texttt{NewsSquareObstruction.no\_linear\_pointwise\_square}.
+\end{itemize}
+
+Both files pass:
+\begin{verbatim}
+lean LambdaPositiveBondi_Plan.lean
+cd pnp-mathlib
+lake env lean PNP/LambdaPositiveBondi.lean
+lake build PNP.LambdaPositiveBondi
+\end{verbatim}
+
+The formalization deliberately stops short of asserting the unresolved geometric theorem.
+
+\section{Conclusion and open problems}
+
+The main open problem can now be stated more precisely than in the usual informal form.
+
+\begin{problem}[\statusO: refined news problem]
+For admissible AldS boundary data \((h_{ij},\cT_{ij})\), construct a gauge-covariant cut tensor or bilinear news object \(\mathcal N\) such that:
+\begin{enumerate}
+  \item its vanishing is equivalent to the radiation detector \([C,\cF]=0\), at least in the outgoing sector;
+  \item its pairings with the asymptotic translation charges reproduce the AldS flux law \eqref{eq:aldS-flux}, respecting the linearity in \(\xi\);
+  \item the flux is nonpositive and equality is characterized by no radiation;
+  \item it reduces, under a controlled scaling regime, to the Bondi news \(N^{\mathrm{Bondi}}_{AB}\) as \(\Lambda\to0\);
+  \item it admits a scattering interpretation with an incoming/outgoing split.
+\end{enumerate}
+\end{problem}
+
+Specific remaining tasks are:
+\begin{enumerate}
+  \item Fix precise function spaces and conformal rescaling conventions for the AldS state space.
+  \item Construct a weight-\(\omega^{-2}\), CKV-orthogonal one-form \(X_A\), or a gauge-invariant function \(f\) whose constancy matches no radiation.
+  \item Prove a flux representation, first for linearized de Sitter waves and then generally.
+  \item Prove positivity and rigidity, and determine whether a nonlocal or \(\xi\)-dependent news object is necessary.
+  \item Establish a universal no-incoming condition or prove a precise substitute.
+  \item Formulate and prove an analogue of peeling, or show that no such analogue exists.
+  \item Prove a controlled \(\Lambda\to0\) limit with explicit scaling assumptions.
+\end{enumerate}
+
+The negative results in this manuscript narrow the search: a single \(\xi\)-independent positive scalar cannot represent all charge fluxes; a pointwise linear square of outgoing Cotton data cannot reproduce the known positive density; and the naive Bondi shear coefficient is not free when \(\Lambda\neq0\).  They do not close the cut-Codazzi program, which remains the most concrete route to a \(\Lambda>0\) news candidate.
+
+\bibliographystyle{plainnat}
+\bibliography{lambda_positive_bondi}
+
+\end{document}

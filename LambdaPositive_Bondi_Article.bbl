@@ -1,0 +1,103 @@
+\begin{thebibliography}{12}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Ashtekar(2017)]{ashtekar2017implications}
+Abhay Ashtekar.
+\newblock Implications of a positive cosmological constant for general
+  relativity.
+\newblock \emph{Reports on Progress in Physics}, 80\penalty0 (10):\penalty0
+  102901, 2017.
+\newblock \doi{10.1088/1361-6633/aa7bb1}.
+\newblock URL \url{https://arxiv.org/abs/1706.07482}.
+
+\bibitem[Ashtekar and Bahrami(2019)]{ashtekar2019noincoming}
+Abhay Ashtekar and Sina Bahrami.
+\newblock Asymptotics with a positive cosmological constant: {IV. The
+  `no-incoming radiation' condition}.
+\newblock \emph{Physical Review D}, 100:\penalty0 024042, 2019.
+\newblock \doi{10.1103/PhysRevD.100.024042}.
+\newblock URL \url{https://arxiv.org/abs/1904.02822}.
+
+\bibitem[Ashtekar et~al.(2015{\natexlab{a}})Ashtekar, Bonga, and
+  Kesavan]{ashtekar2015linear}
+Abhay Ashtekar, B{\'e}atrice Bonga, and Aruna Kesavan.
+\newblock Asymptotics with a positive cosmological constant: {II. Linear fields
+  on de Sitter space-time}.
+\newblock \emph{Physical Review D}, 92:\penalty0 044011, 2015{\natexlab{a}}.
+\newblock \doi{10.1103/PhysRevD.92.044011}.
+\newblock URL \url{https://arxiv.org/abs/1506.06152}.
+
+\bibitem[Ashtekar et~al.(2015{\natexlab{b}})Ashtekar, Bonga, and
+  Kesavan]{ashtekar2015quadrupole}
+Abhay Ashtekar, B{\'e}atrice Bonga, and Aruna Kesavan.
+\newblock Asymptotics with a positive cosmological constant: {III. The
+  quadrupole formula}.
+\newblock \emph{Physical Review D}, 92:\penalty0 104032, 2015{\natexlab{b}}.
+\newblock \doi{10.1103/PhysRevD.92.104032}.
+\newblock URL \url{https://arxiv.org/abs/1510.05593}.
+
+\bibitem[Bonga et~al.(2023)Bonga, Bunster, and P{\'e}rez]{bonga2023radiation}
+B{\'e}atrice Bonga, Claudio Bunster, and Alfredo P{\'e}rez.
+\newblock Gravitational radiation with $\lambda>0$, 2023.
+\newblock URL \url{https://arxiv.org/abs/2306.08029}.
+
+\bibitem[Fern{\'a}ndez-{\'A}lvarez and Senovilla(2020)]{fabSen2020radiation}
+Francisco Fern{\'a}ndez-{\'A}lvarez and Jos{\'e} M.~M. Senovilla.
+\newblock Gravitational radiation condition at infinity with a positive
+  cosmological constant.
+\newblock \emph{Physical Review D}, 102:\penalty0 101502, 2020.
+\newblock \doi{10.1103/PhysRevD.102.101502}.
+\newblock URL \url{https://arxiv.org/abs/2007.11677}.
+
+\bibitem[Fern{\'a}ndez-{\'A}lvarez and
+  Senovilla(2026{\natexlab{a}})]{fabSen2025characterization}
+Francisco Fern{\'a}ndez-{\'A}lvarez and Jos{\'e} M.~M. Senovilla.
+\newblock Characterization of gravitational radiation at infinity with a
+  cosmological constant.
+\newblock \emph{Journal of Physics: Conference Series}, 3177:\penalty0 012017,
+  2026{\natexlab{a}}.
+\newblock \doi{10.1088/1742-6596/3177/1/012017}.
+\newblock URL \url{https://arxiv.org/abs/2510.07148}.
+\newblock GR24 proceedings; arXiv v1 dated 2025.
+
+\bibitem[Fern{\'a}ndez-{\'A}lvarez and
+  Senovilla(2026{\natexlab{b}})]{fabSen2026rockets}
+Francisco Fern{\'a}ndez-{\'A}lvarez and Jos{\'e} M.~M. Senovilla.
+\newblock Asymptotic gravitational radiation of photon rockets with $\lambda$:
+  Point, string, and sheet sources, 2026{\natexlab{b}}.
+\newblock URL \url{https://arxiv.org/abs/2608.31129}.
+
+\bibitem[Hoque et~al.(2025)Hoque, Krtou{\v{s}}, and
+  Pe{\'o}n-Nieto]{hoque2025conformal}
+Sk~Jahanur Hoque, Pavel Krtou{\v{s}}, and Carlos Pe{\'o}n-Nieto.
+\newblock Conformal einstein equation and symplectic flux with a positive
+  cosmological constant, 2025.
+\newblock URL \url{https://arxiv.org/abs/2504.20845}.
+
+\bibitem[Poole et~al.(2019)Poole, Skenderis, and Taylor]{poole2019bondi}
+Aaron Poole, Kostas Skenderis, and Marika Taylor.
+\newblock {(A)dS$_4$ in Bondi gauge}.
+\newblock \emph{Classical and Quantum Gravity}, 36\penalty0 (9):\penalty0
+  095005, 2019.
+\newblock \doi{10.1088/1361-6382/ab117c}.
+\newblock URL \url{https://arxiv.org/abs/1812.05369}.
+
+\bibitem[Poole et~al.(2025)Poole, Skenderis, and Taylor]{poole2025charges}
+Aaron Poole, Kostas Skenderis, and Marika Taylor.
+\newblock Gravitational charges and radiation in asymptotically locally de
+  sitter spacetimes, 2025.
+\newblock URL \url{https://arxiv.org/abs/2512.14243}.
+
+\bibitem[Senovilla(2022)]{senovilla2022radiation}
+Jos{\'e} M.~M. Senovilla.
+\newblock Gravitational radiation at infinity with non-negative cosmological
+  constant.
+\newblock \emph{Universe}, 2022.
+\newblock URL \url{https://arxiv.org/abs/2208.05436}.
+\newblock Invited review; arXiv v1.
+
+\end{thebibliography}
