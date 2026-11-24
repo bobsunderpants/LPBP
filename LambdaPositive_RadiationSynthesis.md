@@ -336,6 +336,26 @@ AldS charge news.  Its Lean core is `DetectorSquareNews.Pair`,
 `DetectorSquareNews.Model`, `normalFlux_nonpos`, and
 `normalFlux_zero_iff_news_zero`.
 
+On a round cut there is a minimal rank-two tensor-pair realization. Let
+\[
+  \mathcal K v_{AB}=D_{(A}v_{B)}-\tfrac12q_{AB}D_Cv^C,\qquad
+  \mathcal J=\left(\frac{2}{-\Delta-2}\right)^{1/2}\mathcal K .
+\]
+On the \(l\ge2\) sector, \(\mathcal K(D_AY)=H_{AB}(Y)\),
+\(\mathcal K(\epsilon_A{}^BD_BY)=G_{AB}(Y)\), and
+\(\|\mathcal Kv\|_{L^2}^2=(L-2)\|v\|_{L^2}^2/2\), so \(\mathcal J\) is an
+\(L^2\)-isometry from one-forms to STF tensors. Therefore
+\[
+  \mathcal N^{(2)}_{\rm out}:=(\hat C_{AB},\mathcal JC_A)
+  \in\mathfrak{STF}(S)\oplus\mathfrak{STF}(S)
+\]
+has \(\|\mathcal N^{(2)}_{\rm out}\|^2=\int(\hat C^2+C^2)=-p_m/2\) and the
+correct zero set. It saturates the harmonic multiplicity obstruction: two STF
+tensors give \(4\mathcal H_l\), matching the detector pair. It is not a single
+rank-two tensor and has no AldS charge-flux law. Its Lean core is
+`RankTwoTensorPairNews.VectorTensorIsometry` and
+`normalFlux_zero_iff_news_zero`.
+
 A new derived result makes the nonlocality explicit.  In the round cut gauge,
 put
 \[
@@ -476,6 +496,17 @@ symmetry-breaking, \(\xi\)-dependent, or multi-cut constructions remain open.
 ## Flux-linearity obstruction
 
 The simplified target \( \Delta Q_\xi=-\int N_{AB}N^{AB}\,d\mu \) also needs refinement: the left side is homogeneous of degree one in the boundary vector field \(\xi\), while a single \(\xi\)-independent square density is not. If the same density represented \(F_\xi=\Delta Q_\xi\) for every \(\xi\), then applying the representation to \(2\xi\) gives \(2F_\xi=F_\xi\), hence \(F_\xi=0\). Thus a real target must fix a particular translation, introduce a \(\xi\)-dependent weight linear in \(D_{(i}\xi_{j)}\), or use bilinear news pairings. The finite-dimensional core is in Lean as `LinearFluxObstruction.no_nonzero_constant_square`.
+
+The bilinear-pairing route has an exact linearized realization. On de Sitter \(\mathscr I^+\), the renormalized symplectic potential gives
+\[
+  \mathcal F_\xi=\frac{\ell}{16\pi G}\int \delta e^{ab}\mathcal L_\xi\delta\gamma_{ab}.
+\]
+With \(h_{ab}=(\delta\gamma_{ab})^{\mathrm{tf}}\) and \(E_{ab}=\delta e_{ab}\), this is \(\mathcal F_\xi=\varkappa\int E^{ab}\mathcal L_\xi h_{ab}\). Since \(D^aE_{ab}=0\) and \(\xi\) is conformal Killing, it can be rewritten as
+\[
+  \mathcal F_\xi=\varkappa\int\xi^cJ_c,\qquad
+  J_c=-\tfrac23h_{ab}D_cE^{ab}+E^{ab}\big(\tfrac13D_ch_{ab}-2D_ah_{cb}\big).
+\]
+Thus the linearized news is the phase-space pair \((h_{ab},E_{ab})\), paired with the symmetry generator \(\mathcal L_\xi h\); this solves exact \(\xi\)-linearity and gauge invariance at the linear level. The ABK energy \(\mathcal H_T=\frac1{2H\kappa}\int E^{ab}(\mathcal L_Th_{ab}+2Hh_{ab})\) is the time-translation case and has the positive Minkowski flux as its controlled flat limit. For the ABK symmetry prescription, the nonlinear candidate charge-difference linearizes to exactly these symplectic fluxes, so this is a rigorous linearized representation of the AldS charge-flux law. It is not a positive square on the full phase space: \(E\mapsto-E\), \(B\mapsto B\) reverses the energy. Positivity remains tied to no-incoming/outgoing restrictions. Lean core: `HamiltonianNewsFlux.Model`, `flux_smul`, `flux_add`, `flux_zero`.
 
 ## Flat limit
 

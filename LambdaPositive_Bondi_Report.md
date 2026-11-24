@@ -79,6 +79,18 @@ This is the AldS analogue of the Bondi balance law. It is rigorous at the level 
 
 A useful refinement of the news target follows from the linearity of the flux in \(\xi\). If the charge flux \(F_\xi=\Delta Q_\xi\) is homogeneous of degree one in \(\xi\), then a single \(\xi\)-independent density \(\sigma\ge0\) cannot satisfy \(F_\xi=-\int\sigma\,d\mu\) for all \(\xi\) unless \(F_\xi=0\): applying the representation to \(2\xi\) gives \(2F_\xi=F_\xi\). Thus a viable news representation must either fix a particular translation, use a \(\xi\)-dependent weight linear in \(D_{(i}\xi_{j)}\), or replace one scalar square by bilinear pairings. The finite-dimensional core is formalized as `LinearFluxObstruction.no_nonzero_constant_square`.
 
+The bilinear-pairing option is realized exactly in the linearized de Sitter theory. The renormalized symplectic potential on \(\mathscr I^+\) is \(\Theta=-\frac{\ell}{16\pi G}\int e_{ab}\delta\gamma^{ab}\), so for a de Sitter isometry \(\xi\) the flux is \(\mathcal F_\xi=\frac{\ell}{16\pi G}\int \delta e^{ab}\mathcal L_\xi\delta\gamma_{ab}\). Writing \(h_{ab}=(\delta\gamma_{ab})^{\mathrm{tf}}\), \(E_{ab}=\delta e_{ab}\), and absorbing the constant into \(\varkappa\),
+\[
+  \mathcal F_\xi=\varkappa\int E^{ab}\mathcal L_\xi h_{ab}.
+\]
+Because \(D^aE_{ab}=0\) and \(D_{(a}\xi_{b)}=\frac13(D\cdot\xi)\gamma_{ab}\), two integrations by parts give the local Hamiltonian news current
+\[
+  \mathcal F_\xi=\varkappa\int \xi^cJ_c[h,E],\qquad
+  J_c=h_{ab}\big(\tfrac13D_cE^{ab}-D_cE^{ab}\big)
+      -2E^{ab}D_a h_{cb}+\tfrac13 E^{ab}D_c h_{ab},
+\]
+equivalently \(J_c=-\frac23h_{ab}D_cE^{ab}+E^{ab}(\frac13D_ch_{ab}-2D_ah_{cb})\). This is exact \(\xi\)-linearity, gauge invariance on the de Sitter background, and a phase-space news pair \(\mathcal N^{\mathrm H}=(h_{ab},E_{ab})\), not a scalar square. The Ashtekar--Bonga--Kesavan time-translation flux \(\mathcal H_T=\frac1{2H\kappa}\int E^{ab}(\mathcal L_Th_{ab}+2Hh_{ab})\) is a special case and has the controlled positive Minkowski flat limit for smooth retarded families. For their symmetry prescription, the difference of candidate nonlinear AldS charge integrals linearizes precisely to these symplectic flux formulas, so \(\mathcal N^{\mathrm H}\) represents the linearized AldS charge-flux law itself. This does not solve the nonlinear problem: the full de Sitter energy is sign-indefinite under \(E\mapsto-E\), \(B\mapsto B\), and positivity still needs incoming/outgoing restrictions. The finite core is `HamiltonianNewsFlux.Model`, `flux_smul`, `flux_add`, and `flux_zero`.
+
 ### 3.4 Why naive Bondi news is obstructed
 
 In a direct Bondi-gauge expansion for \(\Lambda>0\), the order-\(r^{-1}\) angular metric coefficient \(\gamma_1\) is not free data. One obtains schematically
@@ -229,10 +241,12 @@ It adds the finite-dimensional radiation algebra:
 * the linearized-detector algebra `scaleSym`, `commutator_scaleSym_scaleSym`, `superPoynting_scaleSym_scaleSym`, and `linearized_superPoynting_is_quadratic`;
 * the pointwise news-square obstruction `NewsSquareObstruction.no_linear_pointwise_square` and the harmonic-mode obstruction `HarmonicDimensionObstruction.no_injective_pair_to_tensor`;
 * the charge-linearity obstruction `LinearFluxObstruction.no_nonzero_constant_square`;
+* the linearized Hamiltonian news-flux core `HamiltonianNewsFlux.Model`, `flux_smul`, `flux_add`, and `flux_zero`;
 * the linearized sign-flip obstruction `LinearizedFluxObstruction.SignFlipNewsModel`, `LinearizedFluxObstruction.energy_zero_of_sign_flip_square`, and `LinearizedFluxObstruction.no_sign_flip_square`;
 * the conditional radiant-news core `RadiantCutNews.StrongModel`, `nPlus_zero_iff_V_zero`, `Zplus_iff_V_zero`, `V_zero_iff_Pzero`, and `nMinus_zero_of_noIncoming`;
 * the inverse-divergence core `RadiantCutNews.StrongOutgoingInversion.Model`, `div_V_eq_half_source`, and `nPlus_eq_twoV_of_div`;
 * the detector-square representative `DetectorSquareNews.Pair`, `DetectorSquareNews.Model`, `normalFlux_nonpos`, and `normalFlux_zero_iff_news_zero`;
+* the minimal rank-two tensor-pair core `RankTwoTensorPairNews.VectorTensorIsometry` and `normalFlux_zero_iff_news_zero`;
 * the radiant transport-square core `RadiantNewsTransport.Model`, `W_nonneg`, and `W_zero_iff_nDot_zero`;
 * the regular flat-limit implication `FlatLimitConstraint.Model` and `flat_news_zero`;
 * the open target `DesiredCutNewsConstruction`.
@@ -369,6 +383,19 @@ There is also an exact detector-square news object in the outgoing sector. Under
   |\mathcal N^{\rm det}_{\rm out}|^2=\hat C_{AB}\hat C^{AB}+C_A C^A .
 \]
 Then \(p_m=-2|\mathcal N^{\rm det}_{\rm out}|^2\), so \(p_m\le0\) and \(p_m=0\iff \mathcal N^{\rm det}_{\rm out}=0\). This evades the pointwise linear STF-tensor obstruction by enlarging the target bundle, but it is not a rank-two tensor and is not the AldS charge news. The Mathlib core is `DetectorSquareNews.Pair`, `DetectorSquareNews.Model`, `normalFlux_nonpos`, and `normalFlux_zero_iff_news_zero`.
+
+On a round cut, the vector component can be converted into a second STF tensor by the \(L^2\)-isometry
+\[
+  \mathcal J=\left(\frac{2}{-\Delta-2}\right)^{1/2}\mathcal K,
+  \qquad
+  \mathcal K v_{AB}=D_{(A}v_{B)}-\tfrac12q_{AB}D_Cv^C ,
+\]
+defined on the \(l\ge2\) sector. Since \(\mathcal K(D_AY)=H_{AB}(Y)\), \(\mathcal K(\epsilon_A{}^BD_BY)=G_{AB}(Y)\), and \(\|\mathcal K v\|^2=(L-2)\|v\|^2/2\), one has \(\|\mathcal Jv\|^2=\|v\|^2\). Hence
+\[
+  \mathcal N^{(2)}_{\rm out}:=(\hat C_{AB},\mathcal JC_A)
+  \in\mathfrak{STF}(S)\oplus\mathfrak{STF}(S)
+\]
+satisfies \(\|\mathcal N^{(2)}_{\rm out}\|^2=\int(\hat C^2+C^2)=-p_m/2\) and vanishes iff both detector components vanish. This is the minimal rank-two tensor-pair representation saturating the representation-theoretic obstruction. Its Mathlib core is `RankTwoTensorPairNews.VectorTensorIsometry` and `normalFlux_zero_iff_news_zero`. It is not a single rank-two news tensor and has no AldS charge-flux representation.
 
 A concrete round-cut inversion is now available. In the gauge where the cut metric is the unit round sphere, define
 \[
