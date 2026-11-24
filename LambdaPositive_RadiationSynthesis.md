@@ -17,7 +17,10 @@ Fefferman–Graham third coefficient up to normalization).
 
 This detector is **not** yet a Bondi news tensor.  It does not by itself give a
 positive flux representation of AldS charges, a no-incoming-radiation boundary
-condition, a peeling analogue, or a controlled \(\Lambda\to0\) limit.
+condition, a peeling analogue, or a controlled \(\Lambda\to0\) limit.  A
+restricted rank-two news tensor does exist in the strongly equipped outgoing
+sector, where \(n^+_{AB}=2V_{AB}\); the detector-square pair
+\((\hat C_{AB},C_A)\) represents \(p_m\) exactly but is not a rank-two tensor.
 
 ## The algebraic equivalence for \(\Lambda>0\)
 
@@ -252,6 +255,60 @@ source vanishes exactly when the detector vanishes, then the constructed news
 vanishes exactly in the non-radiating cases.  This is a conditional theorem; it
 does not supply the geometric \(M_{AB}\) or \(f\).
 
+The closest thing to an actual news object comes from
+Fernández-Álvarez--Senovilla, *Asymptotic structure with a positive
+cosmological constant* (arXiv:2105.09167).  They equip \(\mathscr I^+\) with a
+unit tangent field \(m^a\), call it strictly equipped when \(m^a\) defines a
+foliation and strongly equipped when the leaves are umbilical, and define
+radiant news
+\[
+  n^\pm_{AB}=V_{AB}+X^\pm_{AB},\qquad n^\pm_{AB}=0\iff Z^\pm=0 .
+\]
+Under strong equipment, \(S^2\) leaves, and \(Q_-^\mu=0\), the outgoing second
+component exists with \(X^+_{AB}=V_{AB}\), so
+\[
+  n^+_{AB}=2V_{AB}.
+\]
+This is a genuine symmetric trace-free gauge-invariant rank-two news tensor in
+that restricted sector.  Theorem 2 of the same paper gives
+\(n^+_{AB}=0\iff P^a=0\iff\) no radiation, and Corollary VI.8 gives
+\(V_{AB}=0\iff P^a=0\) under strong equipment.  If Senovilla's cut-news tensor is identified with the FAS outgoing radiant news
+in this sector, then \(X^+_{AB}=V_{AB}\) corresponds to \(M_{AB}=V_{AB}\);
+umbilicity then gives
+\[
+  X_A=\tfrac12D_CV^C{}_A-\tfrac12\sqrt{\Lambda/3}\,\epsilon_{AB}C^B .
+\]
+This cross-formalism identification remains unproved.  Independently, FAS give
+\(D^BV_{AB}=-N\epsilon_{AB}C^{+B}\), so on a round cut
+\[
+  V_{AB}=\sum_{l\ge2,m}\left[
+  \frac{\sigma_{lm}}{1-l(l+1)/2}H_{AB}(Y_{lm})
+  +\frac{2\tau_{lm}}{1-l(l+1)}G_{AB}(Y_{lm})\right],
+  \qquad n^+_{AB}=2V_{AB},
+\]
+where \(S_A=-N\epsilon_{AB}C^{+B}\) is decomposed into \(\sigma,\tau\).  The rank-two news is therefore inverse-elliptic on each cut.
+It is not a generic AldS news object: it depends on the equipment, umbilical
+foliation, \(S^2\) topology, and no-incoming condition, and its relation to the
+AldS charge fluxes and the flat limit has not been proved.  Its finite logical
+core is `RadiantCutNews.StrongModel`, `nPlus_zero_iff_V_zero`,
+`Zplus_iff_V_zero`, `V_zero_iff_Pzero`, `nMinus_zero_of_noIncoming`, and
+`RadiantCutNews.StrongOutgoingInversion.div_V_eq_half_source`.
+
+A second, weaker object exactly represents the normal outgoing flux.  Under
+\(Q_-^\mu=0\), set
+\[
+  \mathcal N^{\rm det}_{\rm out}:=(\hat C_{AB},C_A)\in\mathfrak{STF}(S)\oplus T^*S,
+  \qquad
+  |\mathcal N^{\rm det}_{\rm out}|^2=\hat C_{AB}\hat C^{AB}+C_A C^A .
+\]
+Then \(p_m=-2|\mathcal N^{\rm det}_{\rm out}|^2\).  The norm has conformal
+weight \(\omega^{-6}\), matching \(p_m\).  This object has the right
+sign and zero set and evades the pointwise linear STF-tensor obstruction by
+using a larger target bundle.  It is not a rank-two cut tensor and is not the
+AldS charge news.  Its Lean core is `DetectorSquareNews.Pair`,
+`DetectorSquareNews.Model`, `normalFlux_nonpos`, and
+`normalFlux_zero_iff_news_zero`.
+
 A new derived result makes the nonlocality explicit.  In the round cut gauge,
 put
 \[
@@ -262,7 +319,7 @@ For \(\Delta Y_{lm}=-l(l+1)Y_{lm}\),
 \[
 D^AH_{AB}(Y_{lm})=\left(1-\tfrac{l(l+1)}2\right)D_BY_{lm},
 \qquad
-D^AG_{AB}(Y_{lm})=\left(1-\frac{l(l+1)}2\right)\epsilon_B{}^CD_CY_{lm}.
+D^AG_{AB}(Y_{lm})=\frac{1-l(l+1)}2\,\epsilon_B{}^CD_CY_{lm}.
 \]
 Therefore the source \(X_A=D_AX+\epsilon_A{}^BD_Bx\), with only \(s\ge2\)
 harmonics, determines the unique trace-free solution of \(D^AM_{AB}=2X_B\) by
@@ -272,7 +329,7 @@ M_{AB}
 \sum_{l\ge2,m}\left[
 \frac{2}{1-l(l+1)/2}X_{lm}H_{AB}(Y_{lm})
 +
-\frac{2}{1-l(l+1)/2}x_{lm}G_{AB}(Y_{lm})
+\frac{4}{1-l(l+1)}x_{lm}G_{AB}(Y_{lm})
 \right].
 \]
 The multipliers decay like \(l^{-2}\), so \(M_{AB}\) is inverse-elliptic and

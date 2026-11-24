@@ -4,7 +4,7 @@
 
 No complete rigorous Bondi–Sachs–Penrose package is currently available for a generic isolated system with \(\Lambda>0\).
 
-The \(\Lambda=0\) package has all of the following: a null \(\mathscr I^\pm\), characteristic well-posedness, an intrinsic Bondi news tensor, a no-incoming-radiation condition, Bondi mass loss and positivity, BMS symmetries, NP peeling, and a standard scattering framework. For \(\Lambda>0\), \(\mathscr I^\pm\) is spacelike, so most of that structure has no direct analogue. There are partial constructions (Friedrich asymptotics, conformal Einstein data, AldS charges and flux laws, super-Poynting radiation detectors, and proposal-level cut-news tensors), but the central news-square/positivity theorem is open.
+The \(\Lambda=0\) package has all of the following: a null \(\mathscr I^\pm\), characteristic well-posedness, an intrinsic Bondi news tensor, a no-incoming-radiation condition, Bondi mass loss and positivity, BMS symmetries, NP peeling, and a standard scattering framework. For \(\Lambda>0\), \(\mathscr I^\pm\) is spacelike, so most of that structure has no direct analogue. There are partial constructions (Friedrich asymptotics, conformal Einstein data, AldS charges and flux laws, super-Poynting radiation detectors, and proposal-level cut-news tensors), but the central news-square/positivity theorem is open.  A restricted rank-two news object does exist in the strongly equipped outgoing sector, where \(n^+_{AB}=2V_{AB}\); it does not close the generic problem.
 
 This report separates:
 
@@ -23,7 +23,7 @@ A consolidated LaTeX manuscript with a bibliography is available as `LambdaPosit
 |---|---|---|
 | Infinity | null \(\mathscr I^\pm\) | spacelike \(\mathscr I^\pm\) |
 | Gauge / well-posedness | characteristic Cauchy problem, Bondi gauge | conformal Cauchy problem at spacelike \(\mathscr I\); no universal Bondi gauge |
-| News | intrinsic \(N_{AB}\) on 2-cuts | no accepted intrinsic news; radiation detector exists |
+| News | intrinsic \(N_{AB}\) on 2-cuts | no universal intrinsic news; detector and conditional radiant news \(n^+_{AB}=2V_{AB}\) in strongly equipped outgoing sector |
 | No incoming radiation | well-defined at \(\mathscr I^-\) | no universal incoming/outgoing split; all radiation crosses spacelike \(\mathscr I\) |
 | Charges/mass loss | Bondi 4-momentum, mass loss, positivity | AldS charges and flux laws; general positivity/rigidity open |
 | Symmetries | BMS | Diff/CKV-type proposals; no universal BMS analogue |
@@ -230,6 +230,9 @@ It adds the finite-dimensional radiation algebra:
 * the pointwise news-square obstruction `NewsSquareObstruction.no_linear_pointwise_square`;
 * the charge-linearity obstruction `LinearFluxObstruction.no_nonzero_constant_square`;
 * the linearized sign-flip obstruction `LinearizedFluxObstruction.SignFlipNewsModel`, `LinearizedFluxObstruction.energy_zero_of_sign_flip_square`, and `LinearizedFluxObstruction.no_sign_flip_square`;
+* the conditional radiant-news core `RadiantCutNews.StrongModel`, `nPlus_zero_iff_V_zero`, `Zplus_iff_V_zero`, `V_zero_iff_Pzero`, and `nMinus_zero_of_noIncoming`;
+* the inverse-divergence core `RadiantCutNews.StrongOutgoingInversion.Model` and `div_V_eq_half_source`;
+* the detector-square representative `DetectorSquareNews.Pair`, `DetectorSquareNews.Model`, `normalFlux_nonpos`, and `normalFlux_zero_iff_news_zero`;
 * the open target `DesiredCutNewsConstruction`.
 
 Checks:
@@ -312,6 +315,39 @@ This is the strongest available rigidity statement: \(p_m\) and \(Q_+^\alpha\) a
 
 The Mathlib file now encodes the conditional logic as `CutNews.CutNewsCandidate`. Uniqueness of the trace-free Codazzi solution gives `CutNews.source_zero_iff_news_zero`, matching the paper's target \(X_A=0\iff N_{AB}=0\). If one additionally assumes `source_zero_iff_detector`, the theorem `CutNews.news_zero_iff_detector_zero` follows. This is conditional; it does not supply the geometric \(X_A\) or \(f\).
 
+A genuine rank-two news object has now been identified in a restricted sector. Fernández-Álvarez and Senovilla (arXiv:2105.09167, Class. Quantum Grav. 39 (2022) 165012) define equipped, strictly equipped, and strongly equipped \(\mathscr I^+\) by a chosen unit tangent field \(m^a\), a foliation by cuts, and umbilical cuts respectively. On each cut they define radiant news
+\[
+  n^\pm_{AB}=V_{AB}+X^\pm_{AB},
+\]
+with \(n^\pm_{AB}=0\iff Z^\pm=0\), where \(Z^\pm\) are the transverse radiant-super-momentum components. For strongly equipped \(\mathscr I^+\) with \(S^2\) leaves and no incoming radiation \(Q_-^\mu=0\), the second outgoing component can be chosen as \(X^+_{AB}=V_{AB}\), hence
+\[
+  n^+_{AB}=2V_{AB}.
+\]
+This is the sharpest actual news candidate found: symmetric, trace-free, gauge invariant, and with the correct outgoing zero set in that sector. Theorem 2 of arXiv:2105.09167 strengthens the zero set under criterion 2 to \(n^+_{AB}=0\iff P^a=0\iff\) no radiation at \(\mathscr I^+\); Corollary VI.8 gives \(V_{AB}=0\iff P^a=0\) in the strongly equipped case. Hence \(V_{AB}\) itself is a rank-two news tensor in that controlled sector. If Senovilla's cut-news tensor is identified with the FAS outgoing radiant news in this sector, then \(X^+_{AB}=V_{AB}\) corresponds to \(M_{AB}=V_{AB}\). Since the cuts are umbilical, \(\Sigma_{AB}=0\), the Codazzi-source equation gives the explicit source
+\[
+  X_A=\tfrac12 D_CV^C{}_A-\tfrac12\sqrt{\Lambda/3}\,\epsilon_{AB}C^B .
+\]
+This identification is natural but not proved, and \(X_A=0\Rightarrow V_{AB}=0\) is not automatic. A purely FAS-derived inversion is also available:
+\[
+  D^BV_{AB}=-N\epsilon_{AB}C^{+B}.
+\]
+On a unit round cut, with \(S_A=-N\epsilon_{AB}C^{+B}=\sum_{l\ge2,m}(\sigma_{lm}D_AY_{lm}+\tau_{lm}\epsilon_A{}^BD_BY_{lm})\),
+\[
+  V_{AB}=\sum_{l\ge2,m}\left[
+  \frac{\sigma_{lm}}{1-l(l+1)/2}H_{AB}(Y_{lm})
+  +\frac{2\tau_{lm}}{1-l(l+1)}G_{AB}(Y_{lm})\right],
+  \qquad n^+_{AB}=2V_{AB}.
+\]
+Thus the rank-two news is an inverse-elliptic transform of the Cotton one-form on each cut. It is not general: it requires equipment, umbilical cuts, \(S^2\) topology, and no incoming radiation, and it has not been shown to reproduce the AldS charge fluxes or to possess a universal flat limit. The Mathlib core is `RadiantCutNews.StrongModel`, `nPlus_zero_iff_V_zero`, `Zplus_iff_V_zero`, `V_zero_iff_Pzero`, and `nMinus_zero_of_noIncoming`.
+
+There is also an exact detector-square news object in the outgoing sector. Under \(Q_-^\mu=0\), define
+\[
+  \mathcal N^{\rm det}_{\rm out}:=(\hat C_{AB},C_A)\in\mathfrak{STF}(S)\oplus T^*S,
+  \qquad
+  |\mathcal N^{\rm det}_{\rm out}|^2=\hat C_{AB}\hat C^{AB}+C_A C^A .
+\]
+Then \(p_m=-2|\mathcal N^{\rm det}_{\rm out}|^2\), so \(p_m\le0\) and \(p_m=0\iff \mathcal N^{\rm det}_{\rm out}=0\). This evades the pointwise linear STF-tensor obstruction by enlarging the target bundle, but it is not a rank-two tensor and is not the AldS charge news. The Mathlib core is `DetectorSquareNews.Pair`, `DetectorSquareNews.Model`, `normalFlux_nonpos`, and `normalFlux_zero_iff_news_zero`.
+
 A concrete round-cut inversion is now available. In the gauge where the cut metric is the unit round sphere, define
 \[
 H_{AB}(Y)=D_AD_BY-\tfrac12q_{AB}\Delta Y,\qquad
@@ -321,7 +357,7 @@ For \(Y_{lm}\) with \(\Delta Y_{lm}=-l(l+1)Y_{lm}\),
 \[
 D^AH_{AB}(Y_{lm})=\left(1-\tfrac12l(l+1)\right)D_BY_{lm},
 \qquad
-D^AG_{AB}(Y_{lm})=\left(1-\tfrac12l(l+1)\right)\epsilon_B{}^CD_CY_{lm}.
+D^AG_{AB}(Y_{lm})=\tfrac12(1-l(l+1))\epsilon_B{}^CD_CY_{lm}.
 \]
 Thus the divergence equation \(D^AM_{AB}=2X_B\), with \(X_A=D_AX+\epsilon_A{}^BD_Bx\), has the unique trace-free solution
 \[
@@ -330,7 +366,7 @@ M_{AB}
 \sum_{l\ge2,m}\left[
 \frac{2}{1-l(l+1)/2}X_{lm}H_{AB}(Y_{lm})
 +
-\frac{2}{1-l(l+1)/2}x_{lm}G_{AB}(Y_{lm})
+\frac{4}{1-l(l+1)}x_{lm}G_{AB}(Y_{lm})
 \right].
 \]
 The excluded \(l=1\) potentials are precisely the CKV obstruction and \(l=0\) is gauge. The candidate news is therefore nonlocal on the cut, with inverse-elliptic multipliers of order \(l^{-2}\). The inversion coefficients contain no \(\Lambda\), so singularities in a flat limit must enter through the source, conformal representative, or extrinsic curvature rather than through this Codazzi operator.
@@ -534,6 +570,7 @@ The exact-solution validation has been carried out for de Sitter, Kottler/Kerr�
 * Ciambelli et al., arXiv:2504.20845 — conformal Einstein/symplectic flux and asymptotic charges.
 * AldS charge/radiation discussion, arXiv:2512.14243 — boundary charges and radiation caveats.
 * Senovilla, *Gravitational radiation at infinity with non-negative cosmological constant*, arXiv:2208.05436v1, 10 Aug 2022 — Theorems 1–3; eqs. (23), (26), (65)–(75); cut-news proposal; incoming/outgoing discussion.
+* Fernández-Álvarez & Senovilla, *Asymptotic structure with a positive cosmological constant*, arXiv:2105.09167v4, Class. Quantum Grav. 39 (2022) 165012 — equipped/strictly/strongly equipped \(\mathscr I\), radiant news \(n^\pm_{AB}=V_{AB}+X^\pm_{AB}\), zero-set theorem, and \(n^+_{AB}=2V_{AB}\) in the strongly equipped outgoing sector.
 * Fernández-Álvarez & Senovilla, *Characterization of gravitational radiation at infinity with a cosmological constant*, arXiv:2510.07148v1, 8 Oct 2025 — Theorems 1–3; \(D_{ab}\) as FG third coefficient; canonical super-Poynting criterion.
 * Fernández-Álvarez & Senovilla, *Asymptotic Gravitational Radiation of Photon Rockets with \(\Lambda\)*, arXiv:2608.31129v1, 31 Aug 2026 — confirms the \(\Lambda>0\) detector; gives \(\Lambda<0\) proportionality counterexamples to commutation.
 * Senovilla, *Gravitational radiation and the cosmological constant* / C-metric radiation paper, arXiv:2007.11677v3 — conformal-boundary \(C_{ab},D_{ab}\) and nonzero C-metric super-Poynting data.

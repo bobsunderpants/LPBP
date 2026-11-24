@@ -1,4 +1,4 @@
-\begin{thebibliography}{12}
+\begin{thebibliography}{13}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -52,6 +52,13 @@ Francisco Fern{\'a}ndez-{\'A}lvarez and Jos{\'e} M.~M. Senovilla.
 \newblock \emph{Physical Review D}, 102:\penalty0 101502, 2020.
 \newblock \doi{10.1103/PhysRevD.102.101502}.
 \newblock URL \url{https://arxiv.org/abs/2007.11677}.
+
+\bibitem[Fern{\'a}ndez-{\'A}lvarez and Senovilla(2022)]{fabSen2022asymptotic}
+Francisco Fern{\'a}ndez-{\'A}lvarez and Jos{\'e} M.~M. Senovilla.
+\newblock Asymptotic structure with a positive cosmological constant.
+\newblock \emph{Classical and Quantum Gravity}, 39:\penalty0 165012, 2022.
+\newblock \doi{10.1088/1361-6382/ac395b}.
+\newblock URL \url{https://arxiv.org/abs/2105.09167}.
 
 \bibitem[Fern{\'a}ndez-{\'A}lvarez and
   Senovilla(2026{\natexlab{a}})]{fabSen2025characterization}
