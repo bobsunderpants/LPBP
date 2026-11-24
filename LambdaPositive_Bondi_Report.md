@@ -229,6 +229,7 @@ It adds the finite-dimensional radiation algebra:
 * the linearized-detector algebra `scaleSym`, `commutator_scaleSym_scaleSym`, `superPoynting_scaleSym_scaleSym`, and `linearized_superPoynting_is_quadratic`;
 * the pointwise news-square obstruction `NewsSquareObstruction.no_linear_pointwise_square`;
 * the charge-linearity obstruction `LinearFluxObstruction.no_nonzero_constant_square`;
+* the linearized sign-flip obstruction `LinearizedFluxObstruction.SignFlipNewsModel`, `LinearizedFluxObstruction.energy_zero_of_sign_flip_square`, and `LinearizedFluxObstruction.no_sign_flip_square`;
 * the open target `DesiredCutNewsConstruction`.
 
 Checks:
@@ -311,6 +312,29 @@ This is the strongest available rigidity statement: \(p_m\) and \(Q_+^\alpha\) a
 
 The Mathlib file now encodes the conditional logic as `CutNews.CutNewsCandidate`. Uniqueness of the trace-free Codazzi solution gives `CutNews.source_zero_iff_news_zero`, matching the paper's target \(X_A=0\iff N_{AB}=0\). If one additionally assumes `source_zero_iff_detector`, the theorem `CutNews.news_zero_iff_detector_zero` follows. This is conditional; it does not supply the geometric \(X_A\) or \(f\).
 
+A concrete round-cut inversion is now available. In the gauge where the cut metric is the unit round sphere, define
+\[
+H_{AB}(Y)=D_AD_BY-\tfrac12q_{AB}\Delta Y,\qquad
+G_{AB}(Y)=\epsilon_{(A}{}^CD_{B)}D_CY .
+\]
+For \(Y_{lm}\) with \(\Delta Y_{lm}=-l(l+1)Y_{lm}\),
+\[
+D^AH_{AB}(Y_{lm})=\left(1-\tfrac12l(l+1)\right)D_BY_{lm},
+\qquad
+D^AG_{AB}(Y_{lm})=\left(1-\tfrac12l(l+1)\right)\epsilon_B{}^CD_CY_{lm}.
+\]
+Thus the divergence equation \(D^AM_{AB}=2X_B\), with \(X_A=D_AX+\epsilon_A{}^BD_Bx\), has the unique trace-free solution
+\[
+M_{AB}
+=
+\sum_{l\ge2,m}\left[
+\frac{2}{1-l(l+1)/2}X_{lm}H_{AB}(Y_{lm})
++
+\frac{2}{1-l(l+1)/2}x_{lm}G_{AB}(Y_{lm})
+\right].
+\]
+The excluded \(l=1\) potentials are precisely the CKV obstruction and \(l=0\) is gauge. The candidate news is therefore nonlocal on the cut, with inverse-elliptic multipliers of order \(l^{-2}\). The inversion coefficients contain no \(\Lambda\), so singularities in a flat limit must enter through the source, conformal representative, or extrinsic curvature rather than through this Codazzi operator.
+
 ### Scaling obstruction for naive news candidates
 
 A tensor built only as the STF part of the super-Poynting vector cannot represent the AldS charge flux: \(p_i\) is linear in the holographic stress \(D_{ij}\), so such a tensor is at least linear in \(D\), and its square is at least quadratic, whereas the AldS flux \(\mathcal T^{ij}D_i\xi_j\) is linear in \(\mathcal T\). This rules out the most naive “dual of the detector” news candidates and motivates the cut-wise \(V_{AB}+M_{AB}\) program.
@@ -382,6 +406,21 @@ with boundary rescaled Weyl data \(\mathcal E_{ab}|_{\mathscr I^+}=k^2E\,\mathfr
 
 The \(B=0\) branch preserves conformal flatness of the first-order boundary geometry and carries zero energy, momentum and angular momentum; it is not a radiative branch in that linear theory. These quadratic Hamiltonian fluxes are robust, but they are not a nonlinear news tensor.
 
+In Fourier modes the energy is
+\[
+\mathcal H_T
+=
+\frac{H}{\kappa}
+\int\frac{d^3k}{(2\pi)^3}\,k
+\sum_{s=1}^2
+\left[
+E_{\vec k}^{(s)}\mathcal L_k(B_{\vec k}^{(s)})^\star
++
+2E_{\vec k}^{(s)}(B_{\vec k}^{(s)})^\star
+\right],
+\]
+linear in \(E\) for fixed \(B\), with \(E\) and \(B\) independent phase-space amplitudes. Hence \(E\mapsto-E\), \(B\mapsto B\) reverses the energy sign. A sign-definite news square cannot do this: any representation \(\mathcal H_T=\pm\int\sigma^2d\mu\) over the full linearized phase space forces \(\mathcal H_T=0\). The Mathlib core is `LinearizedFluxObstruction.SignFlipNewsModel`, `energy_zero_of_sign_flip_square`, and `no_sign_flip_square`. This obstruction disappears only after imposing an outgoing/no-incoming relation that fixes \(B\) nonlocally in terms of \(E\).
+
 ### Conformal phase-space obstruction
 
 In the conformal Einstein/symplectic analysis for \(\Lambda>0\), the Geroch–Xanthopoulos regularization used at \(\Lambda=0\) fails: flat-space perturbations may be rescaled to \(O(\Omega)\), whereas the \(\Lambda>0\) consistency conditions force \(O(1)\) boundary falloff. The resulting presymplectic flux is nevertheless finite and nonzero,
@@ -401,7 +440,22 @@ This supplies a phase-space flux at spacelike \(\mathscr I^+\), but it does not 
 
 For a controlled retarded one-parameter family with \(H=\sqrt{\Lambda/3}\), source scale \(D_o\ll\ell\), \(H\Delta t_{\rm source}\ll1\), and finite source duration, Ashtekar–Bonga–Kesavan show that the de Sitter quadrupole flux approaches Einstein’s quadrupole formula in the physical \((t,\vec x)\) chart; the tail term is \(O(H)\) and vanishes as \(H\to0\). This is the best available controlled \(\Lambda\to0\) statement.
 
-It is not a universal boundary limit. Generic homogeneous dS waves can carry arbitrarily negative energy with respect to dS time translations, all dS Killing fields become spacelike near \(\mathscr I^+\), and the Bondi-gauge obstruction
+It is not a universal boundary limit. The sign-flipping transformation that rules out a positive square on the full dS phase space can be written explicitly in ABK's TT coefficients:
+\[
+E=c\sin(k/H)+d\cos(k/H),\qquad
+B=-c\cos(k/H)+d\sin(k/H),
+\]
+and \(E\mapsto-E\), \(B\mapsto B\) sends
+\[
+\begin{pmatrix}c'\\d'\end{pmatrix}
+=
+\begin{pmatrix}
+\cos(2k/H)&-\sin(2k/H)\\
+-\sin(2k/H)&-\cos(2k/H)
+\end{pmatrix}
+\begin{pmatrix}c\\d\end{pmatrix}.
+\]
+For smooth \(H\to0\) families with fixed \(c,d\), the transformed coefficients typically oscillate infinitely fast. Thus the sign reversal leaves the controlled flat-limit family, reconciling the sign-flip obstruction with positive flat energy. Generic homogeneous dS waves can carry arbitrarily negative energy with respect to dS time translations, all dS Killing fields become spacelike near \(\mathscr I^+\), and the Bondi-gauge obstruction
 
 \[
 \Lambda\gamma_1
@@ -459,9 +513,9 @@ The exact-solution benchmark supports the detector but does not supply the gener
 
 1. **Define the AldS state space (open).** Fix the precise function spaces and constraint set for \((h_{ij},\mathcal T_{ij})\) at spacelike \(\mathscr I^\pm\), including smoothness, trace-free/divergence-free conditions, and conformal rescaling conventions.
 
-2. **Construct a news candidate (partially reduced).** The intrinsic piece \(V_{AB}\) and the Codazzi equation for \(M_{AB}\) are known. The remaining task is to choose a weight-\(\omega^{-2}\), CKV-orthogonal one-form \(X_A\), equivalently a dimensionless function \(f\), from \((\mathscr I,h,\mathcal T)\) whose constancy matches no radiation. The allowed \(X_A\) has only \(s\ge2\) harmonic content; no canonical choice is known.
+2. **Construct a news candidate (partially reduced).** The intrinsic piece \(V_{AB}\) and the Codazzi equation for \(M_{AB}\) are known. In the round gauge the Codazzi operator has been inverted explicitly: \(M_{AB}\) is an inverse-elliptic, hence nonlocal, function of the \(s\ge2\) Hodge potentials of \(X_A\). The remaining task is to choose a weight-\(\omega^{-2}\), CKV-orthogonal one-form \(X_A\), equivalently a dimensionless function \(f\), from \((\mathscr I,h,\mathcal T)\) whose constancy matches no radiation. No canonical choice is known.
 
-3. **Prove the flux representation (open).** Show that the AldS charge flux equals \(-\int N_{AB}N^{AB}\,d\mu\), first for linearized de Sitter waves and then generally. The outgoing conditional density \(-p_m=2(\hat C^2+C^2)\) is known, but a linear pointwise tensor square is ruled out by `NewsSquareObstruction.no_linear_pointwise_square`.
+3. **Prove the flux representation (open).** Show that the AldS charge flux is reproduced by news pairings, first for linearized de Sitter waves and then generally. The simplified target \(-\int N_{AB}N^{AB}\,d\mu\) needs refinement because \(F_\xi\) is homogeneous of degree one in \(\xi\). The outgoing conditional density \(-p_m=2(\hat C^2+C^2)\) is known, but a linear pointwise tensor square is ruled out by `NewsSquareObstruction.no_linear_pointwise_square`, and the full linearized energy is ruled out as a sign-definite square by `LinearizedFluxObstruction.no_sign_flip_square`.
 
 4. **Prove positivity and rigidity (open).** Show \(N_{AB}N^{AB}\ge0\), and characterize equality as \([C,D]=0\), equivalently no radiation. This is the central missing theorem.
 

@@ -40,7 +40,7 @@ Radiation Detectors, Flux Laws, and Obstructions to News}
 \maketitle
 
 \begin{abstract}
-We assess whether a complete Bondi--Sachs--Penrose package exists for isolated systems with positive cosmological constant.  It does not: the boundary \(\scri^\pm\) is spacelike, there is no accepted intrinsic news tensor, no universal no-incoming-radiation condition, no general mass-positivity theorem, no BMS analogue or peeling theorem, and no universal \(\Lambda\to0\) boundary limit.  We collect the partial structures that are available: the AldS conformal--Bondi charge and flux calculus, the asymptotic super-Poynting radiation detector, the cut-wise news proposal, conditional outgoing-sector positivity, linearized de Sitter tests, exact-solution checks, and controlled flat limits.  Several new consistency results are derived: a scaling obstruction to representing all AldS charge fluxes by one \(\xi\)-independent news square; a linear-gauge obstruction showing that a Bondi shear coefficient is fixed when \(\Lambda\neq0\); a precise harmonic characterization of the cut-news source \(X_A\); and a finite-dimensional no-go theorem for pointwise linear news-square ans{\"a}tze.  The conditional logical core has been formalized in Lean without asserting the open physics theorem.
+We assess whether a complete Bondi--Sachs--Penrose package exists for isolated systems with positive cosmological constant.  It does not: the boundary \(\scri^\pm\) is spacelike, there is no accepted intrinsic news tensor, no universal no-incoming-radiation condition, no general mass-positivity theorem, no BMS analogue or peeling theorem, and no universal \(\Lambda\to0\) boundary limit.  We collect the partial structures that are available: the AldS conformal--Bondi charge and flux calculus, the asymptotic super-Poynting radiation detector, the cut-wise news proposal, conditional outgoing-sector positivity, linearized de Sitter tests, exact-solution checks, and controlled flat limits.  Several new consistency results are derived: a scaling obstruction to representing all AldS charge fluxes by one \(\xi\)-independent news square; a linear-gauge obstruction showing that a Bondi shear coefficient is fixed when \(\Lambda\neq0\); a precise harmonic characterization and round-sphere inversion of the cut-news source \(X_A\); a finite-dimensional no-go theorem for pointwise linear news-square ans{\"a}tze; and a sign-flip obstruction showing that the full linearized de Sitter energy flux cannot be a nonnegative news square.  The conditional logical core has been formalized in Lean without asserting the open physics theorem.
 \end{abstract}
 
 \tableofcontents
@@ -344,7 +344,7 @@ with
   X_{CAB}=X_{[CA]B}=2q_{B[C}X_{A]} .
 \end{equation}
 Equivalently,
-\begin{equation}
+\begin{equation}\label{eq:X-source-div}
   \frac12 D_C M^C{}_A
   =
   X_A
@@ -387,6 +387,61 @@ with potentials defined only up to additive constants.  Condition \eqref{eq:CKV-
 with gauge-invariant dimensionless \(f\).  Lemma 4 of \cite{senovilla2022radiation} gives \(\int_S \Delta f\,\pounds_\xi f=0\) for every CKV \(\xi\), so the ansatz automatically satisfies integrability.  On a connected \(S^2\), \(X_A=0\) iff \(f\) is constant.
 
 No canonical \(f\) is known.  In the outgoing sector one might try to build \(f\) from Cotton and \(\cF\) potentials, but the potentials in the decomposition of STF tensors on \(S^2\) are ambiguous by \(s=0,1\) pieces, and the paper supplies no formula linking \(X_A\) to \(\bar p_a\) or \(Q_-^\mu\).  The bridge is only conceptual: \(V_{AB}\) is intrinsic geometry, so \(M_{AB}\), hence \(X_A\), must carry the \(\cF_{ab}\)-dependence absent from \(V_{AB}\).
+
+\subsection{Explicit Codazzi inversion on a round cut}
+
+\statusD It is useful to see exactly how nonlocal the proposed news must be.  Work in the conformal gauge in which the cut metric \(q_{AB}\) is the unit round metric, and isolate the simplified Codazzi equation
+\begin{equation}\label{eq:codazzi-simplified}
+  D_{[C}M_{A]B}=2q_{B[C}X_{A]}
+  \quad\Longleftrightarrow\quad
+  D^A M_{AB}=2X_B ,
+\end{equation}
+with \(M_{AB}=M_{(AB)}\), \(q^{AB}M_{AB}=0\).  For a scalar harmonic \(Y_{lm}\) with \(\Delta Y_{lm}=-l(l+1)Y_{lm}\), define the STF potentials
+\begin{equation}
+  H_{AB}(Y)=D_AD_BY-\frac12q_{AB}\Delta Y,
+  \qquad
+  G_{AB}(Y)=\epsilon_{(A}{}^{C}D_{B)}D_CY .
+\end{equation}
+Commuting covariant derivatives on the round sphere gives
+\begin{align}
+  D^A H_{AB}(Y_{lm})
+  &=
+  \left(1-\frac{l(l+1)}2\right)D_BY_{lm},\\
+  D^A G_{AB}(Y_{lm})
+  &=
+  \left(1-\frac{l(l+1)}2\right)\epsilon_B{}^C D_CY_{lm}.
+\end{align}
+Write the Hodge potentials of the source as
+\begin{equation}
+  X_A=D_AX+\epsilon_A{}^B D_Bx,
+  \qquad
+  X=\sum_{l\ge2,m}X_{lm}Y_{lm},
+  \quad
+  x=\sum_{l\ge2,m}x_{lm}Y_{lm},
+\end{equation}
+where the \(l=1\) terms are absent by \eqref{eq:CKV-integrability} and the \(l=0\) terms are gauge.  Then the unique trace-free solution of \eqref{eq:codazzi-simplified} is
+\begin{equation}\label{eq:codazzi-inversion}
+  M_{AB}
+  =
+  \sum_{l\ge2,m}
+  \left[
+    \frac{2}{1-l(l+1)/2}\,X_{lm}\,H_{AB}(Y_{lm})
+    +
+    \frac{2}{1-l(l+1)/2}\,x_{lm}\,G_{AB}(Y_{lm})
+  \right].
+\end{equation}
+Both denominators are nonzero for \(l\ge2\), and both potential operators vanish at \(l=0,1\); this is the harmonic form of the uniqueness of trace-free Codazzi tensors on \(S^2\).
+
+Equation \eqref{eq:codazzi-inversion} is an inverse elliptic operation: the candidate \(M_{AB}\) is obtained from \(X_A\) by applying harmonic-space multipliers of order \(l^{-2}\), followed by two derivatives.  Thus the cut-news candidate is intrinsically nonlocal on the cut, even in the round gauge.  The inversion coefficients contain no \(\Lambda\); in this gauge any singular \(\Lambda\to0\) behavior must enter through the source \(X_A\), the conformal representative, or the extrinsic-curvature terms, not through the Codazzi operator itself.  The full source displayed in \eqref{eq:X-source-div} differs from the simplified right-hand side of \eqref{eq:codazzi-simplified} by the Cotton and extrinsic-curvature terms shown there; the same inversion applies after those known terms are absorbed into \(X_A\).
+
+For the suggested ansatz \(X_A=\Delta f\,D_Af\), the potentials obey
+\begin{equation}
+  \Delta X=(\Delta f)^2+D^A(\Delta f)\,D_Af,
+  \qquad
+  \epsilon^{AB}D_AX_B=-\Delta x
+  =-\epsilon^{AB}D_A(\Delta f)\,D_Bf ,
+\end{equation}
+so \eqref{eq:codazzi-inversion} gives an explicit formal \(M_{AB}[f]\) in the round gauge.  Because \(X_A=0\) iff \(f\) is constant, this formal candidate has the source-zero set required by the program; it still has no established relation to the AldS charge flux or to the outgoing positivity density \eqref{eq:outgoing-pm}.
 
 \subsection{Codazzi uniqueness and the zero-set condition}
 
@@ -535,6 +590,30 @@ Gauge-invariant quadratic charges include
 \end{equation}
 The \(B_{\vec k}^{(s)}=0\) branch preserves conformal flatness of the first-order boundary geometry and carries zero energy, momentum, and angular momentum.  These quadratic Hamiltonian fluxes are robust linear-theory objects, not nonlinear news tensors.
 
+In Fourier modes the energy flux takes the form \cite{ashtekar2015linear}
+\begin{equation}\label{eq:linear-energy-fourier}
+  \cH_T
+  =
+  \frac{H}{\kappa}
+  \int\frac{\diff^3k}{(2\pi)^3}\,k
+  \sum_{s=1}^{2}
+  \left(
+    E_{\vec k}^{(s)}\mathcal L_k(B_{\vec k}^{(s)})^\star
+    +
+    2E_{\vec k}^{(s)}(B_{\vec k}^{(s)})^\star
+  \right).
+\end{equation}
+The electric and magnetic boundary amplitudes \(E_{\vec k}^{(s)}\) and \(B_{\vec k}^{(s)}\) are independent coordinates on the true linear phase space.  Equation \eqref{eq:linear-energy-fourier} is linear in \(E\) for fixed \(B\).  Hence the admissible change \(E\mapsto-E\), \(B\mapsto B\) reverses the sign of \(\cH_T\).
+
+\begin{proposition}[\statusD: sign-flip obstruction to a linearized news square]
+There is no nonnegative density \(\sigma\) on the full linearized TT phase space such that \(\cH_T=\pm\int\sigma^2\diff\mu\) for every solution.  More precisely, any such representation would force \(\cH_T=0\) on the entire phase space.
+\end{proposition}
+\begin{proof}
+A square integral is sign-definite.  If the proposed representation holds for a solution with \(\cH_T\neq0\), applying it to the solution with \(E\mapsto-E\) gives the opposite sign for the same nonnegative right-hand side, a contradiction.  Thus the only sign-definite representation is the trivial one.
+\end{proof}
+
+This does not say that outgoing, source-generated linear waves have negative flux.  It says the restriction to such waves is essential: only after a no-incoming condition relates \(B\) nonlocally to \(E\) can a positive quadratic energy become possible.  Since \eqref{eq:linear-energy-fourier} is linear in the generator and bilinear in phase-space data, the natural linearized object is a symplectic pairing, not a single local square.  The finite algebraic core is formalized in Lean as \texttt{LinearizedFluxObstruction.SignFlipNewsModel}, \texttt{energy\_zero\_of\_sign\_flip\_square}, and \texttt{no\_sign\_flip\_square}.
+
 \subsection{Conformal phase-space flux}
 
 \statusL Hoque--Krtou{\v{s}}--Pe{\'o}n-Nieto show that the flat-space Geroch--Xanthopoulos regularization fails for \(\Lambda>0\): flat perturbations can be rescaled to \(O(\Omega)\), while \(\Lambda>0\) consistency forces \(O(1)\) falloff \cite{hoque2025conformal}.  Nevertheless the presymplectic flux is finite and nonzero:
@@ -595,6 +674,24 @@ so positivity is not representative-independent even in this restricted class.
 \end{equation}
 with \(\cR_{ab}\) reducing, in the nonrelativistic short-duration regime, to the third time derivative of the mass quadrupole plus \(O(H)\) corrections.
 
+\statusD The sign-flip operation in the sign-flip obstruction can be made explicit in the TT family of \cite{ashtekar2015linear}.  Writing
+\begin{equation}
+  E_{\vec k}^{(s)}=c_{\vec k}^{(s)}\sin(k/H)+d_{\vec k}^{(s)}\cos(k/H),
+  \qquad
+  B_{\vec k}^{(s)}=-c_{\vec k}^{(s)}\cos(k/H)+d_{\vec k}^{(s)}\sin(k/H),
+\end{equation}
+the transformation \(E\mapsto-E\), \(B\mapsto B\) acts on \((c,d)\) by
+\begin{equation}\label{eq:sign-flip-flat}
+  \begin{pmatrix}c'\\ d'\end{pmatrix}
+  =
+  \begin{pmatrix}
+    \cos(2k/H) & -\sin(2k/H)\\
+    -\sin(2k/H) & -\cos(2k/H)
+  \end{pmatrix}
+  \begin{pmatrix}c\\ d\end{pmatrix}.
+\end{equation}
+For coefficients \(c,d\) with a smooth \(H\to0\) limit, the transformed coefficients generically oscillate infinitely fast.  Thus the sign reversal that forbids a sign-definite square on the full de Sitter phase space typically leaves the controlled flat-limit family.  This reconciles the sign-flip obstruction with the positive-definite flat energy without asserting a universal \(\Lambda\to0\) theorem.
+
 This is a controlled limit of special families, not a universal boundary limit.  Reasons include:
 \begin{itemize}
   \item linearized dS energy can be arbitrarily negative for every \(\Lambda>0\), whereas flat energy is positive definite \cite{ashtekar2015linear};
@@ -628,7 +725,8 @@ Two Lean files were produced and verified.
   \item the conditional cut-news skeleton \texttt{CutNews.CutNewsCandidate}, with \texttt{source\_zero\_iff\_news\_zero}, \texttt{news\_zero\_iff\_detector\_zero}, and the contrapositive \texttt{news\_nonzero\_iff\_radiation};
   \item the linearized algebra \texttt{scaleSym}, \texttt{commutator\_scaleSym\_scaleSym}, \texttt{superPoynting\_scaleSym\_scaleSym}, and \texttt{linearized\_superPoynting\_is\_quadratic};
   \item the flux-linearity obstruction \texttt{LinearFluxObstruction.no\_nonzero\_constant\_square};
-  \item the pointwise news-square obstruction \texttt{NewsSquareObstruction.no\_linear\_pointwise\_square}.
+  \item the pointwise news-square obstruction \texttt{NewsSquareObstruction.no\_linear\_pointwise\_square};
+  \item the linearized sign-flip obstruction \texttt{LinearizedFluxObstruction.SignFlipNewsModel}, \texttt{energy\_zero\_of\_sign\_flip\_square}, and \texttt{no\_sign\_flip\_square}.
 \end{itemize}
 
 Both files pass:
@@ -667,7 +765,7 @@ Specific remaining tasks are:
   \item Prove a controlled \(\Lambda\to0\) limit with explicit scaling assumptions.
 \end{enumerate}
 
-The negative results in this manuscript narrow the search: a single \(\xi\)-independent positive scalar cannot represent all charge fluxes; a pointwise linear square of outgoing Cotton data cannot reproduce the known positive density; and the naive Bondi shear coefficient is not free when \(\Lambda\neq0\).  They do not close the cut-Codazzi program, which remains the most concrete route to a \(\Lambda>0\) news candidate.
+The negative results in this manuscript narrow the search: a single \(\xi\)-independent positive scalar cannot represent all charge fluxes; a pointwise linear square of outgoing Cotton data cannot reproduce the known positive density; the full linearized de Sitter energy flux cannot be a sign-definite news square; and the naive Bondi shear coefficient is not free when \(\Lambda\neq0\).  The round-cut inversion \eqref{eq:codazzi-inversion} shows that the cut-Codazzi candidate, if it exists, is nonlocal on each cut.  These results do not close that program, which remains the most concrete route to a \(\Lambda>0\) news candidate.
 
 \bibliographystyle{plainnat}
 \bibliography{lambda_positive_bondi}

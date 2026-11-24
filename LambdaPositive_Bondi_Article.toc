@@ -11,17 +11,18 @@
 \contentsline {subsection}{\numberline {5.1}A scaling obstruction to the oversimplified target}{7}{subsection.5.1}%
 \contentsline {subsection}{\numberline {5.2}The cut-news proposal}{8}{subsection.5.2}%
 \contentsline {subsection}{\numberline {5.3}Constraints on \(X_A\)}{8}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Codazzi uniqueness and the zero-set condition}{9}{subsection.5.4}%
-\contentsline {section}{\numberline {6}Obstructions to pointwise linear news squares}{9}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Scaling of the detector}{9}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}A finite-dimensional no-go theorem}{10}{subsection.6.2}%
-\contentsline {section}{\numberline {7}Linearized de Sitter waves}{10}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Variation of the boundary Cotton and stress tensors}{10}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Explicit TT modes and Hamiltonian fluxes}{11}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Conformal phase-space flux}{12}{subsection.7.3}%
-\contentsline {section}{\numberline {8}Exact-solution benchmark}{12}{section.8}%
-\contentsline {section}{\numberline {9}The \(\Lambda \to 0\) limit}{13}{section.9}%
-\contentsline {section}{\numberline {10}Lean formalization of the conditional core}{13}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Core scaffold}{13}{subsection.10.1}%
-\contentsline {subsection}{\numberline {10.2}Mathlib scaffold}{14}{subsection.10.2}%
-\contentsline {section}{\numberline {11}Conclusion and open problems}{14}{section.11}%
+\contentsline {subsection}{\numberline {5.4}Explicit Codazzi inversion on a round cut}{9}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Codazzi uniqueness and the zero-set condition}{10}{subsection.5.5}%
+\contentsline {section}{\numberline {6}Obstructions to pointwise linear news squares}{10}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Scaling of the detector}{10}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}A finite-dimensional no-go theorem}{11}{subsection.6.2}%
+\contentsline {section}{\numberline {7}Linearized de Sitter waves}{11}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Variation of the boundary Cotton and stress tensors}{11}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Explicit TT modes and Hamiltonian fluxes}{12}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Conformal phase-space flux}{13}{subsection.7.3}%
+\contentsline {section}{\numberline {8}Exact-solution benchmark}{14}{section.8}%
+\contentsline {section}{\numberline {9}The \(\Lambda \to 0\) limit}{14}{section.9}%
+\contentsline {section}{\numberline {10}Lean formalization of the conditional core}{15}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Core scaffold}{16}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Mathlib scaffold}{16}{subsection.10.2}%
+\contentsline {section}{\numberline {11}Conclusion and open problems}{17}{section.11}%

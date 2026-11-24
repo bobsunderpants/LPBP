@@ -252,6 +252,34 @@ source vanishes exactly when the detector vanishes, then the constructed news
 vanishes exactly in the non-radiating cases.  This is a conditional theorem; it
 does not supply the geometric \(M_{AB}\) or \(f\).
 
+A new derived result makes the nonlocality explicit.  In the round cut gauge,
+put
+\[
+H_{AB}(Y)=D_AD_BY-\tfrac12q_{AB}\Delta Y,\qquad
+G_{AB}(Y)=\epsilon_{(A}{}^CD_{B)}D_CY .
+\]
+For \(\Delta Y_{lm}=-l(l+1)Y_{lm}\),
+\[
+D^AH_{AB}(Y_{lm})=\left(1-\tfrac{l(l+1)}2\right)D_BY_{lm},
+\qquad
+D^AG_{AB}(Y_{lm})=\left(1-\frac{l(l+1)}2\right)\epsilon_B{}^CD_CY_{lm}.
+\]
+Therefore the source \(X_A=D_AX+\epsilon_A{}^BD_Bx\), with only \(s\ge2\)
+harmonics, determines the unique trace-free solution of \(D^AM_{AB}=2X_B\) by
+\[
+M_{AB}
+=
+\sum_{l\ge2,m}\left[
+\frac{2}{1-l(l+1)/2}X_{lm}H_{AB}(Y_{lm})
++
+\frac{2}{1-l(l+1)/2}x_{lm}G_{AB}(Y_{lm})
+\right].
+\]
+The multipliers decay like \(l^{-2}\), so \(M_{AB}\) is inverse-elliptic and
+nonlocal on the cut.  The inversion coefficients are \(\Lambda\)-independent;
+any \(\Lambda\to0\) singularity must enter through the source or the cut's
+extrinsic/conformal data rather than this Codazzi operator.
+
 ## Exact-solution checks
 
 The detector agrees with the expected classification in the available exact examples:
@@ -303,6 +331,24 @@ energy \(\mathcal H_T\) is quadratic; the \(B=0\) branch preserves first-order
 conformal flatness and carries zero energy/momentum/angular momentum. These are
 linear fluxes, not nonlinear news.
 
+More precisely, in Fourier modes
+\[
+\mathcal H_T
+=
+\frac{H}{\kappa}\int\frac{d^3k}{(2\pi)^3}\,k
+\sum_{s=1}^2\left[
+E_{\vec k}^{(s)}\mathcal L_k(B_{\vec k}^{(s)})^\star
++
+2E_{\vec k}^{(s)}(B_{\vec k}^{(s)})^\star
+\right].
+\]
+For fixed \(B\), the energy is linear in \(E\), and \(E\) and \(B\) are independent
+phase-space amplitudes. Thus \(E\mapsto-E\), \(B\mapsto B\) reverses its sign.
+No sign-definite news square can represent the full linearized energy: any such
+representation would force \(\mathcal H_T=0\). The algebraic core is in Lean as
+`LinearizedFluxObstruction.SignFlipNewsModel`,
+`energy_zero_of_sign_flip_square`, and `no_sign_flip_square`.
+
 A conformal phase-space calculation adds a separate finite flux
 \[
 \bm F_\xi=\frac{\ell}{16\pi G}\int_{\mathscr I^+}
@@ -342,7 +388,19 @@ the physical \((t,\vec x)\) chart. This is a limited result, not a universal
 boundary limit. Homogeneous dS waves can have arbitrarily negative dS energy,
 all dS Killing fields become spacelike near \(\mathscr I^+\), and the
 Bondi-gauge relation \(\Lambda\gamma_1=\cdots\) requires the lower-order bracket
-to be \(O(\Lambda)\) for \(\gamma_1\) to remain finite. Flux formulas can pass
+to be \(O(\Lambda)\) for \(\gamma_1\) to remain finite. In ABK's TT coefficients,
+\(E=c\sin(k/H)+d\cos(k/H)\) and \(B=-c\cos(k/H)+d\sin(k/H)\); the sign flip
+\(E\mapsto-E\), \(B\mapsto B\) sends
+\[
+\binom{c'}{d'}=
+\begin{pmatrix}
+\cos(2k/H)&-\sin(2k/H)\\
+-\sin(2k/H)&-\cos(2k/H)
+\end{pmatrix}
+\binom{c}{d}.
+\]
+For smooth \(H\to0\) families this is generically infinitely oscillatory, so
+the sign-flip operation leaves the controlled flat-limit sector. Flux formulas can pass
 continuously while the asymptotic symmetry algebra jumps to BMS, and recovery
 of no-incoming Bondi data has additional subtleties. A viable news candidate
 therefore needs both an outgoing/no-incoming condition and a scaling prescription.
