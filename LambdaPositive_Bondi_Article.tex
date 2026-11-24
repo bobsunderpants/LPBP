@@ -41,7 +41,7 @@ Radiation Detectors, Flux Laws, and Obstructions to News}
 \maketitle
 
 \begin{abstract}
-We assess whether a complete Bondi--Sachs--Penrose package exists for isolated systems with positive cosmological constant.  It does not: the boundary \(\scri^\pm\) is spacelike, there is no universally accepted intrinsic news tensor for generic data, no universal no-incoming-radiation condition, no general mass-positivity theorem, no BMS analogue or peeling theorem, and no universal \(\Lambda\to0\) boundary limit.  We collect the partial structures that are available: the AldS conformal--Bondi charge and flux calculus, the asymptotic super-Poynting radiation detector, the cut-wise news proposal, conditional outgoing-sector positivity, linearized de Sitter tests, exact-solution checks, and controlled flat limits.  Several new consistency results are derived: a scaling obstruction to representing all AldS charge fluxes by one \(\xi\)-independent news square; a linear-gauge obstruction showing that a Bondi shear coefficient is fixed when \(\Lambda\neq0\); a precise harmonic characterization and round-sphere inversion of the cut-news source \(X_A\), together with a sharp \(L^2\) bound for the conditional rank-two news; finite-dimensional and representation-theoretic no-go theorems for pointwise and nonlocal linear news-square ans{\"a}tze; and a sign-flip obstruction showing that the full linearized de Sitter energy flux cannot be a nonnegative news square.  At the linearized level we derive a Hamiltonian news current whose pairings with de Sitter symmetry generators reproduce the symplectic flux, and hence the linearized AldS charge flux, with exact \(\xi\)-linearity, gauge invariance and a controlled flat limit.  We also identify the sharpest available candidate news object: in a strongly equipped, no-incoming outgoing sector the radiant news tensor is \(n^+_{AB}=2V_{AB}\), while the detector square is represented exactly by an \(\mathrm{STF}\oplus\mathrm{vector}\) Cotton pair and, on a round cut, by a minimal pair of STF tensors obtained through an \(L^2\)-isometric vector-to-tensor map.  Neither construction solves the unrestricted news problem.  The conditional logical core has been formalized in Lean without asserting the open physics theorem.
+We assess whether a complete Bondi--Sachs--Penrose package exists for isolated systems with positive cosmological constant.  It does not: the boundary \(\scri^\pm\) is spacelike, there is no universally accepted intrinsic news tensor for generic data, no universal no-incoming-radiation condition, no general mass-positivity theorem, no BMS analogue or peeling theorem, and no universal \(\Lambda\to0\) boundary limit.  We collect the partial structures that are available: the AldS conformal--Bondi charge and flux calculus, the asymptotic super-Poynting radiation detector, the cut-wise news proposal, conditional outgoing-sector positivity, linearized de Sitter tests, exact-solution checks, and controlled flat limits.  Several new consistency results are derived: a scaling obstruction to representing all AldS charge fluxes by one \(\xi\)-independent news square; a linear-gauge obstruction showing that a Bondi shear coefficient is fixed when \(\Lambda\neq0\); a precise harmonic characterization and round-sphere inversion of the cut-news source \(X_A\), together with a sharp \(L^2\) bound for the conditional rank-two news; finite-dimensional and representation-theoretic no-go theorems for pointwise and nonlocal linear news-square ans{\"a}tze; and a sign-flip obstruction showing that the full linearized de Sitter energy flux cannot be a nonnegative news square.  At the linearized level we derive a Hamiltonian news current whose pairings with de Sitter symmetry generators reproduce the symplectic flux, and hence the linearized AldS charge flux, with exact \(\xi\)-linearity, gauge invariance and a controlled flat limit.  We prove that the simpler volume flux law is degenerate on trace-free stress and conformal Killing symmetries, and that the radiative part of the linearized Hamiltonian news is the detector pair in the no-incoming sector.  In the strongly equipped no-incoming sector we unify the zero sets of the detector pair, radiant news, outgoing radiant supermomentum and no-radiation criterion, but we also prove a spectral norm-mismatch: the rank-two radiant news has the same zero set while being an elliptic smoothing that loses arbitrarily large high-harmonic detector weight.  We also identify the sharpest available candidate news object: in a strongly equipped, no-incoming outgoing sector the radiant news tensor is \(n^+_{AB}=2V_{AB}\), while the detector square is represented exactly by an \(\mathrm{STF}\oplus\mathrm{vector}\) Cotton pair and, on a round cut, by a minimal pair of STF tensors obtained through an \(L^2\)-isometric vector-to-tensor map.  Neither construction solves the unrestricted news problem.  The conditional logical core has been formalized in Lean without asserting the open physics theorem.
 \end{abstract}
 
 \tableofcontents
@@ -491,6 +491,8 @@ pointwise, and hence \(-\int_B\cT^{ab}D_a\xi_b\,\diff\mu=0\) for every such \(\x
 Decompose \(D_a\xi_b=D_{(a}\xi_{b)}+D_{[a}\xi_{b]}\).  The antisymmetric part drops out because \(\cT^{ab}\) is symmetric, while the symmetric part is pure trace and drops out because \(\cT^{ab}h_{ab}=0\).
 \end{proof}
 
+\statusL Fernández--Álvarez and Senovilla obtain the same conclusion for their first-class charges \cite{fabSen2022asymptotic}.  For a first-class current \(y^a=t^{ab}\xi_b\) with \(t^{ab}\) built from \(D_{ab}\), \(C_{ab}\), or their outgoing/incoming parts, their equations (VII.98)--(VII.107) give a balance law sourced only by matter terms and Coulomb contributions; gravitational radiation does not enter.  They explicitly note that modifications of these currents are needed.  Thus any news candidate aiming to represent AldS radiation flux cannot be obtained from first-class stress/Cotton moments alone; it must involve symplectic/Hamiltonian data, second-class Bel--Robinson currents, or radiant news and its time derivative.
+
 \statusL This degeneracy is consistent with Ashtekar--Bonga--Kesavan's observation that imposing conformal flatness of the intrinsic geometry of \(\mathscr I^+\) from the outset trivializes the flux problem \cite{ashtekar2015linear}.  The nonzero Hamiltonian flux \eqref{eq:hamiltonian-flux} survives because the candidate nonlinear charges depend on the full boundary conformal geometry; their linearization contains \(\mathcal L_\xi h_{ab}\), not merely \(\cT^{ab}D_a\xi_b\) evaluated on the background.  Thus \eqref{eq:aldS-stress-flux-linear} is the correct linearized charge-flux relation, while \eqref{eq:aldS-flux} is a special balance identity that vanishes identically on trace-free stress and conformal symmetries.
 
 \statusL Senovilla's TT tensor \(\mathcal F_{ab}\) is the electric part of the rescaled Weyl tensor \cite{senovilla2022radiation}, so at linear order \(\delta\cT_{ab}\) is proportional to \(\mathcal F_{ab}\).  \statusD Under the no-incoming condition \(Q_-^\mu=0\),
@@ -747,6 +749,27 @@ where \(S^{\mathrm{grad}}_{lm}=\sigma_{lm}D_AY_{lm}\) and \(S^{\mathrm{curl}}_{l
 \end{equation}
 with equality in the first inequality only for a pure \(l=2\) gradient source.  This is a quantitative inverse-elliptic smoothing statement.  It does not convert the Cotton detector into an AldS flux news.
 
+\statusD The same computation gives a sharper magnitude obstruction.  For a pure gradient or curl harmonic source,
+\begin{equation}
+  \frac{\int_S |V_{AB}|^2\,dS}{\int_S |S_A|^2\,dS}
+  =
+  \begin{cases}
+    \dfrac{2}{L-2}, & S_A \text{ pure gradient},\\[1ex]
+    \dfrac{2(L-2)}{(L-1)^2}, & S_A \text{ pure curl}.
+  \end{cases}
+\end{equation}
+Both ratios tend to zero as \(L=l(l+1)\to\infty\).  Hence there is no constant \(c>0\) such that
+\begin{equation}
+  c\int_S |S_A|^2\,dS
+  \;\le\;
+  \int_S |V_{AB}|^2\,dS
+\end{equation}
+for all sources.  Since \(S_A=-N\epsilon_{AB}C^{+B}\) is the outgoing Cotton source of the radiant supermomentum, the rank-two news \(n^+=2V\) has the same zero set as the Cotton detector but a strictly weaker high-harmonic norm: it is an order-\((-1)\) elliptic smoothing of the detector, not a norm-equivalent representative of its square.  This explains precisely why the unified zero set \eqref{eq:outgoing-zero-unification} does not by itself give a central news-square theorem.  A nonlinear object reproducing the detector magnitude must retain the missing high-harmonic spectral weight, for example through a derivative, a two-tensor pair, or a bilinear flux pairing rather than through \(\int |n^+|^2\) alone.
+
+\begin{proposition}[\statusF: spectral norm mismatch]
+Let \(D[S]\) be the Cotton-detector quadratic norm and \(N[S]:=\int_S|V|^2\) the rank-two news norm.  The pair \((D,N)\) has spectral mismatch if \(N\le C D\) for some \(C>0\) but no \(c>0\) satisfies \(cD\le N\) for all sources.  The round-cut identities above show that \((D,N)\) has spectral mismatch on the strongly equipped outgoing sector.
+\end{proposition}
+
 \begin{proposition}[\statusD: conditional radiant-news object]
 Under the hypotheses of Theorem 2 and Corollary VI.8 of \cite{fabSen2022asymptotic}, \(n^+_{AB}=2V_{AB}\) is a symmetric trace-free gauge-invariant rank-two tensor on each cut and
 \begin{equation}
@@ -761,6 +784,30 @@ If in addition \(p_m=0\), then Proposition 2 of \cite{senovilla2022radiation} gi
 \begin{proof}
 Symmetry, trace-freeness and gauge invariance are the content of Propositions V.1 and VI.2 of \cite{fabSen2022asymptotic}; the identity \(n^+=2V\) is Lemma VI.10 there.  The zero set follows from Theorem 2 and Corollary VI.8 of the same paper.  The last assertion follows from the equivalence \(Q_-^\mu=0,\ p_m=0\iff Q_-^\mu=Q_+^\mu=0\) in Proposition 2 of \cite{senovilla2022radiation}.
 \end{proof}
+
+\subsection{Unification of the outgoing zero sets}
+
+\begin{theorem}[\statusD: common zero set of detector, radiant news and outgoing supermomentum]
+Assume \(Q_-^\mu=0\) and the hypotheses of Proposition VI.4, Theorem 2 and Corollary VI.8 of \cite{fabSen2022asymptotic}: strict equipment, \(S^2\) leaves, criterion 2, and the radiant-news solvability equations; for the \(V_{AB}\) statement assume strong equipment.  Then
+\begin{equation}\label{eq:outgoing-zero-unification}
+  \cN^{\mathrm{det}}_{\mathrm{out}}=0
+  \iff
+  Q_+^\mu=0
+  \iff
+  n^+_{AB}=0
+  \iff
+  V_{AB}=0
+  \iff
+  P^a=0
+  \iff
+  \text{no radiation at }\scri^+ .
+\end{equation}
+\end{theorem}
+\begin{proof}
+Under \(Q_-^\mu=0\), Senovilla's relations \(\hat\cF_{AB}=\epsilon_{AD}\hat C_B{}^D\) and \(\cF_A=\epsilon_{AB}C^B\) show that \(\cN^{\mathrm{det}}_{\mathrm{out}}=0\) is equivalent to \(\hat\cF_{AB}=0=\cF_A\).  Proposition 2 of \cite{senovilla2022radiation} then gives \(Q_+^\mu=0\).  Proposition VI.4 of \cite{fabSen2022asymptotic} gives \(Q_+^\mu=0\iff n^+_{AB}=0\).  Lemma VI.10 gives \(n^+_{AB}=2V_{AB}\), Proposition VI.4 and Theorem 2 give the equivalence with \(P^a=0\), and Corollary VI.8 gives the strong-equipment statement for \(V_{AB}\).
+\end{proof}
+
+This is the sharpest conditional unification currently available.  It says that the detector pair, the rank-two radiant news, and the outgoing radiant supermomentum all vanish on exactly the same physical sector.  It does not yet identify their \emph{magnitudes} with one AldS charge-flux functional: \(\cN^{\mathrm{det}}_{\mathrm{out}}\) has the exact detector square, \(n^+_{AB}=2V_{AB}\) has the FAS transport square through \(\dot n^+\), and the linearized Hamiltonian pair has the symplectic/AldS flux pairing.  The central theorem requires a single object retaining all three structures.
 
 \statusL The same reference gives a transport law that clarifies what the radiant news measures.  Under strict equipment, \(S^2\) leaves, and equations (VI.86), (VI.87), (VI.111), (VI.112) of \cite{fabSen2022asymptotic}, equations (VI.106)--(VI.109) give
 \begin{equation}\label{eq:radiant-transport}
@@ -1184,6 +1231,7 @@ Two Lean files were produced and verified.
   \item the linearized algebra \texttt{scaleSym}, \texttt{commutator\_scaleSym\_scaleSym}, \texttt{superPoynting\_scaleSym\_scaleSym}, and \texttt{linearized\_superPoynting\_is\_quadratic};
   \item the flux-linearity obstruction \texttt{LinearFluxObstruction.no\_nonzero\_constant\_square};
   \item the linearized Hamiltonian news-flux core \texttt{HamiltonianNewsFlux.Model}, \texttt{flux\_smul}, \texttt{flux\_add}, and \texttt{flux\_zero};
+  \item the conformal-Killing degeneracy core \texttt{CKVFluxDegeneracy.trace}, \texttt{ckvDerivative}, and \texttt{contract\_zero};
   \item the pointwise news-square obstruction \texttt{NewsSquareObstruction.no\_linear\_pointwise\_square} and the harmonic-mode obstruction \texttt{HarmonicDimensionObstruction.no\_injective\_pair\_to\_tensor};
   \item the linearized sign-flip obstruction \texttt{LinearizedFluxObstruction.SignFlipNewsModel}, \texttt{energy\_zero\_of\_sign\_flip\_square}, and \texttt{no\_sign\_flip\_square};
   \item the conditional strongly equipped radiant-news core \texttt{RadiantCutNews.StrongModel}, \texttt{nPlus\_zero\_iff\_V\_zero}, \texttt{Zplus\_iff\_V\_zero}, and \texttt{V\_zero\_iff\_Pzero};
@@ -1191,6 +1239,8 @@ Two Lean files were produced and verified.
   \item the detector-square representative \texttt{DetectorSquareNews.Pair}, \texttt{DetectorSquareNews.Model}, and \texttt{DetectorSquareNews.normalFlux\_zero\_iff\_news\_zero};
   \item the minimal rank-two tensor-pair core \texttt{RankTwoTensorPairNews.VectorTensorIsometry} and \texttt{normalFlux\_zero\_iff\_news\_zero};
   \item the radiant transport-square core \texttt{RadiantNewsTransport.Model}, \texttt{W\_nonneg}, and \texttt{W\_zero\_iff\_nDot\_zero};
+  \item the outgoing zero-set unification core \texttt{NewsZeroSetUnification.Model}, \texttt{detector\_zero\_iff\_radiant\_zero}, and \texttt{charge\_iff\_noRadiation};
+  \item the spectral magnitude obstruction \texttt{SpectralNormMismatch.Model} and \texttt{no\_uniform\_lower\_bound};
   \item the regular flat-limit implication \texttt{FlatLimitConstraint.Model} and \texttt{flat\_news\_zero}.
 \end{itemize}
 
@@ -1230,7 +1280,7 @@ Specific remaining tasks are:
   \item Prove a controlled \(\Lambda\to0\) limit with explicit scaling assumptions.
 \end{enumerate}
 
-The positive result in this manuscript is conditional but concrete: under strong equipment, \(S^2\) leaves, and no incoming radiation, the rank-two radiant news is \(n^+_{AB}=2V_{AB}\).  The transport law \eqref{eq:radiant-flux-square} represents the radiant superenergy as the square of the equipment derivative of \(n^\pm\), while the detector-square pair \eqref{eq:detector-news-pair} represents the normal outgoing flux exactly in the outgoing sector, and its round-cut rank-two tensor-pair realization \eqref{eq:rank2-pair-news} saturates the harmonic multiplicity obstruction.  The negative results narrow what remains: a single \(\xi\)-independent positive scalar cannot represent all charge fluxes; pointwise and representation-theoretic linear squares of the full outgoing detector pair into the STF tensor bundle cannot reproduce the known positive density; the full linearized de Sitter energy flux cannot be a sign-definite news square; and the naive Bondi shear coefficient is not free when \(\Lambda\neq0\).  The round-cut inversions \eqref{eq:codazzi-inversion} and \eqref{eq:V-round-inversion} show that both the unrestricted cut-Codazzi candidate and the strongly equipped radiant news are nonlocal on each cut.  The decisive open step is to extend the conditional \(n^+=2V\) construction beyond strongly equipped outgoing data and to couple it to the AldS charge-flux law.
+The positive result in this manuscript is conditional but concrete: under strong equipment, \(S^2\) leaves, and no incoming radiation, the rank-two radiant news is \(n^+_{AB}=2V_{AB}\).  The transport law \eqref{eq:radiant-flux-square} represents the radiant superenergy as the square of the equipment derivative of \(n^\pm\), while the detector-square pair \eqref{eq:detector-news-pair} represents the normal outgoing flux exactly in the outgoing sector, and its round-cut rank-two tensor-pair realization \eqref{eq:rank2-pair-news} saturates the harmonic multiplicity obstruction.  The negative results narrow what remains: a single \(\xi\)-independent positive scalar cannot represent all charge fluxes; pointwise and representation-theoretic linear squares of the full outgoing detector pair into the STF tensor bundle cannot reproduce the known positive density; the full linearized de Sitter energy flux cannot be a sign-definite news square; and the naive Bondi shear coefficient is not free when \(\Lambda\neq0\).  The round-cut inversions \eqref{eq:codazzi-inversion} and \eqref{eq:V-round-inversion} show that both the unrestricted cut-Codazzi candidate and the strongly equipped radiant news are nonlocal on each cut.  The decisive open step is to extend the conditional \(n^+=2V\) construction beyond strongly equipped outgoing data and to couple it to the AldS charge-flux law.  The unification \eqref{eq:outgoing-zero-unification} shows that the zero-set part of this goal has been achieved in the controlled outgoing sector; what remains is the much harder compatibility of magnitudes: one object must simultaneously carry the detector square, the radiant transport square, and the symplectic/AldS flux pairing.
 
 \bibliographystyle{plainnat}
 \bibliography{lambda_positive_bondi}

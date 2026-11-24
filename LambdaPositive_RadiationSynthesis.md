@@ -508,6 +508,31 @@ With \(h_{ab}=(\delta\gamma_{ab})^{\mathrm{tf}}\) and \(E_{ab}=\delta e_{ab}\), 
 \]
 Thus the linearized news is the phase-space pair \((h_{ab},E_{ab})\), paired with the symmetry generator \(\mathcal L_\xi h\); this solves exact \(\xi\)-linearity and gauge invariance at the linear level. The ABK energy \(\mathcal H_T=\frac1{2H\kappa}\int E^{ab}(\mathcal L_Th_{ab}+2Hh_{ab})\) is the time-translation case and has the positive Minkowski flux as its controlled flat limit. For the ABK symmetry prescription, the nonlinear candidate charge-difference linearizes to exactly these symplectic fluxes, so this is a rigorous linearized representation of the AldS charge-flux law. It is not a positive square on the full phase space: \(E\mapsto-E\), \(B\mapsto B\) reverses the energy. Positivity remains tied to no-incoming/outgoing restrictions. Lean core: `HamiltonianNewsFlux.Model`, `flux_smul`, `flux_add`, `flux_zero`.
 
+One apparent contradiction is now resolved. The simpler volume flux \(-\int \cT^{ij}D_i\xi_j\) vanishes identically when \(\cT^{ij}\) is trace-free and \(\xi\) is a boundary conformal Killing field: the symmetric part of \(D_i\xi_j\) is pure trace and the antisymmetric part does not couple to a symmetric tensor. Thus it cannot represent the nonzero de Sitter energy. This matches ABK's observation that conformal flatness at \(\mathscr I^+\) trivializes the fluxes. The Hamiltonian charge-flux relation is different: the candidate nonlinear charges depend on the full boundary conformal geometry, and their linearization contains \(\mathcal L_\xi h_{ab}\). Lean core: `CKVFluxDegeneracy.contract_zero`.
+
+The same linearized Weyl electric data also connects the flux news to the detector. Because \(\cT_{ab}\propto e_{ab}\) and Senovilla's \(\mathcal F_{ab}\) is the rescaled electric Weyl tensor, the radiative components of \(\delta\cT\) are the detector components. In the no-incoming sector \(Q_-^\mu=0\), \(\hat{\mathcal F}_{AB}=\epsilon_{AD}\hat C_B{}^D\) and \(\mathcal F_A=\epsilon_{AB}C^B\), so the radiative part of the linearized AldS news pair is the detector pair \((\hat C_{AB},C_A)\) up to a fixed rotation and normalization. Its square is proportional to \(\hat C^2+C^2=-\tfrac12p_m\), giving a common zero set for the linearized outgoing flux news and the radiation detector in that sector. This is compatibility, not a nonlinear theorem or an unconditional positivity result.
+
+The outgoing zero sets now unify completely in the controlled sector. Under \(Q_-^\mu=0\), strict/strong equipment, \(S^2\) cuts, criterion 2 and the radiant solvability equations,
+\[
+  \cN^{\mathrm{det}}_{\mathrm{out}}=0
+  \iff Q_+^\mu=0
+  \iff n^+_{AB}=0
+  \iff V_{AB}=0
+  \iff P^a=0 .
+\]
+Thus detector news, radiant rank-two news, outgoing radiant supermomentum and no radiation all vanish together. The remaining gap is one of magnitudes, not zero sets: the detector pair carries \(-\tfrac12p_m\), \(n^+=2V\) carries \(N^2W^+=4\dot V^2\), and the linearized Hamiltonian pair carries the symplectic/AldS flux. A central news object must reproduce all three without collapsing the detector into the forbidden single rank-two square.
+
+The magnitude gap is now quantitative. On a round cut,
+\[
+  \frac{\int|V|^2}{\int|S|^2}
+  =
+  \frac{2}{L-2}
+  \ \text{or}\
+  \frac{2(L-2)}{(L-1)^2},
+  \qquad S_A=-N\epsilon_{AB}C^{+B},
+\]
+for pure gradient/curl harmonics. Both ratios vanish as \(L\to\infty\), so \(\int|V|^2\) cannot be norm-equivalent to the Cotton detector square. The conditional rank-two news has the correct zero set but loses high-harmonic detector weight; any central object must retain that weight through a derivative, a tensor pair, or a bilinear flux pairing. Lean core: `SpectralNormMismatch.Model`, `no_uniform_lower_bound`.
+
 ## Flat limit
 
 Controlled retarded quadrupole families on de Sitter do approach Einstein’s

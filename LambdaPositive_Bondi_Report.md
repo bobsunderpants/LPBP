@@ -91,6 +91,12 @@ Because \(D^aE_{ab}=0\) and \(D_{(a}\xi_{b)}=\frac13(D\cdot\xi)\gamma_{ab}\), tw
 \]
 equivalently \(J_c=-\frac23h_{ab}D_cE^{ab}+E^{ab}(\frac13D_ch_{ab}-2D_ah_{cb})\). This is exact \(\xi\)-linearity, gauge invariance on the de Sitter background, and a phase-space news pair \(\mathcal N^{\mathrm H}=(h_{ab},E_{ab})\), not a scalar square. The Ashtekar--Bonga--Kesavan time-translation flux \(\mathcal H_T=\frac1{2H\kappa}\int E^{ab}(\mathcal L_Th_{ab}+2Hh_{ab})\) is a special case and has the controlled positive Minkowski flat limit for smooth retarded families. For their symmetry prescription, the difference of candidate nonlinear AldS charge integrals linearizes precisely to these symplectic flux formulas, so \(\mathcal N^{\mathrm H}\) represents the linearized AldS charge-flux law itself. This does not solve the nonlinear problem: the full de Sitter energy is sign-indefinite under \(E\mapsto-E\), \(B\mapsto B\), and positivity still needs incoming/outgoing restrictions. The finite core is `HamiltonianNewsFlux.Model`, `flux_smul`, `flux_add`, and `flux_zero`.
 
+A crucial reconciliation removes an apparent contradiction with the simpler volume flux law \(Q_\xi[S_2]-Q_\xi[S_1]=-\int \cT^{ij}D_i\xi_j\). If \(\xi\) is a conformal Killing field of the boundary and \(\cT^{ij}\) is trace-free, then \(D_{(i}\xi_{j)}\) is pure trace and \(D_{[i}\xi_{j]}\) is antisymmetric, so \(\cT^{ij}D_i\xi_j=0\) pointwise. Thus the simple volume law is degenerate on exactly the conformal symmetries relevant to de Sitter translations. This agrees with the ABK observation that imposing conformal flatness of \(\mathscr I^+\) from the outset forces all fluxes to vanish. The nonzero Hamiltonian flux survives because the candidate nonlinear charge integrals depend on the full boundary conformal geometry; their linearization involves \(\mathcal L_\xi h_{ab}\), not just the background contraction \(\cT^{ij}D_i\xi_j\). The algebraic core is `CKVFluxDegeneracy.contract_zero`.
+
+Fernández--Álvarez and Senovilla independently show that first-class currents \(y^a=t^{ab}\xi_b\), with \(t^{ab}\) built from \(D_{ab}\), \(C_{ab}\), or their outgoing/incoming parts, have balance laws sourced only by matter and Coulomb contributions; gravitational radiation does not enter. First-class stress/Cotton moments therefore cannot represent AldS radiation flux. A news candidate must involve symplectic/Hamiltonian data, second-class Bel--Robinson currents, or radiant news and its time derivative.
+
+Since the holographic stress is proportional to the rescaled electric Weyl tensor, \(E_{ab}=\delta e_{ab}\) is the same linear object as \(\delta\cT^{\mathrm{tf}}_{ab}\). Senovilla's TT tensor \(\mathcal F_{ab}\) is also the rescaled electric Weyl tensor, so in the no-incoming sector \(Q_-^\mu=0\) the radiative cut components satisfy \(\hat{\mathcal F}_{AB}=\epsilon_{AD}\hat C_B{}^D\) and \(\mathcal F_A=\epsilon_{AB}C^B\). Consequently the radiative projection of the linearized AldS news pair is, up to a fixed rotation and normalization, the detector pair \((\hat C_{AB},C_A)\), with square proportional to \(\hat C^2+C^2=-\tfrac12p_m\). Thus the object pairing with \(\xi\) in the linearized AldS flux and the object detecting outgoing radiation share the same radiative components and zero set. This is a compatibility result under \(Q_-^\mu=0\), not a nonlinear news construction or a full positivity theorem.
+
 ### 3.4 Why naive Bondi news is obstructed
 
 In a direct Bondi-gauge expansion for \(\Lambda>0\), the order-\(r^{-1}\) angular metric coefficient \(\gamma_1\) is not free data. One obtains schematically
@@ -242,12 +248,15 @@ It adds the finite-dimensional radiation algebra:
 * the pointwise news-square obstruction `NewsSquareObstruction.no_linear_pointwise_square` and the harmonic-mode obstruction `HarmonicDimensionObstruction.no_injective_pair_to_tensor`;
 * the charge-linearity obstruction `LinearFluxObstruction.no_nonzero_constant_square`;
 * the linearized Hamiltonian news-flux core `HamiltonianNewsFlux.Model`, `flux_smul`, `flux_add`, and `flux_zero`;
+* the CKV flux degeneracy core `CKVFluxDegeneracy.trace`, `ckvDerivative`, and `contract_zero`;
 * the linearized sign-flip obstruction `LinearizedFluxObstruction.SignFlipNewsModel`, `LinearizedFluxObstruction.energy_zero_of_sign_flip_square`, and `LinearizedFluxObstruction.no_sign_flip_square`;
 * the conditional radiant-news core `RadiantCutNews.StrongModel`, `nPlus_zero_iff_V_zero`, `Zplus_iff_V_zero`, `V_zero_iff_Pzero`, and `nMinus_zero_of_noIncoming`;
 * the inverse-divergence core `RadiantCutNews.StrongOutgoingInversion.Model`, `div_V_eq_half_source`, and `nPlus_eq_twoV_of_div`;
 * the detector-square representative `DetectorSquareNews.Pair`, `DetectorSquareNews.Model`, `normalFlux_nonpos`, and `normalFlux_zero_iff_news_zero`;
 * the minimal rank-two tensor-pair core `RankTwoTensorPairNews.VectorTensorIsometry` and `normalFlux_zero_iff_news_zero`;
 * the radiant transport-square core `RadiantNewsTransport.Model`, `W_nonneg`, and `W_zero_iff_nDot_zero`;
+* the outgoing zero-set unification core `NewsZeroSetUnification.Model`, `detector_zero_iff_radiant_zero`, and `detector_zero_iff_no_radiation`;
+* the spectral magnitude obstruction `SpectralNormMismatch.Model` and `no_uniform_lower_bound`;
 * the regular flat-limit implication `FlatLimitConstraint.Model` and `flat_news_zero`;
 * the open target `DesiredCutNewsConstruction`.
 
@@ -364,7 +373,26 @@ Thus the rank-two news is an inverse-elliptic transform of the Cotton one-form o
   \right]
   \le \frac12\int_S|S_A|^2,
 \]
-with equality only for a pure \(l=2\) gradient source; consequently \(\int|n^+|^2\le2\int|S|^2\). It is not general: it requires equipment, umbilical cuts, \(S^2\) topology, and no incoming radiation, and it has not been shown to reproduce the AldS charge fluxes or to possess a universal flat limit. The Mathlib core is `RadiantCutNews.StrongModel`, `nPlus_zero_iff_V_zero`, `Zplus_iff_V_zero`, `V_zero_iff_Pzero`, and `nMinus_zero_of_noIncoming`.
+with equality only for a pure \(l=2\) gradient source; consequently \(\int|n^+|^2\le2\int|S|^2\). The same calculation yields a sharp magnitude obstruction: for pure gradient/curl harmonics,
+\[
+  \frac{\int|V|^2}{\int|S|^2}
+  =
+  \frac{2}{L-2}
+  \quad\text{or}\quad
+  \frac{2(L-2)}{(L-1)^2},
+\]
+and both ratios tend to zero. Therefore no constant \(c>0\) satisfies \(c\int|S|^2\le\int|V|^2\) for all sources. The rank-two news \(n^+=2V\) has the same zero set as the Cotton detector but is an order-\((-1)\) elliptic smoothing, losing arbitrarily large high-harmonic detector weight. This is the quantitative reason why zero-set unification does not give a news-square theorem. The Mathlib core is `RadiantCutNews.StrongModel`, `nPlus_zero_iff_V_zero`, `Zplus_iff_V_zero`, `V_zero_iff_Pzero`, and `nMinus_zero_of_noIncoming`.
+
+The outgoing zero sets now unify. Under \(Q_-^\mu=0\) and the FAS hypotheses (strict/strong equipment, \(S^2\) leaves, criterion 2, solvability equations),
+\[
+  \cN^{\mathrm{det}}_{\mathrm{out}}=0
+  \iff Q_+^\mu=0
+  \iff n^+_{AB}=0
+  \iff V_{AB}=0
+  \iff P^a=0
+  \iff \text{no radiation at }\mathscr I^+ .
+\]
+The detector pair has the exact detector square, radiant news has the FAS transport square, and the linearized Hamiltonian pair has the symplectic/AldS flux pairing. The zero-set part of the central theorem is therefore achieved in the controlled outgoing sector; the remaining difficulty is a single object whose magnitude simultaneously carries all three structures. Conditional logic: `NewsZeroSetUnification.Model`, `detector_zero_iff_radiant_zero`, `detector_zero_iff_no_radiation`.
 
 FAS also supply a transport law for the radiant news: under strict equipment, \(S^2\) leaves, and the solvability equations (VI.86), (VI.87), (VI.111), (VI.112),
 \[

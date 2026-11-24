@@ -1,33 +1,34 @@
 \contentsline {section}{\numberline {1}Introduction and status labels}{3}{section.1}%
-\contentsline {section}{\numberline {2}Conformal--Bondi data and AldS charge fluxes}{3}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Conventions}{3}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Free data and conserved charges}{4}{subsection.2.2}%
+\contentsline {section}{\numberline {2}Conformal--Bondi data and AldS charge fluxes}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Conventions}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Free data and conserved charges}{5}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Bondi-gauge obstruction to a naive news field}{5}{subsection.2.3}%
-\contentsline {section}{\numberline {3}The asymptotic super-Poynting radiation detector}{5}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Definitions and the \(\Lambda >0\) theorem}{5}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Why \(\Lambda <0\) is different}{6}{subsection.3.2}%
+\contentsline {section}{\numberline {3}The asymptotic super-Poynting radiation detector}{6}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Definitions and the \(\Lambda >0\) theorem}{6}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Why \(\Lambda <0\) is different}{7}{subsection.3.2}%
 \contentsline {section}{\numberline {4}Cut-wise outgoing flux and conditional positivity}{7}{section.4}%
-\contentsline {subsection}{\numberline {4.1}A detector-square news pair}{7}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.1}A detector-square news pair}{8}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Minimal rank-two tensor-pair representation}{8}{subsection.4.2}%
 \contentsline {section}{\numberline {5}What should count as news?}{9}{section.5}%
 \contentsline {subsection}{\numberline {5.1}A scaling obstruction to the oversimplified target}{9}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}A Hamiltonian news current and exact \(\xi \)-linearity}{9}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}The cut-news proposal}{12}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Constraints on \(X_A\)}{13}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}A conditional rank-two news object: strongly equipped radiant news}{13}{subsection.5.5}%
-\contentsline {subsection}{\numberline {5.6}Explicit Codazzi inversion on a round cut}{16}{subsection.5.6}%
-\contentsline {subsection}{\numberline {5.7}Codazzi uniqueness and the zero-set condition}{17}{subsection.5.7}%
-\contentsline {section}{\numberline {6}Obstructions to pointwise linear news squares}{18}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Scaling of the detector}{18}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}A finite-dimensional no-go theorem}{18}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}A representation-theoretic nonlocal obstruction}{19}{subsection.6.3}%
-\contentsline {section}{\numberline {7}Linearized de Sitter waves}{20}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Variation of the boundary Cotton and stress tensors}{20}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Explicit TT modes and Hamiltonian fluxes}{20}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Conformal phase-space flux}{21}{subsection.7.3}%
-\contentsline {section}{\numberline {8}Exact-solution benchmark}{22}{section.8}%
-\contentsline {section}{\numberline {9}The \(\Lambda \to 0\) limit}{22}{section.9}%
-\contentsline {section}{\numberline {10}Lean formalization of the conditional core}{24}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Core scaffold}{24}{subsection.10.1}%
-\contentsline {subsection}{\numberline {10.2}Mathlib scaffold}{24}{subsection.10.2}%
-\contentsline {section}{\numberline {11}Conclusion and open problems}{26}{section.11}%
+\contentsline {subsection}{\numberline {5.2}A Hamiltonian news current and exact \(\xi \)-linearity}{10}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}The cut-news proposal}{13}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Constraints on \(X_A\)}{14}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}A conditional rank-two news object: strongly equipped radiant news}{15}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}Unification of the outgoing zero sets}{18}{subsection.5.6}%
+\contentsline {subsection}{\numberline {5.7}Explicit Codazzi inversion on a round cut}{19}{subsection.5.7}%
+\contentsline {subsection}{\numberline {5.8}Codazzi uniqueness and the zero-set condition}{20}{subsection.5.8}%
+\contentsline {section}{\numberline {6}Obstructions to pointwise linear news squares}{20}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Scaling of the detector}{20}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}A finite-dimensional no-go theorem}{21}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}A representation-theoretic nonlocal obstruction}{22}{subsection.6.3}%
+\contentsline {section}{\numberline {7}Linearized de Sitter waves}{23}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Variation of the boundary Cotton and stress tensors}{23}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Explicit TT modes and Hamiltonian fluxes}{23}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Conformal phase-space flux}{24}{subsection.7.3}%
+\contentsline {section}{\numberline {8}Exact-solution benchmark}{25}{section.8}%
+\contentsline {section}{\numberline {9}The \(\Lambda \to 0\) limit}{25}{section.9}%
+\contentsline {section}{\numberline {10}Lean formalization of the conditional core}{27}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Core scaffold}{27}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Mathlib scaffold}{27}{subsection.10.2}%
+\contentsline {section}{\numberline {11}Conclusion and open problems}{29}{section.11}%
