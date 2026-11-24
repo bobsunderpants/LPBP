@@ -286,13 +286,40 @@ This cross-formalism identification remains unproved.  Independently, FAS give
   +\frac{2\tau_{lm}}{1-l(l+1)}G_{AB}(Y_{lm})\right],
   \qquad n^+_{AB}=2V_{AB},
 \]
-where \(S_A=-N\epsilon_{AB}C^{+B}\) is decomposed into \(\sigma,\tau\).  The rank-two news is therefore inverse-elliptic on each cut.
+where \(S_A=-N\epsilon_{AB}C^{+B}\) is decomposed into \(\sigma,\tau\).  The rank-two news is therefore inverse-elliptic on each cut.  On a unit round cut, with \(L=l(l+1)\),
+\[
+  \int_S |V_{AB}|^2
+  =
+  \sum_{l\ge2,m}\left[
+  \frac{2}{L-2}|S^{\rm grad}_{lm}|^2
+  +\frac{2(L-2)}{(L-1)^2}|S^{\rm curl}_{lm}|^2
+  \right]
+  \le \frac12\int_S |S_A|^2,
+\]
+with equality only for a pure \(l=2\) gradient source, and hence \(\int_S|n^+_{AB}|^2\le2\int_S|S_A|^2\).
 It is not a generic AldS news object: it depends on the equipment, umbilical
 foliation, \(S^2\) topology, and no-incoming condition, and its relation to the
 AldS charge fluxes and the flat limit has not been proved.  Its finite logical
 core is `RadiantCutNews.StrongModel`, `nPlus_zero_iff_V_zero`,
-`Zplus_iff_V_zero`, `V_zero_iff_Pzero`, `nMinus_zero_of_noIncoming`, and
-`RadiantCutNews.StrongOutgoingInversion.div_V_eq_half_source`.
+`Zplus_iff_V_zero`, `V_zero_iff_Pzero`, `nMinus_zero_of_noIncoming`,
+`RadiantCutNews.StrongOutgoingInversion.div_V_eq_half_source`, and
+`nPlus_eq_twoV_of_div`.
+
+FAS also provide a transport law. Under strict equipment, \(S^2\) leaves, and
+the solvability equations (VI.86), (VI.87), (VI.111), (VI.112),
+\[
+  N\epsilon_B{}^E C^{(\pm)}_{AE}
+  =
+  \dot n^{(\pm)}_{AB}-\Sigma^{(\pm)}_{(AC}n^{(\pm)}_{B)}{}^C,
+  \qquad
+  N^2W^{(\pm)}=(\dot n^{(\pm)}-\Sigma n^{(\pm)})^2 .
+\]
+For umbilical leaves, \(N^2W^{(\pm)}=\dot n^{(\pm)}_{AB}\dot n^{(\pm)AB}\); in the
+strongly equipped outgoing sector, \(N^2W^+=4\dot V_{AB}\dot V^{AB}\). This is a
+genuine radiant-superenergy square, but not an AldS charge-flux law, and the
+zero-set theorem concerns \(n^+\) itself rather than its equipment derivative.
+Its finite algebra is `RadiantNewsTransport.Model`, `W_nonneg`, and
+`W_zero_iff_nDot_zero`.
 
 A second, weaker object exactly represents the normal outgoing flux.  Under
 \(Q_-^\mu=0\), set
@@ -433,6 +460,19 @@ The two-dimensional core is proved in Lean as
 cut-Codazzi construction \(N_{AB}=V_{AB}+M_{AB}\); it rules out the simplest
 pointwise linear square of the outgoing Cotton data.
 
+There is a stronger nonlocal representation-theoretic obstruction. For each
+\(l\ge2\), STF tensor harmonics split into the two families \(H_{AB}(Y_{lm})\)
+and \(G_{AB}(Y_{lm})\), so they form \(2\mathcal H_l\) under \(\mathrm{SO}(3)\).
+Vector harmonics likewise form \(2\mathcal H_l\) from \(D_AY_{lm}\) and
+\(\epsilon_A{}^BD_BY_{lm}\). Hence the detector pair occupies \(4\mathcal H_l\),
+while a rank-two news tensor occupies \(2\mathcal H_l\). Schur's lemma implies
+that any \(\mathrm{SO}(3)\)-equivariant linear map between them has nontrivial
+kernel in every \(l\)-sector, even if it is nonlocal or a spectral multiplier.
+Therefore no such map can preserve \(\hat C^2+C^2\). The minimal linear
+norm-preserving target is the detector pair itself. The finite-mode core is
+`HarmonicDimensionObstruction.no_injective_pair_to_tensor`. Nonlinear,
+symmetry-breaking, \(\xi\)-dependent, or multi-cut constructions remain open.
+
 ## Flux-linearity obstruction
 
 The simplified target \( \Delta Q_\xi=-\int N_{AB}N^{AB}\,d\mu \) also needs refinement: the left side is homogeneous of degree one in the boundary vector field \(\xi\), while a single \(\xi\)-independent square density is not. If the same density represented \(F_\xi=\Delta Q_\xi\) for every \(\xi\), then applying the representation to \(2\xi\) gives \(2F_\xi=F_\xi\), hence \(F_\xi=0\). Thus a real target must fix a particular translation, introduce a \(\xi\)-dependent weight linear in \(D_{(i}\xi_{j)}\), or use bilinear news pairings. The finite-dimensional core is in Lean as `LinearFluxObstruction.no_nonzero_constant_square`.
@@ -441,8 +481,14 @@ The simplified target \( \Delta Q_\xi=-\int N_{AB}N^{AB}\,d\mu \) also needs ref
 
 Controlled retarded quadrupole families on de Sitter do approach Einstein’s
 quadrupole formula as \(H=\sqrt{\Lambda/3}\to0\), with the tail term \(O(H)\) in
-the physical \((t,\vec x)\) chart. This is a limited result, not a universal
-boundary limit. Homogeneous dS waves can have arbitrarily negative dS energy,
+the physical \((t,\vec x)\) chart. Fernández–Álvarez and Senovilla also show
+that a regular metric limit sends the de Sitter canonical supermomentum to the
+flat radiant supermomentum, \(\lim_{\Lambda\to0}p^\alpha=Q^\alpha_{\rm flat}\),
+and \(\lim q^\pm{}^\alpha=2^{-3/2}(1\pm B)^3Q^\alpha_{\rm flat}\). Hence de Sitter
+no radiation implies flat Bondi news vanishes under that regularity assumption.
+This is a detector-level implication, not a flat limit of \(V_{AB}\), \(n^+_{AB}\),
+or the AldS fluxes. It remains a limited result, not a universal boundary limit.
+Homogeneous dS waves can have arbitrarily negative dS energy,
 all dS Killing fields become spacelike near \(\mathscr I^+\), and the
 Bondi-gauge relation \(\Lambda\gamma_1=\cdots\) requires the lower-order bracket
 to be \(O(\Lambda)\) for \(\gamma_1\) to remain finite. In ABK's TT coefficients,

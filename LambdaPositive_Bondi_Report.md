@@ -227,12 +227,14 @@ It adds the finite-dimensional radiation algebra:
 * the abstract outgoing-flux structure `OutgoingCutData` with `normalFlux_nonpos` and `normalFlux_eq_zero_iff`;
 * the conditional cut-news skeleton `CutNews.CutNewsCandidate` with `CutNews.source_zero_iff_news_zero`, `CutNews.news_zero_iff_detector_zero`, and `CutNews.news_nonzero_iff_radiation`;
 * the linearized-detector algebra `scaleSym`, `commutator_scaleSym_scaleSym`, `superPoynting_scaleSym_scaleSym`, and `linearized_superPoynting_is_quadratic`;
-* the pointwise news-square obstruction `NewsSquareObstruction.no_linear_pointwise_square`;
+* the pointwise news-square obstruction `NewsSquareObstruction.no_linear_pointwise_square` and the harmonic-mode obstruction `HarmonicDimensionObstruction.no_injective_pair_to_tensor`;
 * the charge-linearity obstruction `LinearFluxObstruction.no_nonzero_constant_square`;
 * the linearized sign-flip obstruction `LinearizedFluxObstruction.SignFlipNewsModel`, `LinearizedFluxObstruction.energy_zero_of_sign_flip_square`, and `LinearizedFluxObstruction.no_sign_flip_square`;
 * the conditional radiant-news core `RadiantCutNews.StrongModel`, `nPlus_zero_iff_V_zero`, `Zplus_iff_V_zero`, `V_zero_iff_Pzero`, and `nMinus_zero_of_noIncoming`;
-* the inverse-divergence core `RadiantCutNews.StrongOutgoingInversion.Model` and `div_V_eq_half_source`;
+* the inverse-divergence core `RadiantCutNews.StrongOutgoingInversion.Model`, `div_V_eq_half_source`, and `nPlus_eq_twoV_of_div`;
 * the detector-square representative `DetectorSquareNews.Pair`, `DetectorSquareNews.Model`, `normalFlux_nonpos`, and `normalFlux_zero_iff_news_zero`;
+* the radiant transport-square core `RadiantNewsTransport.Model`, `W_nonneg`, and `W_zero_iff_nDot_zero`;
+* the regular flat-limit implication `FlatLimitConstraint.Model` and `flat_news_zero`;
 * the open target `DesiredCutNewsConstruction`.
 
 Checks:
@@ -338,7 +340,27 @@ On a unit round cut, with \(S_A=-N\epsilon_{AB}C^{+B}=\sum_{l\ge2,m}(\sigma_{lm}
   +\frac{2\tau_{lm}}{1-l(l+1)}G_{AB}(Y_{lm})\right],
   \qquad n^+_{AB}=2V_{AB}.
 \]
-Thus the rank-two news is an inverse-elliptic transform of the Cotton one-form on each cut. It is not general: it requires equipment, umbilical cuts, \(S^2\) topology, and no incoming radiation, and it has not been shown to reproduce the AldS charge fluxes or to possess a universal flat limit. The Mathlib core is `RadiantCutNews.StrongModel`, `nPlus_zero_iff_V_zero`, `Zplus_iff_V_zero`, `V_zero_iff_Pzero`, and `nMinus_zero_of_noIncoming`.
+Thus the rank-two news is an inverse-elliptic transform of the Cotton one-form on each cut. Writing \(L=l(l+1)\), Bochner and Hodge identities give \(\int|H(Y_{lm})|^2=\int|G(Y_{lm})|^2=L(L-2)/2\int|Y_{lm}|^2\) and \(\int|DY_{lm}|^2=\int|\epsilon D Y_{lm}|^2=L\int|Y_{lm}|^2\), hence
+\[
+  \int_S |V_{AB}|^2
+  =
+  \sum_{l\ge2,m}\left[
+  \frac{2}{L-2}|S^{\rm grad}_{lm}|^2
+  +\frac{2(L-2)}{(L-1)^2}|S^{\rm curl}_{lm}|^2
+  \right]
+  \le \frac12\int_S|S_A|^2,
+\]
+with equality only for a pure \(l=2\) gradient source; consequently \(\int|n^+|^2\le2\int|S|^2\). It is not general: it requires equipment, umbilical cuts, \(S^2\) topology, and no incoming radiation, and it has not been shown to reproduce the AldS charge fluxes or to possess a universal flat limit. The Mathlib core is `RadiantCutNews.StrongModel`, `nPlus_zero_iff_V_zero`, `Zplus_iff_V_zero`, `V_zero_iff_Pzero`, and `nMinus_zero_of_noIncoming`.
+
+FAS also supply a transport law for the radiant news: under strict equipment, \(S^2\) leaves, and the solvability equations (VI.86), (VI.87), (VI.111), (VI.112),
+\[
+  N\epsilon_B{}^E C^{(\pm)}_{AE}
+  =
+  \dot n^{(\pm)}_{AB}-\Sigma^{(\pm)}_{(AC}n^{(\pm)}_{B)}{}^C,
+  \qquad
+  N^2W^{(\pm)}=(\dot n^{(\pm)}-\Sigma n^{(\pm)})^2 .
+\]
+For umbilical leaves this reduces to \(N^2W^{(\pm)}=\dot n^{(\pm)}_{AB}\dot n^{(\pm)AB}\), and in the strongly equipped outgoing sector to \(N^2W^+=4\dot V_{AB}\dot V^{AB}\). This is a super-Poynting flux-square, not an AldS charge-flux law, and the zero-set theorem concerns \(n^+\) rather than \(\dot n^+\).
 
 There is also an exact detector-square news object in the outgoing sector. Under \(Q_-^\mu=0\), define
 \[
@@ -381,7 +403,9 @@ A second, sharper obstruction concerns the simple pointwise ansatz under the out
 -p_m=2(\hat C_{AB}\hat C^{AB}+C_A C^A)\ge0.
 \]
 
-Suppose one tries a linear combination \(N_{AB}=L(\hat C)_{AB}+K(C)_{AB}\) whose pointwise square is exactly \(\hat C^2+C^2\). Setting one input to zero forces \(L\) and \(K\) to be norm-preserving linear maps; polarizing the identity forces \(L(\hat C)\cdot K(C)=0\) for all inputs. Since an isometry of the two-dimensional space of STF cut tensors is surjective, choose \(C\ne0\) and \(\hat C\) with \(L(\hat C)=K(C)\ne0\), giving a nonzero cross term, a contradiction. The Mathlib file proves the finite-dimensional core as `NewsSquareObstruction.no_linear_pointwise_square`. Hence the outgoing positive density cannot be obtained by a purely linear pointwise news-square ansatz; total-derivative or cut-Codazzi corrections are essential.
+Suppose one tries a linear combination \(N_{AB}=L(\hat C)_{AB}+K(C)_{AB}\) whose pointwise square is exactly \(\hat C^2+C^2\). Setting one input to zero forces \(L\) and \(K\) to be norm-preserving linear maps; polarizing the identity forces \(L(\hat C)\cdot K(C)=0\) for all inputs. Since an isometry of the two-dimensional space of STF cut tensors is surjective, choose \(C\ne0\) and \(\hat C\) with \(L(\hat C)=K(C)\ne0\), giving a nonzero cross term, a contradiction. The Mathlib file proves the finite-dimensional core as `NewsSquareObstruction.no_linear_pointwise_square`. Hence the outgoing positive density cannot be obtained by a purely linear pointwise news-square ansatz.
+
+This extends to nonlocal maps on a round cut. For each \(l\ge2\), STF tensor harmonics decompose as \(2\mathcal H_l\) (the \(H\)- and \(G\)-families), and vector harmonics also decompose as \(2\mathcal H_l\) (gradient and curl). The detector pair \((\hat C_{AB},C_A)\) therefore lies in \(4\mathcal H_l\), while one rank-two STF news tensor lies in \(2\mathcal H_l\). Schur's lemma shows that any \(\mathrm{SO}(3)\)-equivariant linear map between them, even with arbitrary spectral multipliers, has nontrivial kernel on each \(l\)-sector and cannot preserve the detector norm. Thus no rotation-covariant linear nonlocal operation can compress the full detector pair into one rank-two news tensor. The minimal linear norm-preserving target is the pair itself. The per-mode finite core is `HarmonicDimensionObstruction.no_injective_pair_to_tensor`. Nonlinear, symmetry-breaking, \(\xi\)-dependent, or multi-cut constructions are not excluded.
 
 ### Linearized de Sitter waves
 
@@ -475,6 +499,8 @@ This supplies a phase-space flux at spacelike \(\mathscr I^+\), but it does not 
 ### Flat-limit status
 
 For a controlled retarded one-parameter family with \(H=\sqrt{\Lambda/3}\), source scale \(D_o\ll\ell\), \(H\Delta t_{\rm source}\ll1\), and finite source duration, Ashtekar–Bonga–Kesavan show that the de Sitter quadrupole flux approaches Einstein’s quadrupole formula in the physical \((t,\vec x)\) chart; the tail term is \(O(H)\) and vanishes as \(H\to0\). This is the best available controlled \(\Lambda\to0\) statement.
+
+Fernández–Álvarez and Senovilla give a separate regular-limit constraint at the detector level: if \(\lim_{\Lambda\to0}g_{\alpha\beta}\) exists and is a good Lorentzian metric, then \(\lim_{\Lambda\to0}p^\alpha=Q^\alpha_{\rm flat}\). Thus de Sitter no radiation in criterion 1 forces flat radiant supermomentum and flat Bondi news to vanish. For the rescaled radiant momenta, \(\lim q^\pm{}^\alpha=2^{-3/2}(1\pm B)^3Q^\alpha_{\rm flat}\), so simultaneous vanishing is equivalent to flat no radiation. This does not prove that \(V_{AB}\), \(n^+_{AB}\), or the AldS fluxes themselves have a flat limit.
 
 It is not a universal boundary limit. The sign-flipping transformation that rules out a positive square on the full dS phase space can be written explicitly in ABK's TT coefficients:
 \[

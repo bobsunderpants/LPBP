@@ -41,7 +41,7 @@ Radiation Detectors, Flux Laws, and Obstructions to News}
 \maketitle
 
 \begin{abstract}
-We assess whether a complete Bondi--Sachs--Penrose package exists for isolated systems with positive cosmological constant.  It does not: the boundary \(\scri^\pm\) is spacelike, there is no universally accepted intrinsic news tensor for generic data, no universal no-incoming-radiation condition, no general mass-positivity theorem, no BMS analogue or peeling theorem, and no universal \(\Lambda\to0\) boundary limit.  We collect the partial structures that are available: the AldS conformal--Bondi charge and flux calculus, the asymptotic super-Poynting radiation detector, the cut-wise news proposal, conditional outgoing-sector positivity, linearized de Sitter tests, exact-solution checks, and controlled flat limits.  Several new consistency results are derived: a scaling obstruction to representing all AldS charge fluxes by one \(\xi\)-independent news square; a linear-gauge obstruction showing that a Bondi shear coefficient is fixed when \(\Lambda\neq0\); a precise harmonic characterization and round-sphere inversion of the cut-news source \(X_A\); a finite-dimensional no-go theorem for pointwise linear news-square ans{\"a}tze; and a sign-flip obstruction showing that the full linearized de Sitter energy flux cannot be a nonnegative news square.  We also identify the sharpest available candidate news object: in a strongly equipped, no-incoming outgoing sector the radiant news tensor is \(n^+_{AB}=2V_{AB}\), while the detector square is represented exactly by an \(\mathrm{STF}\oplus\mathrm{vector}\) Cotton pair.  Neither construction solves the unrestricted news problem.  The conditional logical core has been formalized in Lean without asserting the open physics theorem.
+We assess whether a complete Bondi--Sachs--Penrose package exists for isolated systems with positive cosmological constant.  It does not: the boundary \(\scri^\pm\) is spacelike, there is no universally accepted intrinsic news tensor for generic data, no universal no-incoming-radiation condition, no general mass-positivity theorem, no BMS analogue or peeling theorem, and no universal \(\Lambda\to0\) boundary limit.  We collect the partial structures that are available: the AldS conformal--Bondi charge and flux calculus, the asymptotic super-Poynting radiation detector, the cut-wise news proposal, conditional outgoing-sector positivity, linearized de Sitter tests, exact-solution checks, and controlled flat limits.  Several new consistency results are derived: a scaling obstruction to representing all AldS charge fluxes by one \(\xi\)-independent news square; a linear-gauge obstruction showing that a Bondi shear coefficient is fixed when \(\Lambda\neq0\); a precise harmonic characterization and round-sphere inversion of the cut-news source \(X_A\), together with a sharp \(L^2\) bound for the conditional rank-two news; finite-dimensional and representation-theoretic no-go theorems for pointwise and nonlocal linear news-square ans{\"a}tze; and a sign-flip obstruction showing that the full linearized de Sitter energy flux cannot be a nonnegative news square.  We also identify the sharpest available candidate news object: in a strongly equipped, no-incoming outgoing sector the radiant news tensor is \(n^+_{AB}=2V_{AB}\), while the detector square is represented exactly by an \(\mathrm{STF}\oplus\mathrm{vector}\) Cotton pair.  Neither construction solves the unrestricted news problem.  The conditional logical core has been formalized in Lean without asserting the open physics theorem.
 \end{abstract}
 
 \tableofcontents
@@ -463,7 +463,7 @@ Thus \(V_{AB}\), and equivalently \(n^+_{AB}=2V_{AB}\), is a genuine rank-two ne
 \end{equation}
 Under criterion 2 the Cotton vector \(C^B\) is intrinsic data, so \(X_A\) is intrinsic in this sector.  This supplies the previously missing Codazzi source for the cut-news ansatz, but only in the strongly equipped outgoing sector and only modulo the cross-formalism identification.  The reverse implication \(X_A=0\Rightarrow V_{AB}=0\) is not automatic: \eqref{eq:X-strong-out} is a first-order relation between \(V\) and \(C\), not by itself a rigidity statement.
 
-\statusD A more direct nonlocal formula is available entirely within the radiant-news formalism.  Lemma V.90 together with equation (V.91) of \cite{fabSen2022asymptotic} gives
+\statusD A more direct nonlocal formula is available entirely within the radiant-news formalism.  Lemma V.3, equations (V.70) and (V.71), and the proof of (V.88) in \cite{fabSen2022asymptotic} give
 \begin{equation}\label{eq:div-V-strong-out}
   D^B V_{AB}
   =
@@ -505,6 +505,43 @@ one obtains
 \end{equation}
 This is an explicit nonlocal rank-two news object in the strongly equipped outgoing sector.  It shows that even the genuine \(n^+=2V\) news is inverse-elliptic on each cut rather than an algebraic shear derivative.
 
+\statusD The inversion also gives a sharp cut-wise elliptic estimate.  Let \(L=l(l+1)\).  Bochner's identity on the unit round sphere, the relation \(G=\frac12 JH\) for the Hodge dual \(J\) of an STF two-tensor, and orthogonality of gradient and curl vector harmonics give
+\begin{equation}
+  \int_S |H_{AB}(Y_{lm})|^2\,dS
+  =
+  \int_S |G_{AB}(Y_{lm})|^2\,dS
+  =
+  \frac{L(L-2)}2\int_S |Y_{lm}|^2\,dS,
+  \qquad
+  \int_S |D_AY_{lm}|^2\,dS
+  =
+  \int_S |\epsilon_A{}^BD_BY_{lm}|^2\,dS
+  =
+  L\int_S |Y_{lm}|^2\,dS .
+\end{equation}
+Substituting the multipliers in \eqref{eq:V-round-inversion} therefore yields
+\begin{equation}\label{eq:V-round-L2}
+  \int_S |V_{AB}|^2\,dS
+  =
+  \sum_{l\ge2,m}
+  \left[
+  \frac{2}{L-2}\,|S^{\mathrm{grad}}_{lm}|^2
+  +
+  \frac{2(L-2)}{(L-1)^2}\,|S^{\mathrm{curl}}_{lm}|^2
+  \right],
+\end{equation}
+where \(S^{\mathrm{grad}}_{lm}=\sigma_{lm}D_AY_{lm}\) and \(S^{\mathrm{curl}}_{lm}=\tau_{lm}\epsilon_A{}^BD_BY_{lm}\).  Since \(L\ge6\),
+\begin{equation}\label{eq:V-round-bound}
+  \int_S |V_{AB}|^2\,dS
+  \;\le\;
+  \frac12\int_S |S_A|^2\,dS,
+  \qquad
+  \int_S |n^+_{AB}|^2\,dS
+  \;\le\;
+  2\int_S |S_A|^2\,dS ,
+\end{equation}
+with equality in the first inequality only for a pure \(l=2\) gradient source.  This is a quantitative inverse-elliptic smoothing statement.  It does not convert the Cotton detector into an AldS flux news.
+
 \begin{proposition}[\statusD: conditional radiant-news object]
 Under the hypotheses of Theorem 2 and Corollary VI.8 of \cite{fabSen2022asymptotic}, \(n^+_{AB}=2V_{AB}\) is a symmetric trace-free gauge-invariant rank-two tensor on each cut and
 \begin{equation}
@@ -519,6 +556,29 @@ If in addition \(p_m=0\), then Proposition 2 of \cite{senovilla2022radiation} gi
 \begin{proof}
 Symmetry, trace-freeness and gauge invariance are the content of Propositions V.1 and VI.2 of \cite{fabSen2022asymptotic}; the identity \(n^+=2V\) is Lemma VI.10 there.  The zero set follows from Theorem 2 and Corollary VI.8 of the same paper.  The last assertion follows from the equivalence \(Q_-^\mu=0,\ p_m=0\iff Q_-^\mu=Q_+^\mu=0\) in Proposition 2 of \cite{senovilla2022radiation}.
 \end{proof}
+
+\statusL The same reference gives a transport law that clarifies what the radiant news measures.  Under strict equipment, \(S^2\) leaves, and equations (VI.86), (VI.87), (VI.111), (VI.112) of \cite{fabSen2022asymptotic}, equations (VI.106)--(VI.109) give
+\begin{equation}\label{eq:radiant-transport}
+  N\,\epsilon_B{}^E C^{(\pm)}_{AE}
+  =
+  \dot n^{(\pm)}_{AB}
+  -
+  \Sigma^{(\pm)}_{(AC}n^{(\pm)}_{B)}{}^C ,
+  \qquad
+  N^2 W^{(\pm)}
+  =
+  \Big(\dot n^{(\pm)}_{AB}
+  -
+  \Sigma^{(\pm)}_{(AC}n^{(\pm)}_{B)}{}^C\Big)
+  \Big(\dot n^{(\pm)AB}
+  -
+  \Sigma^{(\pm)A}{}_{D}n^{(\pm)BD}\Big) .
+\end{equation}
+For umbilical leaves, \(\Sigma^{(\pm)}_{AB}=0\), so the superenergy density is exactly the square of the evolution derivative of the radiant news:
+\begin{equation}\label{eq:radiant-flux-square}
+  N^2 W^{(\pm)}=\dot n^{(\pm)}_{AB}\dot n^{(\pm)AB}.
+\end{equation}
+In the strongly equipped outgoing sector this becomes \(N^2W^+=4\dot V_{AB}\dot V^{AB}\).  This is a genuine flux-square representation at the level of the FAS radiant superenergy.  It is not an AldS charge-flux law: \(W^+\) is a super-Poynting density, the derivative is taken along the chosen equipment, and the existing zero-set theorem concerns \(n^+\) itself rather than \(\dot n^+\).
 
 This is not a solution of the unrestricted news problem.  It requires a chosen equipment, umbilical cuts, \(S^2\) topology, and the no-incoming condition.  It has not been shown that \(n^+_{AB}\) reproduces all AldS charge fluxes with the correct linearity in \(\xi\), nor that it has a universal \(\Lambda\to0\) limit.  What it does provide is a genuine conditional rank-two tensor whose zero set matches the outgoing radiation detector in the sharpest controlled sector currently available.
 
@@ -630,7 +690,46 @@ whereas
 a contradiction since \(Ky\neq0\).
 \end{proof}
 
-The Lean file proves this as \texttt{NewsSquareObstruction.no\_linear\_pointwise\_square}.  The theorem rules out a purely pointwise linear square of the outgoing Cotton data.  It does not rule out the cut-Codazzi construction \(N_{AB}=V_{AB}+M_{AB}\), nor nonlocal or total-derivative corrections.
+The Lean file proves this as \texttt{NewsSquareObstruction.no\_linear\_pointwise\_square}.  The theorem rules out a purely pointwise linear square of the outgoing Cotton data.  It does not by itself rule out the cut-Codazzi construction \(N_{AB}=V_{AB}+M_{AB}\); the following result sharpens the nonlocal case for maps from the full detector pair into one rank-two tensor.
+
+\subsection{A representation-theoretic nonlocal obstruction}
+
+\statusD The pointwise dimension count extends to a nonlocal obstruction on the round cut.  Let \(\mathcal H_l\) denote the \((2l+1)\)-dimensional irreducible \(\mathrm{SO}(3)\)-representation of scalar harmonics of degree \(l\ge2\).  On the unit round sphere,
+\begin{equation}
+  \mathfrak{STF}(S^2)_l
+  =
+  \operatorname{span}\{H_{AB}(Y_{lm}),G_{AB}(Y_{lm})\}_{m}
+  \cong
+  \mathcal H_l\oplus\mathcal H_l ,
+\end{equation}
+while vector harmonics decompose as
+\begin{equation}
+  \mathfrak{X}(S^2)_l
+  =
+  \operatorname{span}\{D_AY_{lm},\epsilon_A{}^BD_BY_{lm}\}_{m}
+  \cong
+  \mathcal H_l\oplus\mathcal H_l .
+\end{equation}
+Consequently the outgoing detector pair \((\hat C_{AB},C_A)\) lies in \(4\mathcal H_l\), whereas a single rank-two STF news tensor lies in \(2\mathcal H_l\).
+
+\begin{proposition}[\statusD]
+Let \(L:\mathfrak{STF}(S^2)\oplus\mathfrak{X}(S^2)\to\mathfrak{STF}(S^2)\) be a linear map that is \(\mathrm{SO}(3)\)-equivariant, possibly nonlocal and with arbitrary spectral multipliers.  Then \(L\) has a nontrivial kernel on every \(l\ge2\) sector.  In particular, no such \(L\) can satisfy
+\begin{equation}
+  \|L(x,y)\|^2=\|x\|^2+\|y\|^2
+\end{equation}
+for all detector pairs \((x,y)\).
+\end{proposition}
+\begin{proof}
+Schur's lemma reduces the restriction of \(L\) to each isotypic component to a matrix
+\begin{equation}
+  L_l:\mathbb R^4\otimes\mathcal H_l\longrightarrow\mathbb R^2\otimes\mathcal H_l .
+\end{equation}
+The domain has fibre dimension \(4\) and the target fibre dimension \(2\), so \(L_l\) cannot be injective.  Norm preservation would imply injectivity, a contradiction.
+\end{proof}
+
+Thus the full detector pair cannot be compressed into one rotation-covariant rank-two news tensor by any linear nonlocal operation on a round cut.  The minimal linear target preserving \(-p_m\) is the pair itself.  A rank-two object such as \(n^+_{AB}=2V_{AB}\) survives only because the strongly equipped outgoing sector restricts attention to a two-dimensional subdetector, namely the Cotton one-form that generates \(V_{AB}\) by inverse divergence.  The obstruction assumes linearity and \(\mathrm{SO}(3)\)-equivariance; nonlinear constructions, symmetry-breaking choices, \(\xi\)-dependent targets, and multi-cut or time-dependent maps are not excluded.
+
+The finite-mode algebra is \texttt{HarmonicDimensionObstruction.no\_injective\_pair\_to\_tensor}: no injective \(\mathbb R\)-linear map exists from a \(4\)-dimensional mode to a \(2\)-dimensional mode.
 
 \section{Linearized de Sitter waves}
 
@@ -808,6 +907,26 @@ so positivity is not representative-independent even in this restricted class.
 \end{equation}
 with \(\cR_{ab}\) reducing, in the nonrelativistic short-duration regime, to the third time derivative of the mass quadrupole plus \(O(H)\) corrections.
 
+\statusL Fernández--Álvarez and Senovilla give a separate flat-limit constraint at the level of the super-Poynting detector \cite{fabSen2022asymptotic}.  Assume that \(\lim_{\Lambda\to0}g_{\alpha\beta}\) exists and defines a good Lorentzian metric.  Their canonical asymptotic supermomentum obeys
+\begin{equation}
+  \lim_{\Lambda\to0}p^\alpha
+  =
+  Q^\alpha_{\mathrm{flat}}
+  =
+  -\big(N^\mu N^\nu N^\rho \mathcal D_{\alpha\mu\nu\rho}\big)\big|_{\Lambda=0}.
+\end{equation}
+Hence criterion 1 in the \(\Lambda>0\) theory, namely \(p^\alpha=0\), forces \(Q^\alpha_{\mathrm{flat}}=0\) whenever the regular limit exists; in the flat theory this is equivalent to vanishing of the Bondi news.  For the radiant supermomenta \(q^\pm\) obtained from the rescaled null fields with \(\|M^\alpha\|^2\propto\Lambda^p\), \(p>0\), their Lemma IV.6 gives
+\begin{equation}
+  \lim_{\Lambda\to0}q^\pm{}^\alpha
+  =
+  \frac{(1\pm B)^3}{2\sqrt2}\,Q^\alpha_{\mathrm{flat}},
+  \qquad
+  \lim_{\Lambda\to0}q^+\!=0=\lim_{\Lambda\to0}q^-
+  \iff
+  Q^\alpha_{\mathrm{flat}}=0 .
+\end{equation}
+This is a regular-limit implication from the de Sitter detector to the flat detector.  It does not show that \(V_{AB}\) or \(n^+_{AB}=2V_{AB}\) has a flat limit, nor that the converse implication holds without the regularity hypothesis.
+
 \statusD The sign-flip operation in the sign-flip obstruction can be made explicit in the TT family of \cite{ashtekar2015linear}.  Writing
 \begin{equation}
   E_{\vec k}^{(s)}=c_{\vec k}^{(s)}\sin(k/H)+d_{\vec k}^{(s)}\cos(k/H),
@@ -859,11 +978,13 @@ Two Lean files were produced and verified.
   \item the conditional cut-news skeleton \texttt{CutNews.CutNewsCandidate}, with \texttt{source\_zero\_iff\_news\_zero}, \texttt{news\_zero\_iff\_detector\_zero}, and the contrapositive \texttt{news\_nonzero\_iff\_radiation};
   \item the linearized algebra \texttt{scaleSym}, \texttt{commutator\_scaleSym\_scaleSym}, \texttt{superPoynting\_scaleSym\_scaleSym}, and \texttt{linearized\_superPoynting\_is\_quadratic};
   \item the flux-linearity obstruction \texttt{LinearFluxObstruction.no\_nonzero\_constant\_square};
-  \item the pointwise news-square obstruction \texttt{NewsSquareObstruction.no\_linear\_pointwise\_square};
+  \item the pointwise news-square obstruction \texttt{NewsSquareObstruction.no\_linear\_pointwise\_square} and the harmonic-mode obstruction \texttt{HarmonicDimensionObstruction.no\_injective\_pair\_to\_tensor};
   \item the linearized sign-flip obstruction \texttt{LinearizedFluxObstruction.SignFlipNewsModel}, \texttt{energy\_zero\_of\_sign\_flip\_square}, and \texttt{no\_sign\_flip\_square};
   \item the conditional strongly equipped radiant-news core \texttt{RadiantCutNews.StrongModel}, \texttt{nPlus\_zero\_iff\_V\_zero}, \texttt{Zplus\_iff\_V\_zero}, and \texttt{V\_zero\_iff\_Pzero};
-  \item the inverse-divergence core \texttt{RadiantCutNews.StrongOutgoingInversion.Model} and \texttt{div\_V\_eq\_half\_source};
-  \item the detector-square representative \texttt{DetectorSquareNews.Pair}, \texttt{DetectorSquareNews.Model}, and \texttt{DetectorSquareNews.normalFlux\_zero\_iff\_news\_zero}.
+  \item the inverse-divergence core \texttt{RadiantCutNews.StrongOutgoingInversion.Model}, \texttt{div\_V\_eq\_half\_source}, and \texttt{nPlus\_eq\_twoV\_of\_div};
+  \item the detector-square representative \texttt{DetectorSquareNews.Pair}, \texttt{DetectorSquareNews.Model}, and \texttt{DetectorSquareNews.normalFlux\_zero\_iff\_news\_zero};
+  \item the radiant transport-square core \texttt{RadiantNewsTransport.Model}, \texttt{W\_nonneg}, and \texttt{W\_zero\_iff\_nDot\_zero};
+  \item the regular flat-limit implication \texttt{FlatLimitConstraint.Model} and \texttt{flat\_news\_zero}.
 \end{itemize}
 
 Both files pass:
@@ -902,7 +1023,7 @@ Specific remaining tasks are:
   \item Prove a controlled \(\Lambda\to0\) limit with explicit scaling assumptions.
 \end{enumerate}
 
-The positive result in this manuscript is conditional but concrete: under strong equipment, \(S^2\) leaves, and no incoming radiation, the rank-two radiant news is \(n^+_{AB}=2V_{AB}\).  The detector-square pair \eqref{eq:detector-news-pair} also represents the normal outgoing flux exactly in the outgoing sector.  The negative results narrow what remains: a single \(\xi\)-independent positive scalar cannot represent all charge fluxes; a pointwise linear square of outgoing Cotton data into the STF tensor bundle cannot reproduce the known positive density; the full linearized de Sitter energy flux cannot be a sign-definite news square; and the naive Bondi shear coefficient is not free when \(\Lambda\neq0\).  The round-cut inversions \eqref{eq:codazzi-inversion} and \eqref{eq:V-round-inversion} show that both the unrestricted cut-Codazzi candidate and the strongly equipped radiant news are nonlocal on each cut.  The decisive open step is to extend the conditional \(n^+=2V\) construction beyond strongly equipped outgoing data and to couple it to the AldS charge-flux law.
+The positive result in this manuscript is conditional but concrete: under strong equipment, \(S^2\) leaves, and no incoming radiation, the rank-two radiant news is \(n^+_{AB}=2V_{AB}\).  The transport law \eqref{eq:radiant-flux-square} represents the radiant superenergy as the square of the equipment derivative of \(n^\pm\), while the detector-square pair \eqref{eq:detector-news-pair} represents the normal outgoing flux exactly in the outgoing sector.  The negative results narrow what remains: a single \(\xi\)-independent positive scalar cannot represent all charge fluxes; pointwise and representation-theoretic linear squares of the full outgoing detector pair into the STF tensor bundle cannot reproduce the known positive density; the full linearized de Sitter energy flux cannot be a sign-definite news square; and the naive Bondi shear coefficient is not free when \(\Lambda\neq0\).  The round-cut inversions \eqref{eq:codazzi-inversion} and \eqref{eq:V-round-inversion} show that both the unrestricted cut-Codazzi candidate and the strongly equipped radiant news are nonlocal on each cut.  The decisive open step is to extend the conditional \(n^+=2V\) construction beyond strongly equipped outgoing data and to couple it to the AldS charge-flux law.
 
 \bibliographystyle{plainnat}
 \bibliography{lambda_positive_bondi}

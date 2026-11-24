@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Debian) (preloaded format=pdflatex 2026.11.24)  24 NOV 2026 21:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Debian) (preloaded format=pdflatex 2026.11.24)  24 NOV 2026 21:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -478,65 +478,108 @@ Overfull \hbox (38.59065pt too wide) detected at line 505
  n[] \OT1/cmr/m/n/10.95 = 2\OML/cmm/m/it/10.95 V[]:
  []
 
-[11] [12] [13]
-Overfull \hbox (59.30762pt too wide) in paragraph at lines 633--634
+
+Overfull \hbox (236.07484pt too wide) detected at line 521
+[][][][][] \OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 H[]\OT1/cmr/m/n/10.95 (\OML
+/cmm/m/it/10.95 Y[]\OT1/cmr/m/n/10.95 )\OMS/cmsy/m/n/10.95 j[] \OML/cmm/m/it/10
+.95 dS \OT1/cmr/m/n/10.95 = [][] \OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 G[]\O
+T1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 Y[]\OT1/cmr/m/n/10.95 )\OMS/cmsy/m/n/10.9
+5 j[] \OML/cmm/m/it/10.95 dS \OT1/cmr/m/n/10.95 = [] [][] \OMS/cmsy/m/n/10.95 j
+\OML/cmm/m/it/10.95 Y[]\OMS/cmsy/m/n/10.95 j[] \OML/cmm/m/it/10.95 dS;  [][] \O
+MS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 D[]Y[]\OMS/cmsy/m/n/10.95 j[] \OML/cmm/m
+/it/10.95 dS \OT1/cmr/m/n/10.95 = [][] \OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95
+ ^^O[][][]D[]Y[]\OMS/cmsy/m/n/10.95 j[] \OML/cmm/m/it/10.95 dS \OT1/cmr/m/n/10.
+95 = \OML/cmm/m/it/10.95 L [][] \OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 Y[]\OM
+S/cmsy/m/n/10.95 j[] \OML/cmm/m/it/10.95 dS:
+ []
+
+[11]
+Overfull \hbox (92.31554pt too wide) detected at line 576
+[][][]\OML/cmm/m/it/10.95 N ^^O[][][]C[] \OT1/cmr/m/n/10.95 = [] \OMS/cmsy/m/n/
+10.95 ^^@ \OT1/cmr/m/n/10.95 ^^F[]\OML/cmm/m/it/10.95 n[][][];  N[]W[] \OT1/cmr
+/m/n/10.95 = [][] \OMS/cmsy/m/n/10.95 ^^@ \OT1/cmr/m/n/10.95 ^^F[]\OML/cmm/m/it
+/10.95 n[][][][][][] \OMS/cmsy/m/n/10.95 ^^@ \OT1/cmr/m/n/10.95 ^^F[][][]\OML/c
+mm/m/it/10.95 n[][]:
+ []
+
+[12] [13] [14]
+Overfull \hbox (59.30762pt too wide) in paragraph at lines 693--694
 []\T1/cmr/m/n/10.95 The Lean file proves this as \T1/cmtt/m/n/10.95 NewsSquareO
 bstruction.no_linear_pointwise_square\T1/cmr/m/n/10.95 .
  []
 
-[14]
-Overfull \hbox (53.44714pt too wide) in paragraph at lines 681--682
+[15]
+Overfull \hbox (23.74037pt too wide) in paragraph at lines 730--731
+\T1/cmr/m/n/10.95 symmetry-breaking choices, $\OML/cmm/m/it/10.95 ^^X$\T1/cmr/m
+/n/10.95 -dependent tar-gets, and multi-cut or time-dependent
+ []
+
+
+Overfull \hbox (100.66982pt too wide) in paragraph at lines 732--733
+[]\T1/cmr/m/n/10.95 The finite-mode al-ge-bra is \T1/cmtt/m/n/10.95 HarmonicDim
+ensionObstruction.no_injective_pair_to_tensor\T1/cmr/m/n/10.95 :
+ []
+
+
+Overfull \hbox (2.10957pt too wide) in paragraph at lines 732--733
+\T1/cmr/m/n/10.95 no in-jec-tive $\U/msb/m/n/10.95 R$\T1/cmr/m/n/10.95 -linear 
+map ex-ists from a $\OT1/cmr/m/n/10.95 4$\T1/cmr/m/n/10.95 -dimensional mode to
+ a $\OT1/cmr/m/n/10.95 2$\T1/cmr/m/n/10.95 -dimensional
+ []
+
+[16]
+Overfull \hbox (53.44714pt too wide) in paragraph at lines 780--781
 \T1/cmtt/m/n/10.95 superPoynting_scaleSym_scaleSym\T1/cmr/m/n/10.95 , and \T1/c
 mtt/m/n/10.95 linearized_superPoynting_is_quadratic\T1/cmr/m/n/10.95 . 
  []
 
 
-Overfull \hbox (10.2584pt too wide) in paragraph at lines 685--686
+Overfull \hbox (10.2584pt too wide) in paragraph at lines 784--785
 \T1/cmss/m/n/10.95 [L]\T1/cmr/m/n/10.95 Ashtekar--Bonga--Kesavan solve the lin-
 earized field equa-tions on the Poincaré
  []
 
-[15]
-Overfull \hbox (67.43504pt too wide) in paragraph at lines 749--750
+[17]
+Overfull \hbox (67.43504pt too wide) in paragraph at lines 848--849
 \T1/cmtt/m/n/10.95 LinearizedFluxObstruction.SignFlipNewsModel\T1/cmr/m/n/10.95
  , \T1/cmtt/m/n/10.95 energy_zero_of_sign_flip_square\T1/cmr/m/n/10.95 ,
  []
 
-[16]
-Underfull \hbox (badness 10000) in paragraph at lines 775--775
+
+Underfull \hbox (badness 10000) in paragraph at lines 874--874
 []\T1/cmr/m/n/10.95 Kottler /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 775--775
+Underfull \hbox (badness 10000) in paragraph at lines 874--874
 \T1/cmr/m/n/10.95 Schwarzschild--
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 777--777
+Underfull \hbox (badness 10000) in paragraph at lines 876--876
 []\T1/cmr/m/n/10.95 Robinson--
  []
 
-
-Overfull \hbox (6.46938pt too wide) in paragraph at lines 786--787
+[18]
+Overfull \hbox (6.46938pt too wide) in paragraph at lines 885--886
 \T1/cmr/m/n/10.95 time trans-la-tion and a dif-fer-ent rep-re-sen-ta-tive, the 
 flux con-tains a $\OT1/cmr/m/n/10.95 ^^C$\T1/cmr/m/n/10.95 -dependent
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 799.
+(hyperref)                removing `math shift' on input line 898.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\Lambda' on input line 799.
+(hyperref)                removing `\Lambda' on input line 898.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\to' on input line 799.
+(hyperref)                removing `\to' on input line 898.
 
-[17]
-Overfull \hbox (12.75565pt too wide) detected at line 816
+[19]
+Overfull \hbox (12.75565pt too wide) detected at line 935
 [][][]\OML/cmm/m/it/10.95 E[] \OT1/cmr/m/n/10.95 = \OML/cmm/m/it/10.95 c[] []\O
 T1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 k=H\OT1/cmr/m/n/10.95 ) + \OML/cmm/m/it/1
 0.95 d[] []\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 k=H\OT1/cmr/m/n/10.95 )\OML/
@@ -546,98 +589,118 @@ cmm/m/it/10.95 ;  B[] \OT1/cmr/m/n/10.95 = \OMS/cmsy/m/n/10.95 ^^@\OML/cmm/m/it
 /n/10.95 )\OML/cmm/m/it/10.95 ;
  []
 
-
-Overfull \hbox (35.97145pt too wide) in paragraph at lines 846--848
+[20]
+Overfull \hbox (35.97145pt too wide) in paragraph at lines 965--967
 \T1/cmr/m/n/10.95 proves the ab-stract flux lem-mas \T1/cmtt/m/n/10.95 conserve
 d_of_flux_free\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 charge_nonincreasing\T1/cm
 r/m/n/10.95 ,
  []
 
 
-Overfull \hbox (8.15897pt too wide) in paragraph at lines 846--848
+Overfull \hbox (8.15897pt too wide) in paragraph at lines 965--967
 \T1/cmtt/m/n/10.95 equal_charge_iff_zero_flux\T1/cmr/m/n/10.95 , and a toy mode
 l \T1/cmtt/m/n/10.95 toy_charge_nonincreasing\T1/cmr/m/n/10.95 .
  []
 
 
-Overfull \hbox (87.47224pt too wide) in paragraph at lines 846--848
+Overfull \hbox (87.47224pt too wide) in paragraph at lines 965--967
 \T1/cmr/m/n/10.95 The open physics is rep-re-sented by struc-tures \T1/cmtt/m/n
 /10.95 RigidityTarget \T1/cmr/m/n/10.95 and \T1/cmtt/m/n/10.95 DesiredNewsConst
 ruction\T1/cmr/m/n/10.95 ,
  []
 
-[18]
-Overfull \hbox (25.90727pt too wide) in paragraph at lines 855--856
+
+Overfull \hbox (25.90727pt too wide) in paragraph at lines 974--975
 []\T1/cmr/m/n/10.95 the $\OT1/cmr/m/n/10.95 ^^C \OML/cmm/m/it/10.95 > \OT1/cmr/
 m/n/10.95 0$ \T1/cmr/m/n/10.95 equiv-a-lence \T1/cmtt/m/n/10.95 canonicalSuperP
 oyntingZero_iff_commutatorZero
  []
 
 
-Overfull \hbox (58.6961pt too wide) in paragraph at lines 857--858
+Overfull \hbox (58.6961pt too wide) in paragraph at lines 976--977
 []\T1/cmr/m/n/10.95 exact-solution al-ge-bra \T1/cmtt/m/n/10.95 rocket_noRadiat
 ion_iff \T1/cmr/m/n/10.95 and \T1/cmtt/m/n/10.95 outgoing_noRadiation_iff\T1/cm
 r/m/n/10.95 ; 
  []
 
 
-Overfull \hbox (8.07457pt too wide) in paragraph at lines 859--860
+Overfull \hbox (8.07457pt too wide) in paragraph at lines 978--979
 \T1/cmtt/m/n/10.95 source_zero_iff_news_zero\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10
 .95 news_zero_iff_detector_zero\T1/cmr/m/n/10.95 , and the
  []
 
 
-Overfull \hbox (163.132pt too wide) in paragraph at lines 860--861
+Overfull \hbox (163.132pt too wide) in paragraph at lines 979--980
 []\T1/cmr/m/n/10.95 the lin-earized al-ge-bra \T1/cmtt/m/n/10.95 scaleSym\T1/cm
 r/m/n/10.95 , \T1/cmtt/m/n/10.95 commutator_scaleSym_scaleSym\T1/cmr/m/n/10.95 
 , \T1/cmtt/m/n/10.95 superPoynting_scaleSym_scaleSym\T1/cmr/m/n/10.95 ,
  []
 
 
-Overfull \hbox (79.0911pt too wide) in paragraph at lines 861--862
+Overfull \hbox (79.0911pt too wide) in paragraph at lines 980--981
 []\T1/cmr/m/n/10.95 the flux-linearity ob-struc-tion \T1/cmtt/m/n/10.95 LinearF
 luxObstruction.no_nonzero_constant_square\T1/cmr/m/n/10.95 ; 
  []
 
 
-Overfull \hbox (122.5179pt too wide) in paragraph at lines 862--863
+Overfull \hbox (119.4918pt too wide) in paragraph at lines 981--982
 []\T1/cmr/m/n/10.95 the point-wise news-square ob-struc-tion \T1/cmtt/m/n/10.95
- NewsSquareObstruction.no_linear_pointwise_square\T1/cmr/m/n/10.95 ; 
+ NewsSquareObstruction.no_linear_pointwise_square
  []
 
 
-Overfull \hbox (75.36308pt too wide) in paragraph at lines 863--864
+Overfull \hbox (157.01031pt too wide) in paragraph at lines 981--982
+\T1/cmr/m/n/10.95 and the harmonic-mode ob-struc-tion \T1/cmtt/m/n/10.95 Harmon
+icDimensionObstruction.no_injective_pair_to_tensor\T1/cmr/m/n/10.95 ; 
+ []
+
+[21]
+Overfull \hbox (75.36308pt too wide) in paragraph at lines 982--983
 []\T1/cmr/m/n/10.95 the lin-earized sign-flip ob-struc-tion \T1/cmtt/m/n/10.95 
 LinearizedFluxObstruction.SignFlipNewsModel\T1/cmr/m/n/10.95 ,
  []
 
 
-Overfull \hbox (61.43422pt too wide) in paragraph at lines 864--865
+Overfull \hbox (61.43422pt too wide) in paragraph at lines 983--984
 []\T1/cmr/m/n/10.95 the con-di-tional strongly equipped radiant-news core \T1/c
 mtt/m/n/10.95 RadiantCutNews.StrongModel\T1/cmr/m/n/10.95 ,
  []
 
 
-Overfull \hbox (1.63614pt too wide) in paragraph at lines 864--865
+Overfull \hbox (1.63614pt too wide) in paragraph at lines 983--984
 \T1/cmtt/m/n/10.95 nPlus_zero_iff_V_zero\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 
 Zplus_iff_V_zero\T1/cmr/m/n/10.95 , and \T1/cmtt/m/n/10.95 V_zero_iff_Pzero\T1/
 cmr/m/n/10.95 ; 
  []
 
 
-Overfull \hbox (43.74884pt too wide) in paragraph at lines 865--866
+Overfull \hbox (46.77493pt too wide) in paragraph at lines 984--985
 []\T1/cmr/m/n/10.95 the inverse-divergence core \T1/cmtt/m/n/10.95 RadiantCutNe
-ws.StrongOutgoingInversion.Model
+ws.StrongOutgoingInversion.Model\T1/cmr/m/n/10.95 ,
  []
 
 
-Overfull \hbox (103.67859pt too wide) in paragraph at lines 866--867
+Overfull \hbox (103.67859pt too wide) in paragraph at lines 985--986
 []\T1/cmr/m/n/10.95 the detector-square rep-re-sen-ta-tive \T1/cmtt/m/n/10.95 D
 etectorSquareNews.Pair\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 DetectorSquareNews
 .Model\T1/cmr/m/n/10.95 ,
  []
 
-[19] [20] (./LambdaPositive_Bondi_Article.bbl [21]) [22] (./LambdaPositive_Bond
+
+Overfull \hbox (25.58244pt too wide) in paragraph at lines 986--987
+[]\T1/cmr/m/n/10.95 the ra-di-ant transport-square core \T1/cmtt/m/n/10.95 Radi
+antNewsTransport.Model\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 W_nonneg\T1/cmr/m/
+n/10.95 ,
+ []
+
+
+Overfull \hbox (66.52269pt too wide) in paragraph at lines 987--988
+[]\T1/cmr/m/n/10.95 the reg-u-lar flat-limit im-pli-ca-tion \T1/cmtt/m/n/10.95 
+FlatLimitConstraint.Model \T1/cmr/m/n/10.95 and \T1/cmtt/m/n/10.95 flat_news_ze
+ro\T1/cmr/m/n/10.95 . 
+ []
+
+[22] (./LambdaPositive_Bondi_Article.bbl [23] [24]) [25] (./LambdaPositive_Bond
 i_Article.aux)
  ***********
 LaTeX2e <2026-11-01>
@@ -645,16 +708,16 @@ L3 programming layer <2026-09-09>
  ***********
 Package rerunfilecheck Info: File `LambdaPositive_Bondi_Article.out' has not ch
 anged.
-(rerunfilecheck)             Checksum: 0175DE1392DB4D801F8EB5BA84E57165;6809.
+(rerunfilecheck)             Checksum: 978E2AF0B8B8C72ABEA216CD481F0DBB;7111.
  ) 
 Here is how much of TeX's memory you used:
- 11621 strings out of 468958
- 176776 string characters out of 5454596
- 599531 words of memory out of 5000000
- 40472 multiletter control sequences out of 15000+600000
+ 11642 strings out of 468958
+ 177042 string characters out of 5454596
+ 599903 words of memory out of 5000000
+ 40477 multiletter control sequences out of 15000+600000
  665226 words of font info for 150 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 74i,11n,79p,1776b,594s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 74i,11n,79p,1888b,594s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/bob/.texlive2026/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1095.600pk
 > </home/bob/.texlive2026/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1095.600pk>
  </home/bob/.texlive2026/texmf-var/fonts/pk/ljfour/jknappen/ec/ecsi1095.600pk> 
@@ -689,10 +752,10 @@ c/amsfonts/euler/eufm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
 msfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
 sfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/rsf
 s/rsfs10.pfb>
-Output written on LambdaPositive_Bondi_Article.pdf (22 pages, 427925 bytes).
+Output written on LambdaPositive_Bondi_Article.pdf (25 pages, 442725 bytes).
 PDF statistics:
- 1178 PDF objects out of 1200 (max. 8388607)
- 600 compressed objects within 6 object streams
- 166 named destinations out of 1000 (max. 500000)
- 241 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1221 PDF objects out of 1440 (max. 8388607)
+ 636 compressed objects within 7 object streams
+ 182 named destinations out of 1000 (max. 500000)
+ 249 words of extra memory for PDF output out of 10000 (max. 10000000)
 
