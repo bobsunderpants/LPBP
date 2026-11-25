@@ -1,4 +1,4 @@
-\begin{thebibliography}{15}
+\begin{thebibliography}{16}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -58,12 +58,23 @@ Francisco Fern{\'a}ndez-{\'A}lvarez and Jos{\'e} M.~M. Senovilla.
 \newblock \doi{10.1103/PhysRevD.102.101502}.
 \newblock URL \url{https://arxiv.org/abs/2007.11677}.
 
-\bibitem[Fern{\'a}ndez-{\'A}lvarez and Senovilla(2022)]{fabSen2022asymptotic}
+\bibitem[Fern{\'a}ndez-{\'A}lvarez and
+  Senovilla(2022{\natexlab{a}})]{fabSen2022asymptotic}
 Francisco Fern{\'a}ndez-{\'A}lvarez and Jos{\'e} M.~M. Senovilla.
 \newblock Asymptotic structure with a positive cosmological constant.
-\newblock \emph{Classical and Quantum Gravity}, 39:\penalty0 165012, 2022.
+\newblock \emph{Classical and Quantum Gravity}, 39:\penalty0 165012,
+  2022{\natexlab{a}}.
 \newblock \doi{10.1088/1361-6382/ac395b}.
 \newblock URL \url{https://arxiv.org/abs/2105.09167}.
+
+\bibitem[Fern{\'a}ndez-{\'A}lvarez and
+  Senovilla(2022{\natexlab{b}})]{fabSen2022asymptoticFlat}
+Francisco Fern{\'a}ndez-{\'A}lvarez and Jos{\'e} M.~M. Senovilla.
+\newblock Asymptotic structure with vanishing cosmological constant.
+\newblock \emph{Classical and Quantum Gravity}, 39:\penalty0 165011,
+  2022{\natexlab{b}}.
+\newblock \doi{10.1088/1361-6382/ac387e}.
+\newblock URL \url{https://arxiv.org/abs/2105.09166}.
 
 \bibitem[Fern{\'a}ndez-{\'A}lvarez and
   Senovilla(2026{\natexlab{a}})]{fabSen2025characterization}

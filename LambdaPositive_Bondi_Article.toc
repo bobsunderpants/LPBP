@@ -40,8 +40,10 @@
 \contentsline {section}{\numberline {9}The \(\Lambda \to 0\) limit}{38}{section.9}%
 \contentsline {subsubsection}{\numberline {9.0.1}Flat flux bridge from the retarded source news seed}{39}{subsubsection.9.0.1}%
 \contentsline {subsubsection}{\numberline {9.0.2}Exact first-jet scaling in the flat limit}{40}{subsubsection.9.0.2}%
-\contentsline {paragraph}{Bounded-detector resolution of \(\beta _+\).}{41}{section*.3}%
-\contentsline {section}{\numberline {10}Lean formalization of the conditional core}{43}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Core scaffold}{43}{subsection.10.1}%
-\contentsline {subsection}{\numberline {10.2}Mathlib scaffold}{43}{subsection.10.2}%
-\contentsline {section}{\numberline {11}Conclusion and open problems}{45}{section.11}%
+\contentsline {paragraph}{Divergence resolution of \(\beta _+\).}{41}{section*.3}%
+\contentsline {paragraph}{Flat news normalization from the companion tidal theory.}{42}{section*.4}%
+\contentsline {paragraph}{Spectral weight of the flat detector square.}{43}{section*.5}%
+\contentsline {section}{\numberline {10}Lean formalization of the conditional core}{44}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Core scaffold}{44}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Mathlib scaffold}{44}{subsection.10.2}%
+\contentsline {section}{\numberline {11}Conclusion and open problems}{46}{section.11}%

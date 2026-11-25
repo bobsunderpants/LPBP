@@ -597,13 +597,52 @@ For radiating no-incoming families \(B=1\), so \(\alpha_+\) has a finite nonzero
 limit whenever \(Q_{\rm flat}\neq0\): the tensor first-jet component has a universal
 \(N\)-renormalized flat limit. The full first jet needs \(\beta_\infty\), which is
 not fixed by \(q^+\) when \(K^-\to0\). The obstruction is nevertheless concrete:
-\(\beta_+=4N^2\|C_A[n^+]\|^2\), so bounded vector-detector data give
-\(\beta_+\to0\) and the full \(N\)-renormalized jet limit \(\alpha_\infty/4\);
-a finite nonzero \(\beta_\infty\) requires \(\|C_A[n^+]\|\sim N^{-1}\). Thus
-\(\beta_+\) measures detector growth along the collapsing incoming cut-normal
-direction, not an independent radiation coefficient. Lean:
+\(N C_A[n^+]=-\tfrac12\epsilon D n^+\) and
+\(\beta_+=|D n^+|^2\), so the finite detector is \(N C_A[n^+]\), not
+\(C_A[n^+]\). If \(n^+\to\mathring n\) in \(C^1\), then
+\(\beta_\infty=|\mathring D\mathring n|^2\). Bounded \(C_A\) forces
+\(\mathring n=0\) on the radiative sector; radiating families should have
+\(C_A\sim N^{-1}\) and finite nonzero \(\beta_\infty\). Thus \(\beta_+\)
+is the angular-divergence square of flat radiant news, not an independent
+radiation coefficient. Lean:
 `FirstJetFlatScaling.Algebra`, `scaled_phi_eq`, `scaled_vector_eq`,
-`scaled_jet_eq`, `BetaPlusBound.Model`, `beta_eq`, `beta_le_of_bound`.
+`scaled_jet_eq`, `BetaPlusDivergence.Algebra`, `beta_eq_div_sq`,
+`beta_eq_four_Nsq_Csq`, `NC_eq_neg_half_div`, `tendsto_beta`, `tendsto_NC`.
+
+The flat companion theory now fixes the missing normalization. Its news detector
+satisfies \(\mathcal Z=2|D\mathcal N|^2\), so if the controlled limit is the FAS
+news, \(\mathring n=\mathcal N\), then
+\[
+\beta_\infty=\tfrac12\mathcal Z
+             = r^2 D_B N^{\rm Bondi\,BC}D_D N^{\rm Bondi\,D}{}_C
+             = |D N^{\rm cov}|^2 .
+\]
+Thus \(\beta_\infty\) is the angular-divergence square of the rescaled Bondi
+news, not an independent coefficient. The identification \(\mathring n=\mathcal N\)
+remains conditional; the residual datum is now the geometric flat-limit
+identification, not a free normalization constant. Lean:
+`FlatNewsNormalization.FlatFAS`, `betaInf_eq_half_zFlat`,
+`zFlat_eq_two_betaInf`, `BondiFrame`, `covDivSq_eq`,
+`betaInf_eq_bondiDivSq`.
+
+The spectral form of this result is sharper. For an STF tensor harmonic on the
+unit sphere,
+\[
+\int D^B E_{AB}D_C E^{CB}
+=\frac{(l-1)(l+2)}{2}\int E_{AB}E^{AB},
+\]
+so the integrated flat detector coefficient is a weighted Bondi flux,
+\[
+\mathcal B_\infty:=\int\beta_\infty
+=32\pi G\sum_{l\ge2,m}\lambda_l P_{lm},\qquad
+\lambda_l=\frac{(l-1)(l+2)}{2}.
+\]
+Hence \(\mathcal B_\infty\ge64\pi GP_{\rm Bondi}\), with equality for a pure
+quadrupole, but \(\mathcal B_\infty/P_{\rm Bondi}\) is unbounded over radiative
+harmonics. Thus \(\beta_\infty\) carries angular-derivative information not
+present in the total Bondi power. Lean: `BetaSpectralWeight.Mode`,
+`lambda_ge_two`, `betaSq_eq_flux_weight`, `betaSq_ge_two_flux`,
+`betaSq_eq_quadrupole`.
 
 A conformal phase-space calculation adds a separate finite flux
 \[
