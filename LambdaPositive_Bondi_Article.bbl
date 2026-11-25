@@ -1,4 +1,4 @@
-\begin{thebibliography}{13}
+\begin{thebibliography}{15}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -44,6 +44,11 @@ Abhay Ashtekar, B{\'e}atrice Bonga, and Aruna Kesavan.
 B{\'e}atrice Bonga, Claudio Bunster, and Alfredo P{\'e}rez.
 \newblock Gravitational radiation with $\lambda>0$, 2023.
 \newblock URL \url{https://arxiv.org/abs/2306.08029}.
+
+\bibitem[Dobkowski-Ry{\l}ko and Lewandowski(2025)]{dobkowski2025comparison}
+Denis Dobkowski-Ry{\l}ko and Jerzy Lewandowski.
+\newblock Quadrupole formulae with cosmological constant: comparison, 2025.
+\newblock URL \url{https://arxiv.org/abs/2407.20800}.
 
 \bibitem[Fern{\'a}ndez-{\'A}lvarez and Senovilla(2020)]{fabSen2020radiation}
 Francisco Fern{\'a}ndez-{\'A}lvarez and Jos{\'e} M.~M. Senovilla.
@@ -106,5 +111,10 @@ Jos{\'e} M.~M. Senovilla.
 \newblock \emph{Universe}, 2022.
 \newblock URL \url{https://arxiv.org/abs/2208.05436}.
 \newblock Invited review; arXiv v1.
+
+\bibitem[Wald(1984)]{wald1984general}
+Robert~M. Wald.
+\newblock \emph{General Relativity}.
+\newblock The University of Chicago Press, 1984.
 
 \end{thebibliography}

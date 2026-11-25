@@ -504,10 +504,13 @@ maps detector weight \(-2\) to tensor weight \(-1\) and obeys
 \(\mathcal J_{\tilde q}^{\rm cov}(\omega^{-2}C)=\omega^{-1}\mathcal J_q^{\rm cov}C\).
 Because \(KP^{-1/2}\) is an isometry for the weighted pairings, arbitrary-cut
 first-jet norm and zero set are conformally covariant once conformal-Killing
-components are excluded; no uniformization is needed. Lean:
+components are excluded; no uniformization is needed. The map is canonical:
+\(\widetilde K_q=\mu_q^{-3}K_q^{(2)}\mu_q^4\) is local and conformally
+covariant, and \(\mathcal J_q^{\rm cov}\) is the unique isometric polar factor
+of \(\widetilde K_q\) on the non-kernel sector. Lean:
 `ArbitraryCutJetNews.PolarData`, `toIsometry`, `J_zero_iff`, plus
 `ConformalJetIntertwiner.Algebra`, `input_weight`, `output_weight`,
-`jet_square_scaling`.
+`jet_square_scaling`, `PolarAlgebra`, `polar_unique`.
 
 The first-jet construction also survives the generalized FAS transport family.
 With gauge-invariant scalars \(\delta,\gamma\), not both zero, the transport law
@@ -536,6 +539,46 @@ which the sign-flip and charge-blindness results rule out. Lean:
 `SymplecticDualNews.Model`, `flux_zero_of_news_zero`,
 `flux_zero_all_iff_dual_zero`.
 
+The linearized boundary theory removes the abstractness of the dual news. If
+\(A_\xi h=\mathcal L_\xi h+2H\beta_\xi h\), integration by parts gives the local
+adjoint representative
+\[
+\mathscr N_\xi^{\rm loc\,ab}
+=
+\varkappa\big[-D_c(\xi^c E^{ab})+2E^{c(a}D_c\xi^{b)}+2H\beta_\xi E^{ab}\big],
+\]
+with \(\mathcal F_\xi=\int\mathscr N_\xi^{\rm loc\,ab}h_{ab}\,d\mu\). Its
+radiative projection is the canonical Riesz representative. This is local and
+\(\xi\)-linear and, in the no-incoming sector, \(E\) is the Hodge-rotated tensor
+detector; it remains a pairing with \(h\), not a square, because the full
+linearized phase space has no relation \(E\propto\dot h\). Lean:
+`LocalDualNews.localDual`, `localDual_add`, `localDual_smul`,
+`PairingAlgebra`, `pairing`.
+
+On retarded data the missing square law is an adjoint factorization. If
+\(A_\xi h=B_\xi\nu_\xi\), \(E=C_\xi\nu_\xi\), and
+\(\varkappa\langle C_\xi\nu,B_\xi\nu\rangle=c_\xi\|\nu\|^2\), then
+\(\mathcal F_\xi=\|n_\xi\|^2\) with \(n_\xi=\sqrt{c_\xi}\nu_\xi\); flux-zero and
+news-zero agree when \(c_\xi>0\). Pointwise proportionality is a special case.
+The ABK retarded quadrupole computation realizes this structure: after
+integration by parts its energy flux is the manifest positive square of
+\(\partial_r\int T^{TT'}\). This supplies a genuine linear news seed in the
+retarded sector, but not yet a nonlinear AldS or first-jet flux square. Lean:
+`RetardedSquareCriterion.Model`, `square`, `nonnegative`, `zero_iff`.
+
+The controlled flat limit fixes the normalization of this seed. With
+\(\nu^{\rm src}_{ab}=-\tfrac12P^{\rm TT}\dddot Q^{(\rho)}_{ab}+O(H)\), the
+standard quadrupole strain gives
+\(N^{\rm Bondi}_{AB}=-(4G/r)P^{\rm tt}\nu^{\rm src}_{AB}+O(H)\), hence
+\[
+\frac{r^2}{32\pi G}N^{\rm Bondi}_{AB}N_{\rm Bondi}^{AB}
+=
+\frac{G}{2\pi}(P^{\rm tt}\nu^{\rm src})_{AB}(P^{\rm tt}\nu^{\rm src})^{AB}.
+\]
+Thus the ABK flux and the Bondi mass-loss flux agree exactly in this retarded
+flat limit; only the radial tt-projected source field is the Bondi news image.
+Lean: `FlatBondiBridge.Model`, `scaled_seed_square`, `flux_equivalence`.
+
 In the flat limit, the FAS rescaled radiant momenta obey
 \(\lim q^\pm=((1\pm B)^3/(2\sqrt2))Q_{\rm flat}\). Since the no-incoming sector
 has \(q^-=0\), either \(Q_{\rm flat}=0\) or \(B=1\). Thus nonzero flat Bondi news
@@ -553,8 +596,14 @@ Here FAS VI.108 gives \(W^+=4|\Phi^{\rm norm}|^2\), correcting the earlier facto
 For radiating no-incoming families \(B=1\), so \(\alpha_+\) has a finite nonzero
 limit whenever \(Q_{\rm flat}\neq0\): the tensor first-jet component has a universal
 \(N\)-renormalized flat limit. The full first jet needs \(\beta_\infty\), which is
-not fixed by \(q^+\) when \(K^-\to0\). Lean: `FirstJetFlatScaling.Algebra`,
-`scaled_phi_eq`, `scaled_vector_eq`, `scaled_jet_eq`.
+not fixed by \(q^+\) when \(K^-\to0\). The obstruction is nevertheless concrete:
+\(\beta_+=4N^2\|C_A[n^+]\|^2\), so bounded vector-detector data give
+\(\beta_+\to0\) and the full \(N\)-renormalized jet limit \(\alpha_\infty/4\);
+a finite nonzero \(\beta_\infty\) requires \(\|C_A[n^+]\|\sim N^{-1}\). Thus
+\(\beta_+\) measures detector growth along the collapsing incoming cut-normal
+direction, not an independent radiation coefficient. Lean:
+`FirstJetFlatScaling.Algebra`, `scaled_phi_eq`, `scaled_vector_eq`,
+`scaled_jet_eq`, `BetaPlusBound.Model`, `beta_eq`, `beta_le_of_bound`.
 
 A conformal phase-space calculation adds a separate finite flux
 \[
@@ -644,7 +693,12 @@ is, by FAS transport and the outgoing Cotton projection relations, the Hodge dua
 \[
   \mathcal N^{\rm jet}_+:=(\Phi^+_{AB},\mathcal J C_A[n^+])
 \]
-has \(\|\mathcal N^{\rm jet}_+\|^2=-\tfrac12 p_m\) and the same unified zero set as \(n^+\). This is the first object in the controlled sector carrying the detector square, the radiant transport square, and the minimal rank-two pair structure at once. It is not yet the central theorem: it uses a first jet and an equipment, \(\mathcal J\) is only round-cut covariant, and the AldS/symplectic flux pairing and flat limit remain unproved. Lean core: `RadiantJetNews.Model`, `jet_sq_eq_neg_half_normalFlux`, `jet_zero_iff_detector_zero`.
+has \(\|\mathcal N^{\rm jet}_+\|^2=-\tfrac12 p_m\) and the same unified zero set as \(n^+\). This is the first object in the controlled sector carrying the detector square, the radiant transport square, and the minimal rank-two pair structure at once. FAS VI.123 rewrites the square as
+\[
+N^2\|\mathcal N^{\rm jet}_+\|^2
+=\frac14\int\big[(\dot n^+-\Sigma n^+)^2+|Dn^+|^2\big]\,dS,
+\]
+so the detector square is a local first-derivative quadratic form of the news tensor. It is not yet the central theorem: it uses a first jet and an equipment, and the AldS/symplectic flux pairing and flat limit remain unproved. Lean core: `RadiantJetNews.Model`, `jet_sq_eq_neg_half_normalFlux`, `jet_zero_iff_detector_zero`, `NewsOnlyJetSquare.Algebra`, `scaled_jet_sq`.
 
 ## Flat limit
 

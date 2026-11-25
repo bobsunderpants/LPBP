@@ -257,13 +257,13 @@ It adds the finite-dimensional radiation algebra:
 * the radiant transport-square core `RadiantNewsTransport.Model`, `W_nonneg`, and `W_zero_iff_nDot_zero`;
 * the outgoing zero-set unification core `NewsZeroSetUnification.Model`, `detector_zero_iff_radiant_zero`, and `detector_zero_iff_no_radiation`;
 * the spectral magnitude obstruction `SpectralNormMismatch.Model` and `no_uniform_lower_bound`;
-* the first-jet radiant-news core `RadiantJetNews.Model`, `jet_sq_eq_neg_half_normalFlux`, and `jet_zero_iff_detector_zero`;
+* the first-jet radiant-news core `RadiantJetNews.Model`, `jet_sq_eq_neg_half_normalFlux`, and `jet_zero_iff_detector_zero`, plus `NewsOnlyJetSquare.Algebra` and `scaled_jet_sq`;
 * the generalized \((\delta,\gamma)\) inversion core `GeneralizedJetRotation.TensorRotation`, `sq_inverse`, and `inverse_zero_iff`;
 * the charge-blindness core `ChargeFluxBlindness.Model`, `news_zero_flux_zero`, and `not_flux_zero_imp_news_zero`;
 * the conformal-weight core `ConformalWeightObstruction.LocalTensorOperator`, `tensor_square_weight`, `vector_square_weight`, and `no_local_rank_two_map`;
 * the arbitrary-cut polar-decomposition core `ArbitraryCutJetNews.PolarData`, `toIsometry`, and `J_zero_iff`;
 * the conformal-intertwiner weight algebra `ConformalJetIntertwiner.Algebra`, `input_weight`, `output_weight`, and `jet_square_scaling`;
-* the symplectic dual-news core `SymplecticDualNews.Model`, `flux_zero_of_news_zero`, and `flux_zero_all_iff_dual_zero`;
+* the symplectic dual-news core `SymplecticDualNews.Model`, `flux_zero_of_news_zero`, and `flux_zero_all_iff_dual_zero`, plus the local-adjoint algebra `LocalDualNews.localDual`, `localDual_add`, `localDual_smul`, `PairingAlgebra`, `pairing`, the retarded-square core `RetardedSquareCriterion.Model`, `square`, `nonnegative`, `zero_iff`, and the flat flux normalization `FlatBondiBridge.Model`, `scaled_seed_square`, `flux_equivalence`, plus the bounded-detector estimate `BetaPlusBound.Model`, `beta_eq`, `beta_nonneg`, `beta_le_of_bound`;
 * the flat-limit directional degeneracy core `FlatLimitDirection.Model` and `qMinus_zero_Qflat_ne_zero_imp_B_one`;
 * the first-jet flat-scaling core `FirstJetFlatScaling.Algebra`, `scaled_phi_eq`, `scaled_vector_eq`, and `scaled_jet_eq`;
 * the regular flat-limit implication `FlatLimitConstraint.Model` and `flat_news_zero`;
@@ -425,7 +425,12 @@ therefore satisfies
 \[
   \|\mathcal N^{\rm jet}_+\|^2=\int(\hat C^2+C^2)=-\tfrac12\int p_m,
 \]
-and vanishes exactly on the unified no-radiation sector. This is the first candidate carrying simultaneously the unified zero set, FAS radiant flux square, exact detector square, and minimal rank-two tensor-pair structure. It still uses the equipment first jet, requires \(S^2\) leaves and strong equipment, lacks a conformally covariant \(\mathcal J\) off round cuts, and has no proved AldS/symplectic flux pairing or flat limit. Lean: `RadiantJetNews.Model`, `jet_sq_eq_neg_half_normalFlux`, `jet_zero_iff_detector_zero`.
+and vanishes exactly on the unified no-radiation sector. This is the first candidate carrying simultaneously the unified zero set, FAS radiant flux square, exact detector square, and minimal rank-two tensor-pair structure. It still uses the equipment first jet, requires \(S^2\) leaves and strong equipment, and has no proved AldS/symplectic flux pairing or flat limit; the conformally covariant \(\mathcal J\) is supplied below. FAS VI.123 further gives \(N^2Z^+=D_Cn^{+BC}D_Dn^{+BD}\) in the normalized controlled sector, so
+\[
+N^2\|\mathcal N^{\rm jet}\|^2
+=\frac14\int\big[(\dot n^+-\Sigma n^+)^2+|Dn^+|^2\big]\,dS,
+\]
+a local first-derivative quadratic form of the news tensor itself. Lean: `RadiantJetNews.Model`, `jet_sq_eq_neg_half_normalFlux`, `jet_zero_iff_detector_zero`, `NewsOnlyJetSquare.Algebra`, `scaled_jet_sq`.
 
 The umbilical normalization is not essential. FAS permit generalized transport with gauge-invariant scalars \(\delta,\gamma\), not both zero:
 \[
@@ -619,7 +624,9 @@ Then \(C\) of weight \(-2\) is sent to an STF tensor of weight \(-1\) and
 \[
 \mathcal J_{\tilde q}^{\mathrm{cov}}(\omega^{-2}C)=\omega^{-1}\mathcal J_q^{\mathrm{cov}}C.
 \]
-Because \(K P^{-1/2}\) is an isometry for the weighted pairings, unwinding the definitions gives \(\int|\mathcal J_q^{\mathrm{cov}}C|^2dS=\int|C|^2dS\) and \(\mathcal J_q^{\mathrm{cov}}C=0\iff C=0\) on \((\ker\mathcal K_q^{(2)})^\perp\), with no uniformization or round-cut assumption. Thus the first-jet pair can be defined on arbitrary \(S^2\) cuts with both conformal covariance and the exact detector norm. Remaining gaps are AldS/symplectic coupling, strong-equipment extension, and \(\beta_+\), not cut covariance. Lean: `ConformalJetIntertwiner.Algebra`, `input_weight`, `output_weight`, `jet_square_scaling`.
+Because \(K P^{-1/2}\) is an isometry for the weighted pairings, unwinding the definitions gives \(\int|\mathcal J_q^{\mathrm{cov}}C|^2dS=\int|C|^2dS\) and \(\mathcal J_q^{\mathrm{cov}}C=0\iff C=0\) on \((\ker\mathcal K_q^{(2)})^\perp\), with no uniformization or round-cut assumption. Thus the first-jet pair can be defined on arbitrary \(S^2\) cuts with both conformal covariance and the exact detector norm.
+
+Moreover, \(\widetilde{\mathcal K}_q=\mu_q^{-3}\mathcal K_q^{(2)}\mu_q^4\) is itself local and conformally covariant from weight \(-2\) detector one-forms to weight \(-1\) STF tensors. Its polar decomposition on the non-kernel sector has the above \(\mathcal J_q^{\mathrm{cov}}\) as its unique isometric factor, since both geometric norms scale by the same \(\omega^{-4}\). Hence the weight-\(+1\) map is canonical, not an arbitrary choice. Remaining gaps are AldS/symplectic coupling, strong-equipment extension, and \(\beta_+\), not cut covariance. Lean: `ConformalJetIntertwiner.Algebra`, `input_weight`, `output_weight`, `jet_square_scaling`, `PolarAlgebra`, `polar_unique`.
 
 ### Conditional symplectic dual-news representation
 
@@ -630,6 +637,32 @@ In the controlled linear sector the flux is a pairing, not a square. Let \(\math
 \mathscr N_\xi=((\mathcal N^{\rm jet}_{\rm rad})^{-1})^\star\mathcal F_\xi^{\rm rad}.
 \]
 It is \(\xi\)-linear, news-zero forces flux-zero, and flux-zero for all \(\delta\) is equivalent to \(\mathscr N_\xi=0\). A universal square law would need \(\mathscr N_\xi=c_\xi\mathcal N^{\rm jet}_{\rm rad}\), which the sign-flip and charge-blindness results exclude. Positivity requires the unproved restriction that the dual be proportional to the news on a chosen outgoing cone. Lean: `SymplecticDualNews.Model`, `flux_zero_of_news_zero`, `flux_zero_all_iff_dual_zero`, `not_square_of_sign_flip`.
+
+In the linearized three-dimensional boundary theory the abstract dual news has an explicit local representative. For \(A_\xi h=\mathcal L_\xi h+2H\beta_\xi h\),
+\[
+\mathscr N_\xi^{\rm loc\,ab}
+=
+\varkappa\big[-D_c(\xi^cE^{ab})+2E^{c(a}D_c\xi^{b)}+2H\beta_\xi E^{ab}\big],
+\qquad
+\mathcal F_\xi=\int_{\scri^+}\mathscr N_\xi^{\rm loc\,ab}h_{ab}\,d\mu .
+\]
+Thus \(\mathscr N_\xi^{\rm loc}\) is the adjoint of \(A_\xi\) on the Weyl electric field, and its radiative projection is the canonical Riesz representative. It is \(\xi\)-linear and gauge invariant after projection, and in the no-incoming sector \(E\leftrightarrow J\hat C\), so it is local in the tensor detector. It is still a pairing, not a square: a square requires the extra retarded-sector relation \(E\sim\dot h\), which fails on the full linear phase space. Lean: `LocalDualNews.localDual`, `localDual_add`, `localDual_smul`, `PairingAlgebra`, `pairing`.
+
+The retarded-sector square condition is an adjoint factorization, not necessarily pointwise proportionality. If \(P_{\rm rad}A_\xi h=B_\xi\nu_\xi\), \(P_{\rm rad}E=C_\xi\nu_\xi\), and \(\varkappa\langle C_\xi\nu,B_\xi\nu\rangle=c_\xi\|\nu\|^2\) with \(c_\xi\ge0\), then \(\mathcal F_\xi=c_\xi\|\nu_\xi\|^2=\|n_\xi\|^2\) and flux-zero is equivalent to news-zero when \(c_\xi>0\). The stronger condition \(E\propto A_\xi h\) is only a special case. In the first-post-de Sitter retarded quadrupole sector, ABK obtain
+\[
+E_T=\frac{G}{2\pi}\int_{\scri^+}dT\,d^2S\,
+[\partial_r\int d^3x'\,T^{TT'}_{ab}(\eta_r,\vec x')]
+[\partial_r\int d^3x'\,T^{TT'}_{cd}(\eta_r,\vec x')]\mathring q^{ac}\mathring q^{bd}\ge0,
+\]
+so the source radiation field is a genuine linear news seed and the flux is its positive square. This remains a retarded linear result and does not bridge automatically to nonlinear AldS flux or the FAS first-jet news. Lean: `RetardedSquareCriterion.Model`, `square`, `nonnegative`, `zero_iff`.
+
+In the controlled flat limit the ABK seed is related to ordinary Bondi news. Conservation gives \(\nu^{\rm src}_{ab}=\partial_r\int T^{TT'}_{ab}=-\tfrac12P^{\rm TT}\dddot Q^{(\rho)}_{ab}+O(H)\), while the standard quadrupole strain gives \(N^{\rm Bondi}_{AB}=(2G/r)P^{\rm tt}\dddot Q_{AB}=-(4G/r)P^{\rm tt}\nu^{\rm src}_{AB}+O(H)\). Hence
+\[
+\frac{r^2}{32\pi G}N^{\rm Bondi}_{AB}N_{\rm Bondi}^{AB}
+=
+\frac{G}{2\pi}(P^{\rm tt}\nu^{\rm src})_{AB}(P^{\rm tt}\nu^{\rm src})^{AB},
+\]
+and the integrated ABK flux equals the standard Bondi mass loss. This identifies \(P^{\rm tt}\nu^{\rm src}\) as the flat Bondi image of the retarded source seed; it does not identify the full three-dimensional source field with Bondi news. Lean: `FlatBondiBridge.Model`, `scaled_seed_square`, `flux_equivalence`.
 
 ### Flat-limit directional degeneracy
 
@@ -656,6 +689,8 @@ N^2\|C_A[n^+]\|^2=\frac{\beta_+}{4},\qquad
 N^2\|\mathcal N^{\rm jet}_{\delta,\gamma}\|^2=\frac{\alpha_+}{4}+\frac{\beta_+}{4}.
 \]
 For radiating no-incoming families \(B=1\), \(K^+\to\sqrt2\,N_{\rm flat}\), \(\lim q^+=2\sqrt2\,Q_{\rm flat}\), hence \(\alpha_+\to\alpha_\infty\neq0\) iff \(Q_{\rm flat}\neq0\). Therefore \(N\Phi^{\rm norm}\) has a universal nonvanishing flat limit in the tensor detector sector. The full jet requires \(\beta_\infty\). If \(B\neq\pm1\), \(\beta_\infty\) is finite but no-incoming forces it and \(\alpha_\infty\) to vanish. If \(B=1\), \(K^-\to0\) and \(\beta_+\) may diverge at a rate not fixed by \(q^+\); the vector detector, full first jet, \(V_{AB}\), and \(n^+_{AB}\) therefore lack a universal flat limit. Lean: `FirstJetFlatScaling.Algebra`, `scaled_phi_eq`, `scaled_vector_eq`, `scaled_jet_eq`, `tendsto_scaled_phi`, `tendsto_scaled_vector`, `tendsto_scaled_jet`.
+
+The coefficient \(\beta_+\) is now identified concretely: \(\beta_+=4N^2\|C_A[n^+]\|^2\). If the vector detector is uniformly bounded in a fixed conformal frame, then \(\beta_+=O(N^2)\to0\) and \(\lim N^2\|\mathcal N^{\rm jet}\|^2=\alpha_\infty/4\). A finite nonzero \(\beta_\infty\) would require \(\|C_A[n^+]\|\sim N^{-1}\), i.e. growth of the magnetic detector component along the collapsing incoming cut-normal direction. Thus \(\beta_+\) is a detector growth rate, not an independent radiation coefficient; bounded retarded detector data suffice to remove the obstruction. Uniform boundedness for the ABK retarded quadrupole fields remains open because the normalized cut normal becomes singular. Lean: `BetaPlusBound.Model`, `beta_eq`, `beta_nonneg`, `beta_le_of_bound`, `beta_zero_of_N_zero`.
 
 ### Conformal phase-space obstruction
 
