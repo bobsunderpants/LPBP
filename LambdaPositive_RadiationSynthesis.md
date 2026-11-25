@@ -453,6 +453,109 @@ representation would force \(\mathcal H_T=0\). The algebraic core is in Lean as
 `LinearizedFluxObstruction.SignFlipNewsModel`,
 `energy_zero_of_sign_flip_square`, and `no_sign_flip_square`.
 
+The same ABK formulas imply that the finite de Sitter charge family is blind to
+part of the news. All seven Hamiltonian fluxes are \(E\)-\(B\) cross terms. If
+\(E_{\vec k}\) and \(B_{\vec k}\) have disjoint compact momentum support, every
+\(\mathcal H_K\) vanishes, while \(\mathcal E\neq0\), \(\mathcal B\neq0\), and
+generically \([\mathcal B,\mathcal E]\neq0\). Hence detector news and the
+first-jet news can be nonzero when all seven charge fluxes vanish. News-zero
+forces radiative flux-zero, but the converse fails. Lean core:
+`ChargeFluxBlindness.Model`, `news_zero_flux_zero`,
+`not_flux_zero_imp_news_zero`.
+
+There is also a conformal-weight obstruction to making the first-jet pair
+into a rank-two tensor pair on arbitrary cuts. Under \(q_{AB}\mapsto\omega^2q_{AB}\),
+\(n^+_{AB}\) and \(N\) are invariant while \(\epsilon_{AB}\mapsto\omega^2\epsilon_{AB}\).
+Since \(D^B n^+_{AB}\mapsto\omega^{-2}D^B n^+_{AB}\), the detector inversion
+gives \(C_A\mapsto\omega^{-2}C_A\). FAS transport gives
+\(\Phi^+_{AB}\mapsto\omega^{-1}\Phi^+_{AB}\), and \(\hat C_{AB}\) has the same
+weight as \(\Phi^+_{AB}\). A rank-two realization therefore needs a map of
+weight \(+1\). Natural local tensor differential operators in two dimensions
+shift conformal weight by even integers only, so no local operator can do this.
+The round-cut \(\mathcal J\) is nonlocal of order \(-1\), so the required object
+is a conformally covariant pseudodifferential intertwiner; a weighted
+conformal-Killing construction is given below. Lean: `ConformalWeightObstruction.LocalTensorOperator`,
+`tensor_square_weight`, `vector_square_weight`, `no_local_rank_two_map`.
+
+A metric-dependent arbitrary-cut version does exist. For a closed oriented
+two-surface define \(\mathcal K_q v_{AB}=D_{(A}v_{B)}-\frac12q_{AB}D^Cv_C\),
+with kernel the conformal Killing one-forms. Then
+\(\widehat{\mathcal J}_q=\mathcal K_q(\mathcal K_q^\ast\mathcal K_q)^{-1/2}\)
+is an \(L^2\)-isometry from \((\ker\mathcal K_q)^\perp\) into STF tensors, and
+reduces to the round-cut Hodge inverse on \(S^2\). Hence the first-jet pair can
+be built on arbitrary cuts with the same norm and zero set, provided
+\(C_A[n^+]\perp\ker\mathcal K_q\). This does not satisfy the conformal
+intertwining law by itself. A weighted refinement does: with
+\(\mu_q=(\det q)^{1/4}\), the weight-two conformal Killing operator obeys
+\(\mathcal K_{\tilde q}^{(2)}(\omega^2v)=\omega^2\mathcal K_q^{(2)}v\). Using
+\(\langle v,u\rangle_V=\int q^{AB}v_Au_B\mu^{-8}dS\) and
+\(\langle S,U\rangle_W=\int q^{AC}q^{BD}S_{AB}U_{CD}\mu^{-6}dS\), both of which
+equal the geometric detector/tensor norms after \(v=\mu^4C\), \(S=\mu^3T\) and
+both of which scale by \(\omega^{-4}\), the adjoint obeys
+\(\mathcal K_{\tilde q}^{(2)\dagger}(\omega^2S)=\omega^2\mathcal K_q^{(2)\dagger}S\).
+Hence \(P_q^{(2)}=\mathcal K_q^{(2)\dagger}\mathcal K_q^{(2)}\) is conformally
+covariant. Then
+\[
+\mathcal J_q^{\rm cov}C
+=
+\mu_q^{-3}\mathcal K_q^{(2)}(P_q^{(2)})^{-1/2}(\mu_q^4C)
+\]
+maps detector weight \(-2\) to tensor weight \(-1\) and obeys
+\(\mathcal J_{\tilde q}^{\rm cov}(\omega^{-2}C)=\omega^{-1}\mathcal J_q^{\rm cov}C\).
+Because \(KP^{-1/2}\) is an isometry for the weighted pairings, arbitrary-cut
+first-jet norm and zero set are conformally covariant once conformal-Killing
+components are excluded; no uniformization is needed. Lean:
+`ArbitraryCutJetNews.PolarData`, `toIsometry`, `J_zero_iff`, plus
+`ConformalJetIntertwiner.Algebra`, `input_weight`, `output_weight`,
+`jet_square_scaling`.
+
+The first-jet construction also survives the generalized FAS transport family.
+With gauge-invariant scalars \(\delta,\gamma\), not both zero, the transport law
+is \(N(\delta\mathcal C^{(+)}+\gamma R\mathcal C^{(+)})=\dot n-\Sigma n\), where
+\(R^2=-1\) on STF tensors. Since
+\((\delta I+\gamma R)^{-1}=(\delta I-\gamma R)/(\delta^2+\gamma^2)\), the
+normalized component \(\Phi^{\rm norm}=\Phi/\sqrt{\delta^2+\gamma^2}\) has
+\(|\Phi^{\rm norm}|^2=\hat C^2=W^+/4\). Thus the rank-two pair
+\((\Phi^{\rm norm},\mathcal J C[n^+])\) keeps the detector norm and zero set
+throughout the nondegenerate generalized transport family. Lean:
+`GeneralizedJetRotation.TensorRotation`, `sq_inverse`, `inverse_zero_iff`.
+
+The flux representation is correspondingly bilinear. Under injectivity and
+boundedness assumptions, the first-jet map into rank-two pairs admits a unique
+dual news \(\mathscr N_\xi\) such that
+\[
+\mathcal F_\xi^{\rm rad}(\delta)
+=
+\langle \mathcal N^{\rm jet}_{\rm rad}\delta,\mathscr N_\xi\rangle,
+\qquad
+\mathscr N_\xi=((\mathcal N^{\rm jet}_{\rm rad})^{-1})^\star\mathcal F_\xi^{\rm rad}.
+\]
+This is \(\xi\)-linear and gives news-zero \(\Rightarrow\) flux-zero, but a
+universal square would require \(\mathscr N_\xi\propto\mathcal N^{\rm jet}\),
+which the sign-flip and charge-blindness results rule out. Lean:
+`SymplecticDualNews.Model`, `flux_zero_of_news_zero`,
+`flux_zero_all_iff_dual_zero`.
+
+In the flat limit, the FAS rescaled radiant momenta obey
+\(\lim q^\pm=((1\pm B)^3/(2\sqrt2))Q_{\rm flat}\). Since the no-incoming sector
+has \(q^-=0\), either \(Q_{\rm flat}=0\) or \(B=1\). Thus nonzero flat Bondi news
+requires the incoming null direction to collapse. Lean:
+`FlatLimitDirection.Model`, `qMinus_zero_Qflat_ne_zero_imp_B_one`.
+
+The first-jet scaling is now explicit. With \(q^+=\alpha_+K^++\beta_+K^-+\cdots\),
+one has \(\alpha_+=N^2W^+\), \(\beta_+=N^2Z^+\) and hence
+\[
+N^2|\Phi^{\rm norm}|^2=\alpha_+/4,\quad
+N^2\|C_A[n^+]\|^2=\beta_+/4,\quad
+N^2\|\mathcal N^{\rm jet}\|^2=\alpha_+/4+\beta_+/4.
+\]
+Here FAS VI.108 gives \(W^+=4|\Phi^{\rm norm}|^2\), correcting the earlier factor-of-two convention mismatch with the Senovilla radiant superenergy.
+For radiating no-incoming families \(B=1\), so \(\alpha_+\) has a finite nonzero
+limit whenever \(Q_{\rm flat}\neq0\): the tensor first-jet component has a universal
+\(N\)-renormalized flat limit. The full first jet needs \(\beta_\infty\), which is
+not fixed by \(q^+\) when \(K^-\to0\). Lean: `FirstJetFlatScaling.Algebra`,
+`scaled_phi_eq`, `scaled_vector_eq`, `scaled_jet_eq`.
+
 A conformal phase-space calculation adds a separate finite flux
 \[
 \bm F_\xi=\frac{\ell}{16\pi G}\int_{\mathscr I^+}
@@ -532,6 +635,16 @@ The magnitude gap is now quantitative. On a round cut,
   \qquad S_A=-N\epsilon_{AB}C^{+B},
 \]
 for pure gradient/curl harmonics. Both ratios vanish as \(L\to\infty\), so \(\int|V|^2\) cannot be norm-equivalent to the Cotton detector square. The conditional rank-two news has the correct zero set but loses high-harmonic detector weight; any central object must retain that weight through a derivative, a tensor pair, or a bilinear flux pairing. Lean core: `SpectralNormMismatch.Model`, `no_uniform_lower_bound`.
+
+The derivative route has now been made explicit. The first jet
+\[
+  \Phi^+_{AB}:=\frac{1}{2N}\big(\dot n^+_{AB}-\Sigma^+_{(AC}n^+_{B)}{}^C\big)
+\]
+is, by FAS transport and the outgoing Cotton projection relations, the Hodge dual of \(\hat C_{AB}\), so its square is the tensor detector square. The inverse-divergence law recovers \(C_A\) from \(n^+=2V\). Hence
+\[
+  \mathcal N^{\rm jet}_+:=(\Phi^+_{AB},\mathcal J C_A[n^+])
+\]
+has \(\|\mathcal N^{\rm jet}_+\|^2=-\tfrac12 p_m\) and the same unified zero set as \(n^+\). This is the first object in the controlled sector carrying the detector square, the radiant transport square, and the minimal rank-two pair structure at once. It is not yet the central theorem: it uses a first jet and an equipment, \(\mathcal J\) is only round-cut covariant, and the AldS/symplectic flux pairing and flat limit remain unproved. Lean core: `RadiantJetNews.Model`, `jet_sq_eq_neg_half_normalFlux`, `jet_zero_iff_detector_zero`.
 
 ## Flat limit
 
