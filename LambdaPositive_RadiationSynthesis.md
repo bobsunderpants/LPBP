@@ -463,6 +463,38 @@ forces radiative flux-zero, but the converse fails. Lean core:
 `ChargeFluxBlindness.Model`, `news_zero_flux_zero`,
 `not_flux_zero_imp_news_zero`.
 
+FAS VII.116--VII.119 define a second-class Bel--Robinson bitranslation charge
+whose outgoing radiative density is
+\(\hat C^2-4C^2\), compared with the first-jet detector square
+\(s=\hat C^2+C^2\). The single charge density is still blind to part of the
+news: it vanishes when \(\hat C^2=4C^2\) while \(s>0\), and no scalar multiple
+of it can equal \(s\). The pair \((s,\hat C^2-4C^2)\) does invert to
+\(\hat C^2=(4s+r)/5\), \(C^2=(s-r)/5\), but the value of the charge is not a
+flux. Under the conditional flat identification \(\mathring n=\mathcal N\),
+\(N^2r\to\frac14\alpha_\infty-\beta_\infty
+=\frac12(\mathcal W-\mathcal Z)=|\dot{\mathcal N}|^2-|D\mathcal N|^2\), a
+time-minus-angular gradient energy rather than a Bondi news square. Lean:
+`SecondClassBRCharge.Model`, `radiative_charge_may_vanish_on_nonzero_news`,
+`hatC2_from_square_and_charge`, `C2_from_square_and_charge`,
+`no_scalar_charge_equals_detector_square`, `flat_radiative_charge`.
+
+A second FAS second-class charge, for a normal triplet of conformal Killing
+fields, has outgoing density
+\(w_{\rm can}=\hat C^2+4C^2+\frac32\mathcal V\). Together with the bitranslation
+density \(\rho=\hat C^2-4C^2+\frac32\mathcal V\), it yields
+\(\hat C^2=\frac12(w_{\rm can}+\rho-3\mathcal V)\),
+\(C^2=\frac18(w_{\rm can}-\rho)\), and
+\(s=\frac18(5w_{\rm can}+3\rho)-\frac32\mathcal V\). Thus the second-class
+charge family fixes the vector detector directly and the full detector square
+only after Coulomb subtraction; the missing objects remain the intrinsic
+divergences. Lean: `SecondClassBRCharge.PairModel`,
+`C2_from_superEnergy_and_bitranslation`,
+`detectorSq_from_superEnergy_and_bitranslation`. At the algebraic level the Coulomb input is
+genuinely necessary: \((\hat C^2,C^2,\mathcal V)=(1,0,0)\) and
+\((0,0,2/3)\) have the same second-class densities \((1,1)\) but detector
+squares \(1\) and \(0\). Lean: `pureTensorPair`, `pureCoulombPair`,
+`pair_charge_blindness`.
+
 There is also a conformal-weight obstruction to making the first-jet pair
 into a rank-two tensor pair on arbitrary cuts. Under \(q_{AB}\mapsto\omega^2q_{AB}\),
 \(n^+_{AB}\) and \(N\) are invariant while \(\epsilon_{AB}\mapsto\omega^2\epsilon_{AB}\).
@@ -643,6 +675,28 @@ harmonics. Thus \(\beta_\infty\) carries angular-derivative information not
 present in the total Bondi power. Lean: `BetaSpectralWeight.Mode`,
 `lambda_ge_two`, `betaSq_eq_flux_weight`, `betaSq_ge_two_flux`,
 `betaSq_eq_quadrupole`.
+
+If the equipment derivative also converges, \(N\Phi^{\rm norm}\to\dot{\mathcal N}\),
+then \(\alpha_\infty=2\mathcal W\) and the full jet limit closes:
+\[
+\lim_{\Lambda\to0}\int N^2\|\mathcal N^{\rm jet}\|^2
+=\int\left(\tfrac12\mathcal W+\tfrac18\mathcal Z\right)
+=r^2\int\left(|\partial_uN^{\rm Bondi}|^2+\tfrac14|DN^{\rm Bondi}|^2\right).
+\]
+The angular factor \(1/4\) comes from the inverse-divergence normalization; the
+first-jet norm is a detector-gradient energy, not the Bondi mass-loss density.
+Lean: `FlatJetEnergy.Algebra`, `alphaInf_eq_two_wFlat`,
+`betaInf_eq_half_zFlat`, `jetLimit_eq_detector`.
+
+The same balance is independent of the nondegenerate generalized FAS transport
+scalars. Since \(\Phi^2/(\delta^2+\gamma^2)=\hat C^2\) and
+\(|Dn^+|^2/(\beta_F^2+\lambda_F^2)=N^2Z^+\), the normalized limits
+\(\Phi/\sqrt{\delta^2+\gamma^2}\to\dot{\mathcal N}\) and
+\(Dn^+/\sqrt{\beta_F^2+\lambda_F^2}\to D\mathcal N\) give the same
+\(\alpha_\infty=2\mathcal W\), \(\beta_\infty=\mathcal Z/2\) for every finite
+nondegenerate transport choice. Degenerate squared-norm limits remain uncovered.
+Lean: `GeneralizedTransportFlatBalance.Model`,
+`tensor_normalization_gauge_free`, `vector_normalization_gauge_free`.
 
 A conformal phase-space calculation adds a separate finite flux
 \[

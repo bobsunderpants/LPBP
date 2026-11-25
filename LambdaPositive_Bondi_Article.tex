@@ -22,6 +22,7 @@
 \newcommand{\cN}{\mathcal{N}}
 \newcommand{\mathpounds}{\mathcal{L}}
 \newcommand{\cR}{\mathcal{R}}
+\newcommand{\cV}{\mathcal{V}}
 \newcommand{\cL}{\mathcal{L}}
 \newcommand{\STF}{\mathrm{STF}}
 \newcommand{\Div}{\operatorname{Div}}
@@ -43,7 +44,7 @@ Radiation Detectors, Flux Laws, and Obstructions to News}
 \maketitle
 
 \begin{abstract}
-We assess whether a complete Bondi--Sachs--Penrose package exists for isolated systems with positive cosmological constant.  It does not: the boundary \(\scri^\pm\) is spacelike, there is no universally accepted intrinsic news tensor for generic data, no universal no-incoming-radiation condition, no general mass-positivity theorem, no BMS analogue or peeling theorem, and no universal \(\Lambda\to0\) boundary limit.  We collect the partial structures that are available: the AldS conformal--Bondi charge and flux calculus, the asymptotic super-Poynting radiation detector, the cut-wise news proposal, conditional outgoing-sector positivity, linearized de Sitter tests, exact-solution checks, and controlled flat limits.  In the no-incoming sector the rescaled supermomentum limit forces either vanishing flat Bondi news or the directional degeneracy \(B=1\), in which the incoming cut-null direction collapses.  The tensor sector of the first-jet news then has a universal \(N\)-renormalized flat limit with square determined by the outgoing rescaled supermomentum, while the full first-jet limit depends on the unresolved degeneracy rate of the incoming direction.  Several new consistency results are derived: a scaling obstruction to representing all AldS charge fluxes by one \(\xi\)-independent news square; a linear-gauge obstruction showing that a Bondi shear coefficient is fixed when \(\Lambda\neq0\); a precise harmonic characterization and round-sphere inversion of the cut-news source \(X_A\), together with a sharp \(L^2\) bound for the conditional rank-two news; finite-dimensional and representation-theoretic no-go theorems for pointwise and nonlocal linear news-square ans{\"a}tze; and a sign-flip obstruction showing that the full linearized de Sitter energy flux cannot be a nonnegative news square.  At the linearized level we derive a Hamiltonian news current whose pairings with de Sitter symmetry generators reproduce the symplectic flux, and hence the linearized AldS charge flux, with exact \(\xi\)-linearity, gauge invariance and a controlled flat limit.  We prove that the simpler volume flux law is degenerate on trace-free stress and conformal Killing symmetries, and that the radiative part of the linearized Hamiltonian news is the detector pair in the no-incoming sector.  In the strongly equipped no-incoming sector we unify the zero sets of the detector pair, radiant news, outgoing radiant supermomentum and no-radiation criterion, but we also prove a spectral norm-mismatch: the rank-two radiant news has the same zero set while being an elliptic smoothing that loses arbitrarily large high-harmonic detector weight.  Passing to the first jet of radiant news removes this mismatch: one equipment derivative recovers the tensor detector, inverse divergence recovers the vector detector, and the resulting rank-two tensor pair carries both the FAS radiant transport square and the exact detector square.  FAS VI.123 further rewrites the detector square as a local first-derivative quadratic form of the radiant news tensor itself, shifting the remaining task to coupling that news quadratic form to the AldS/symplectic flux.  The construction survives the full generalized FAS transport family: a \((\delta,\gamma)\)-rotation inversion renormalizes the first component while preserving its norm and zero set.  We further prove a charge-blindness result: nonzero linearized news can have all seven de Sitter Hamiltonian charge fluxes zero, so vanishing charge flux is strictly weaker than absence of radiation.  A conformal-weight analysis shows that the two first-jet components have weights \(\omega^{-1}\) and \(\omega^{-2}\); consequently any rank-two tensor-pair realization requires a nonlocal operator of weight \(+1\), and no natural local tensor differential operator can supply it.  We formulate a conditional symplectic dual-news representation in which the flux pairs the news with a generator-dependent dual field, clarifying why a universal news square is impossible; in the linearized boundary theory this dual field is further identified as the local adjoint of the symmetry operator on the Weyl electric field, with its radiative projection giving the canonical Riesz representative.  We formulate a retarded adjoint-factorization criterion for turning this pairing into a positive square, realize it in the ABK quadrupole sector, and normalize its radial \(\mathrm{tt}\)-projected seed so that its flat flux coincides with the standard Bondi mass-loss formula.  The remaining flat-limit coefficient \(\beta_+\) is identified exactly as the divergence-square of the flat radiant news; with the flat tidal normalization it is \(\beta_\infty=\mathcal Z/2=r^2|D N^{\mathrm{Bondi}}|^2\), while the renormalized detector \(N C_A[n^+]\) has a finite limit and bounded \(C_A[n^+]\) characterizes the vanishing-radiant-news case.  A spherical-harmonic calculation then identifies the integrated \(\beta_\infty\) as a weighted Bondi flux, \(\mathcal B_\infty=32\pi G\sum_l\lambda_lP_l\) with \(\lambda_l=(l-1)(l+2)/2\), giving the sharp bound \(\mathcal B_\infty\ge64\pi GP_{\mathrm{Bondi}}\) and showing that the ratio is unbounded over radiative modes.  In the controlled outgoing sector the FAS flat-limit relations force either vanishing flat Bondi news or the directional degeneracy \(B=1\), in which the incoming cut-null direction collapses.  We also identify the sharpest available candidate news object: in a strongly equipped, no-incoming outgoing sector the radiant news tensor is \(n^+_{AB}=2V_{AB}\), while the detector square is represented exactly by an \(\mathrm{STF}\oplus\mathrm{vector}\) Cotton pair and, on a round cut, by a minimal pair of STF tensors obtained through an \(L^2\)-isometric vector-to-tensor map.  On arbitrary \(S^2\) cuts a canonical polar decomposition extends this isometry, and a weighted conformal-Killing construction supplies the required conformally covariant weight-\(+1\) intertwiner, removing both the round-cut and covariance restrictions in the controlled sector; it is in fact the unique isometric polar factor of the local conformally covariant weighted conformal Killing operator.  Neither construction solves the unrestricted news problem.  The conditional logical core has been formalized in Lean without asserting the open physics theorem.
+We assess whether a complete Bondi--Sachs--Penrose package exists for isolated systems with positive cosmological constant.  It does not: the boundary \(\scri^\pm\) is spacelike, there is no universally accepted intrinsic news tensor for generic data, no universal no-incoming-radiation condition, no general mass-positivity theorem, no BMS analogue or peeling theorem, and no universal \(\Lambda\to0\) boundary limit.  We collect the partial structures that are available: the AldS conformal--Bondi charge and flux calculus, the asymptotic super-Poynting radiation detector, the cut-wise news proposal, conditional outgoing-sector positivity, linearized de Sitter tests, exact-solution checks, and controlled flat limits.  In the no-incoming sector the rescaled supermomentum limit forces either vanishing flat Bondi news or the directional degeneracy \(B=1\), in which the incoming cut-null direction collapses.  The tensor sector of the first-jet news then has a universal \(N\)-renormalized flat limit with square determined by the outgoing rescaled supermomentum, while the full first-jet limit depends on the unresolved degeneracy rate of the incoming direction.  Several new consistency results are derived: a scaling obstruction to representing all AldS charge fluxes by one \(\xi\)-independent news square; a linear-gauge obstruction showing that a Bondi shear coefficient is fixed when \(\Lambda\neq0\); a precise harmonic characterization and round-sphere inversion of the cut-news source \(X_A\), together with a sharp \(L^2\) bound for the conditional rank-two news; finite-dimensional and representation-theoretic no-go theorems for pointwise and nonlocal linear news-square ans{\"a}tze; and a sign-flip obstruction showing that the full linearized de Sitter energy flux cannot be a nonnegative news square.  An exact evaluation of the FAS second-class Bel--Robinson bitranslation charge shows that its outgoing radiative density is \(\hat C^2-4C^2\): it can vanish on nonzero news but, combined with the first-jet square \(\hat C^2+C^2\), separates the two detector magnitudes; its conditional flat limit is the time-minus-angular gradient energy \(|\dot{\mathcal N}|^2-|D\mathcal N|^2\); paired with the normal-triplet second-class superenergy density, it fixes the vector detector and, after Coulomb subtraction, the full detector square.  At the linearized level we derive a Hamiltonian news current whose pairings with de Sitter symmetry generators reproduce the symplectic flux, and hence the linearized AldS charge flux, with exact \(\xi\)-linearity, gauge invariance and a controlled flat limit.  We prove that the simpler volume flux law is degenerate on trace-free stress and conformal Killing symmetries, and that the radiative part of the linearized Hamiltonian news is the detector pair in the no-incoming sector.  In the strongly equipped no-incoming sector we unify the zero sets of the detector pair, radiant news, outgoing radiant supermomentum and no-radiation criterion, but we also prove a spectral norm-mismatch: the rank-two radiant news has the same zero set while being an elliptic smoothing that loses arbitrarily large high-harmonic detector weight.  Passing to the first jet of radiant news removes this mismatch: one equipment derivative recovers the tensor detector, inverse divergence recovers the vector detector, and the resulting rank-two tensor pair carries both the FAS radiant transport square and the exact detector square.  FAS VI.123 further rewrites the detector square as a local first-derivative quadratic form of the radiant news tensor itself, shifting the remaining task to coupling that news quadratic form to the AldS/symplectic flux.  The construction survives the full generalized FAS transport family: a \((\delta,\gamma)\)-rotation inversion renormalizes the first component while preserving its norm and zero set.  We further prove a charge-blindness result: nonzero linearized news can have all seven de Sitter Hamiltonian charge fluxes zero, so vanishing charge flux is strictly weaker than absence of radiation.  A conformal-weight analysis shows that the two first-jet components have weights \(\omega^{-1}\) and \(\omega^{-2}\); consequently any rank-two tensor-pair realization requires a nonlocal operator of weight \(+1\), and no natural local tensor differential operator can supply it.  We formulate a conditional symplectic dual-news representation in which the flux pairs the news with a generator-dependent dual field, clarifying why a universal news square is impossible; in the linearized boundary theory this dual field is further identified as the local adjoint of the symmetry operator on the Weyl electric field, with its radiative projection giving the canonical Riesz representative.  We formulate a retarded adjoint-factorization criterion for turning this pairing into a positive square, realize it in the full ABK retarded-source sector, and normalize its radial \(\mathrm{tt}\)-projected seed so that its flat flux coincides with the standard Bondi mass-loss formula.  The remaining flat-limit coefficient \(\beta_+\) is identified exactly as the divergence-square of the flat radiant news; with the flat tidal normalization it is \(\beta_\infty=\mathcal Z/2=r^2|D N^{\mathrm{Bondi}}|^2\), while the renormalized detector \(N C_A[n^+]\) has a finite limit and bounded \(C_A[n^+]\) characterizes the vanishing-radiant-news case.  A spherical-harmonic calculation then identifies the integrated \(\beta_\infty\) as a weighted Bondi flux, \(\mathcal B_\infty=32\pi G\sum_l\lambda_lP_l\) with \(\lambda_l=(l-1)(l+2)/2\), giving the sharp bound \(\mathcal B_\infty\ge64\pi GP_{\mathrm{Bondi}}\) and showing that the ratio is unbounded over radiative modes.  Under the conditional identification of the flat news and its equipment derivative, the entire first-jet norm tends to the detector-gradient energy \(\tfrac12\mathcal W+\tfrac18\mathcal Z\), with the inverse-divergence factor \(1/4\) on the angular term; this balance is invariant under the nondegenerate generalized FAS transport parameters, and only their degenerate squared-norm limit remains uncovered.  In the controlled outgoing sector the FAS flat-limit relations force either vanishing flat Bondi news or the directional degeneracy \(B=1\), in which the incoming cut-null direction collapses.  We also identify the sharpest available candidate news object: in a strongly equipped, no-incoming outgoing sector the radiant news tensor is \(n^+_{AB}=2V_{AB}\), while the detector square is represented exactly by an \(\mathrm{STF}\oplus\mathrm{vector}\) Cotton pair and, on a round cut, by a minimal pair of STF tensors obtained through an \(L^2\)-isometric vector-to-tensor map.  On arbitrary \(S^2\) cuts a canonical polar decomposition extends this isometry, and a weighted conformal-Killing construction supplies the required conformally covariant weight-\(+1\) intertwiner, removing both the round-cut and covariance restrictions in the controlled sector; it is in fact the unique isometric polar factor of the local conformally covariant weighted conformal Killing operator.  Neither construction solves the unrestricted news problem.  The conditional logical core has been formalized in Lean without asserting the open physics theorem.
 \end{abstract}
 
 \tableofcontents
@@ -494,6 +495,88 @@ Decompose \(D_a\xi_b=D_{(a}\xi_{b)}+D_{[a}\xi_{b]}\).  The antisymmetric part dr
 \end{proof}
 
 \statusL Fernández--Álvarez and Senovilla obtain the same conclusion for their first-class charges \cite{fabSen2022asymptotic}.  For a first-class current \(y^a=t^{ab}\xi_b\) with \(t^{ab}\) built from \(D_{ab}\), \(C_{ab}\), or their outgoing/incoming parts, their equations (VII.98)--(VII.107) give a balance law sourced only by matter terms and Coulomb contributions; gravitational radiation does not enter.  They explicitly note that modifications of these currents are needed.  Thus any news candidate aiming to represent AldS radiation flux cannot be obtained from first-class stress/Cotton moments alone; it must involve symplectic/Hamiltonian data, second-class Bel--Robinson currents, or radiant news and its time derivative.
+
+\paragraph{Second-class Bel--Robinson charge in the outgoing sector.}
+\statusL FAS VII.116--VII.119 define a bitranslation current \(\cR^a\) from the rescaled Bel--Robinson tensor whose cut charge has energy units and satisfies the balance law \(\int_\Delta D_a\cR^a\,\diff\mu=\cR_{S_2}-\cR_{S_1}\).  Their exact cut evaluation is
+\begin{equation}\label{eq:BR-second-class-charge}
+  \cR_S
+  =
+  \int_S
+  \alpha^3
+  \left[
+  \frac14\big(W^++W^-\big)
+  -
+  \big(Z^++Z^-\big)
+  +\frac32\,\cV
+  \right]\diff S ,
+\end{equation}
+where \(\cV\) is the nonnegative Coulomb superenergy density.  They also stress that the intrinsic divergence requires the unknown Lie derivative of the Weyl tensor along the boundary normal.
+
+\statusD Under the no-incoming criterion \(Q_-^\mu=0\) one has \(W^-=Z^-=0\).  Using the normalizations \eqref{eq:W-phi-normalization} and \(Z^+=4C^2\), the radiative part of this charge is therefore an \emph{indefinite} quadratic form in the two detector magnitudes:
+\begin{equation}\label{eq:BR-charge-outgoing}
+  \cR_S
+  =
+  \int_S
+  \alpha^3
+  \left[
+  \hat C_{AB}\hat C^{AB}
+  -
+  4 C_AC^A
+  +\frac32\,\cV
+  \right]\diff S .
+\end{equation}
+Compare this with the first-jet square \eqref{eq:first-jet-square}, whose density is
+\(s:=\hat C^2+C^2\).  Writing the Coulomb-corrected second-class density as
+\(r:=\alpha^{-3}\cR_{\mathrm{dens}}-\tfrac32\cV=\hat C^2-4C^2\), one obtains the pointwise inversion
+\begin{equation}\label{eq:two-charge-detector-inversion}
+  \hat C^2=\frac15(4s+r),
+  \qquad
+  C^2=\frac15(s-r) .
+\end{equation}
+Thus the tensor and vector detector magnitudes can be separated by combining the first-jet norm with the second-class charge density.  However, the charge \emph{value} is not a radiation detector: \(r=0\) is compatible with nonzero news whenever \(\hat C^2=4C^2\), while \(s>0\).  This extends the finite-charge blindness result to an energy-dimensional second-class charge.  It is not a flux representation: converting \eqref{eq:BR-charge-outgoing} into a balance law still requires the unresolved intrinsic divergence \(D_a\cR^a\).  The finite algebra is formalized by \texttt{SecondClassBRCharge.Model}, \texttt{outgoing\_charge}, \texttt{DetectorModel}, \texttt{radiative\_charge\_may\_vanish\_on\_nonzero\_news}, \texttt{hatC2\_from\_square\_and\_charge}, and \texttt{C2\_from\_square\_and\_charge}.
+
+\statusD Under the conditional flat identification \(\mathring n=\mathcal N\) used in \eqref{eq:beta-flat-detector-normalization}, the radiative second-class density has a transparent flat limit.  Since \(N^2\hat C^2\to\alpha_\infty/4\) and \(N^2(4C^2)=N^2Z^+\to\beta_\infty\), while \(\alpha_\infty=2\mathcal W\) and \(\beta_\infty=\tfrac12\mathcal Z\), one gets
+\begin{equation}\label{eq:BR-flat-radiative-density}
+  \lim_{\Lambda\to0}N^2 r
+  =
+  \frac14\alpha_\infty-\beta_\infty
+  =
+  \frac12(\mathcal W-\mathcal Z)
+  =
+  |\dot{\mathcal N}|^2-|D\mathcal N|^2 .
+\end{equation}
+Thus the second-class charge density measures a time-minus-angular gradient energy of the flat news.  It is not sign-definite, not proportional to the Bondi flux \(|\mathcal N|^2\), and it can vanish for nonzero news.  The flat algebra is formalized by \texttt{SecondClassBRCharge.FlatDetectorModel}, \texttt{flat\_radiative\_charge}, and \texttt{flat\_radiative\_charge\_detector}.  Moreover, since \(r=0\) and \(s>0\) are simultaneously possible, no scalar multiple \(c\,r\) can reproduce the detector square: on the nonzero news satisfying \(\hat C^2=4C^2\), \(c\,r=0<s\).  This is formalized by \texttt{SecondClassBRCharge.no\_scalar\_charge\_equals\_detector\_square}.  Recovering a positive detector therefore requires at least the pair \((s,r)\), or the unresolved intrinsic divergence of \(\cR^a\), rather than the value of this single charge.
+
+\paragraph{A second-class charge pair.}
+\statusL FAS also evaluate a second-class Bel--Robinson charge for a triple of conformal Killing fields proportional to the unit normal \cite{fabSen2022asymptotic}.  In the outgoing no-incoming sector its canonical superenergy density is
+\begin{equation}\label{eq:BR-canonical-superenergy-outgoing}
+  w_{\mathrm{can}}
+  =
+  \frac14\big(W^+ + 4Z^+ + 6\cV\big)
+  =
+  \hat C_{AB}\hat C^{AB}
+  +
+  4 C_AC^A
+  +
+  \frac32\,\cV .
+\end{equation}
+\statusD Writing \(\rho:=\alpha^{-3}\cR_{\mathrm{dens}}=\hat C^2-4C^2+\tfrac32\cV\) for the bitranslation density of \eqref{eq:BR-charge-outgoing}, the two second-class densities satisfy
+\begin{equation}\label{eq:BR-pair-inversion}
+  \hat C^2
+  =
+  \frac12\big(w_{\mathrm{can}}+\rho-3\cV\big),
+  \qquad
+  C^2
+  =
+  \frac18\big(w_{\mathrm{can}}-\rho\big),
+  \qquad
+  s
+  =
+  \frac18\big(5w_{\mathrm{can}}+3\rho\big)-\frac32\,\cV .
+\end{equation}
+Thus the vector detector magnitude is already fixed by the difference of the two second-class charge densities, while the tensor magnitude and the detector square require subtraction of the Coulomb superenergy \(\cV\).  If \(\cV\) is independently known, the family of second-class charge densities determines the detector pair; without it, the pair still does not determine \(s\).  These are local density identities; converting them into flux laws again requires the unresolved intrinsic divergences.  The finite algebra is formalized by \texttt{SecondClassBRCharge.PairModel}, \texttt{hatC2\_from\_superEnergy\_and\_bitranslation}, \texttt{C2\_from\_superEnergy\_and\_bitranslation}, and \texttt{detectorSq\_from\_superEnergy\_and\_bitranslation}.
+
+\statusD The Coulomb input is genuinely necessary at the algebraic level.  The algebraically admissible nonnegative triples \((\hat C^2,C^2,\cV)=(1,0,0)\) and \((0,0,\tfrac23)\) give the same second-class densities \(w_{\mathrm{can}}=\rho=1\) but different detector squares \(s=1\) and \(s=0\).  Thus even the pair of second-class charge densities cannot distinguish pure tensor news from pure Coulomb superenergy; an independent determination of \(\cV\) is required before the detector square can be recovered.  The collision is formalized by \texttt{SecondClassBRCharge.pureTensorPair}, \texttt{pureCoulombPair}, and \texttt{pair\_charge\_blindness}.
 
 \statusL This degeneracy is consistent with Ashtekar--Bonga--Kesavan's observation that imposing conformal flatness of the intrinsic geometry of \(\mathscr I^+\) from the outset trivializes the flux problem \cite{ashtekar2015linear}.  The nonzero Hamiltonian flux \eqref{eq:hamiltonian-flux} survives because the candidate nonlinear charges depend on the full boundary conformal geometry; their linearization contains \(\mathcal L_\xi h_{ab}\), not merely \(\cT^{ab}D_a\xi_b\) evaluated on the background.  Thus \eqref{eq:aldS-stress-flux-linear} is the correct linearized charge-flux relation, while \eqref{eq:aldS-flux} is a special balance identity that vanishes identically on trace-free stress and conformal symmetries.
 
@@ -1767,13 +1850,23 @@ for some phase-space-independent constant \(c_\xi\ge0\).  Then
   \qquad
   n_\xi:=\sqrt{c_\xi}\,\nu_\xi ,
 \end{equation}
-so \(\mathcal F_\xi=\|n_\xi\|^2\) and \(\mathcal F_\xi=0\iff n_\xi=0\) when \(c_\xi>0\).  Equivalently, \(\varkappa C_\xi^\dagger B_\xi=c_\xi I\); an integration by parts is precisely what supplies this adjoint identity.  The stronger pointwise requirement \(P_{\mathrm{rad}}E=c_\xi P_{\mathrm{rad}}A_\xi h\) is a special sufficient case, obtained when \(C_\xi\) is a multiple of \(B_\xi\), but it is not necessary.  The finite algebra is formalized by \texttt{RetardedSquareCriterion.Model}, \texttt{square}, \texttt{nonnegative}, and \texttt{zero\_iff}.
+so \(\mathcal F_\xi=\|n_\xi\|^2\) and \(\mathcal F_\xi=0\iff n_\xi=0\) when \(c_\xi>0\).  Equivalently, \(\varkappa C_\xi^\dagger B_\xi=c_\xi I\); an integration by parts is precisely what supplies this adjoint identity.  The stronger pointwise requirement \(P_{\mathrm{rad}}E=c_\xi P_{\mathrm{rad}}A_\xi h\) is a special sufficient case, obtained when \(C_\xi\) is a multiple of \(B_\xi\), but it is not necessary.  The finite algebra is formalized by \texttt{RetardedSquareCriterion.Model}, \texttt{square}, \texttt{nonnegative}, and \texttt{zero\_iff}; the stronger ABK source-square specialization is formalized by \texttt{ABKRetardedSource.Model}, \texttt{flux\_nonneg}, \texttt{flux\_zero\_of\_seedSq\_zero}, \texttt{seedSq\_zero\_of\_flux\_zero}, and \texttt{flux\_zero\_iff}.
 
-\statusL The adjoint factorization is realized in the retarded first-post-de Sitter quadrupole sector of Ashtekar--Bonga--Kesavan \cite{ashtekar2015quadrupole}.  There one has
-\(\cE_{ab}=(2H)^{-1}(1/\eta)(\partial_\eta^2-\eta^{-1}\partial_\eta)\chi^{\mathrm{TT}}_{ab}\) and
-\(A_T\chi^{\mathrm{TT}}_{ab}\hat{=}T^m\mathring\nabla_m\chi^{\mathrm{TT}}_{ab}\).  With the retarded solution, substitution in the energy flux gives two radial-source factors which are not pointwise proportional; after integration by parts their pairing is the square of the source radiation field
-\(\cR^{\mathrm{src}}_{ab}:=\partial_r\!\int\!\diff^3x'\,T^{\mathrm{TT}\,'}_{ab}(\eta_r,\vec x')\).  Thus
-\begin{equation}\label{eq:quadrupole-source-square}
+\statusL The adjoint factorization is realized in the full retarded-source sector of Ashtekar--Bonga--Kesavan \cite{ashtekar2015quadrupole}, not only in its quadrupole specialization.  Under the ABK isolated-source assumptions (smooth compactly supported conserved \(T_{ab}\), physical size small compared with \(\ell_\Lambda\), stationarity outside a finite time interval, and the first-post-de Sitter/slow-motion approximation), the retarded TT solution is
+\[
+  \chi^{\mathrm{TT}}_{ab}(\eta,\vec x)
+  =
+  4G\int\frac{\diff^3x'}{|\vec x-\vec x'|}
+  T^{\mathrm{TT}\, '}_{ab}(\eta_R,\vec x')
+  +
+  4G\int\diff^3x'\int_{-\infty}^{\eta_R}
+  \frac{\diff\eta'}{\eta'}\,
+  \partial_{\eta'}T^{\mathrm{TT}\, '}_{ab}(\eta',\vec x') ,
+\]
+while \(\cE_{ab}=(2H)^{-1}(1/\eta)(\partial_\eta^2-\eta^{-1}\partial_\eta)\chi^{\mathrm{TT}}_{ab}\) and
+\(A_T\chi^{\mathrm{TT}}_{ab}\hat{=}T^m\mathring\nabla_m\chi^{\mathrm{TT}}_{ab}\).  Substitution in the energy flux gives two radial-source factors which are not pointwise proportional; after integration by parts their pairing is the square of the source radiation field
+\(\cR^{\mathrm{src}}_{ab}:=\partial_r\!\int\!\diff^3x'\,T^{\mathrm{TT}\, '}_{ab}(\eta_r,\vec x')\).  Thus, for every ABK retarded source,
+\begin{equation}\label{eq:retarded-source-square}
   E_T
   =
   \frac{G}{2\pi}
@@ -1782,6 +1875,15 @@ so \(\mathcal F_\xi=\|n_\xi\|^2\) and \(\mathcal F_\xi=0\iff n_\xi=0\) when \(c_
   \cR^{\mathrm{src}}_{ab}\cR_{\mathrm{src}}^{ab}
   \ge0 .
 \end{equation}
+
+\statusD In the notation of \eqref{eq:retarded-square-law}, set
+\(\nu_\xi=\cR^{\mathrm{src}}\) for the time translation and \(c_T=G/(2\pi)>0\).  Then the retarded-sector news seed has the exact flux and zero-set laws
+\[
+  \mathcal F_T=\tfrac{G}{2\pi}\|\nu_T\|^2\ge0,
+  \qquad
+  \mathcal F_T=0\ \Longleftrightarrow\ \cR^{\mathrm{src}}_{ab}=0
+  \quad\text{a.e.\ on }\scri^+ .
+\]
 This is the first controlled linear sector in which the local dual-news pairing becomes an actual positive square; the news seed is the source radiation field itself rather than a pointwise multiple of \(A_T\chi^{\mathrm{TT}}\).  It does not contradict the sign-flip obstruction: the factorization \eqref{eq:retarded-factorization} is a retarded-source constraint and fails on the full homogeneous de Sitter phase space.  It also does not extend automatically to the nonlinear AldS charge flux or to the FAS first-jet detector square.
 
 \subsection{Conformal phase-space flux}
@@ -1845,27 +1947,26 @@ so positivity is not representative-independent even in this restricted class.
 with \(\cR_{ab}\) reducing, in the nonrelativistic short-duration regime, to the third time derivative of the mass quadrupole plus \(O(H)\) corrections.
 
 \subsubsection{Flat flux bridge from the retarded source news seed}
-\statusD The preceding flux law can be sharpened to an explicit flat-limit news normalization.  Let \(u=\eta_r=\eta-r\) be the retarded source time and let
-\(\nu^{\mathrm{src}}_{ab}:=\partial_r\int \diff^3x'\,T^{\mathrm{TT}\, '}_{ab}(u,\vec x')\).  Conservation of the leading Newtonian source gives \(\int T_{ij}\diff^3x=\tfrac12\ddot Q^{(\rho)}_{ij}\), so at \(H=0\)
-\begin{equation}\label{eq:source-seed-quadrupole}
-  \nu^{\mathrm{src}}_{ab}
+\statusD The preceding flux law can be sharpened to an explicit flat-limit news normalization without restricting to a quadrupole.  Let \(u=\eta_r=\eta-r\) be the retarded source time and let
+\(\nu^{\mathrm{src}}_{ab}:=\partial_r\int \diff^3x'\,T^{\mathrm{TT}\, '}_{ab}(u,\vec x')\).  At \(H=0\) the leading term of the retarded TT solution is the ordinary far-zone solution
+\[
+  h^{\mathrm{TT}}_{AB}(u,\vec x)
   =
-  -\tfrac12
-  P^{\mathrm{TT}}\dddot Q^{(\rho)}_{ab}+O(H) .
-\end{equation}
-On the other hand, the standard quadrupole strain in the far zone is
-\(h^{\mathrm{TT}}_{AB}=(2G/r)\ddot Q^{\mathrm{TT}}_{AB}(u)\), hence the Bondi news is
+  \frac{4G}{r}
+  \int \diff^3x'\,T^{\mathrm{TT}\, '}_{AB}(u,\vec x')
+  +O(r^{-2}),
+\]
+so \(\partial_u(rh^{\mathrm{TT}}_{AB})=4G\partial_u\int T^{\mathrm{TT}\, '}_{AB}\).  Since the source integral depends on \(r\) only through \(u=\eta-r\), \(\partial_r=-\partial_u\) on it.  Hence the physical Bondi news and the radial source seed obey the general retarded identity
 \begin{equation}\label{eq:flat-bondi-news-from-seed}
   N^{\mathrm{Bondi}}_{AB}
   =
   \partial_u\!\left(rh^{\mathrm{TT}}_{AB}\right)
   =
-  \frac{2G}{r}P^{\mathrm{tt}}\dddot Q^{(\rho)}_{AB}
-  =
   -\frac{4G}{r}\,
   P^{\mathrm{tt}}\nu^{\mathrm{src}}_{AB}
   +O(H) .
 \end{equation}
+For a Newtonian quadrupole this reduces to \(\nu^{\mathrm{src}}_{ab}=-\tfrac12P^{\mathrm{TT}}\dddot Q^{(\rho)}_{ab}+O(H)\) and \(N^{\mathrm{Bondi}}_{AB}=(2G/r)P^{\mathrm{tt}}\dddot Q^{(\rho)}_{AB}+O(H)\), reproducing the familiar normalization as a special case.
 Consequently the flat Bondi mass-loss density and the ABK source-square density have the same normalization after the observer's radial \(\mathrm{tt}\)-projection:
 \begin{equation}\label{eq:flat-flux-bridge}
   \frac{r^2}{32\pi G}
@@ -2075,6 +2176,55 @@ Since \(\lambda_2=2\) and \(\lambda_l\ge2\) for every radiative \(l\ge2\), one h
 \end{equation}
 with equality exactly for a pure quadrupole sector.  Conversely \(\lambda_l\to\infty\), so \(\mathcal B_\infty/P_{\mathrm{Bondi}}\) is unbounded over radiative harmonics: bounded \(C_A[n^+]\) forces the corresponding news mode to vanish, while a fixed Bondi power can support arbitrarily large \(\beta_\infty\) as the angular wavelength shortens.  This is the spectral form of the divergence obstruction and shows that \(\beta_\infty\) carries angular-derivative information invisible to the total Bondi flux.  The finite algebra is formalized by \texttt{BetaSpectralWeight.Mode}, \texttt{lambda\_ge\_two}, \texttt{betaSq\_eq\_flux\_weight}, \texttt{betaSq\_ge\_two\_flux}, and \texttt{betaSq\_eq\_quadrupole}.
 
+\paragraph{Flat first-jet detector balance.}
+\statusD The tensor and angular coefficients can now be combined.  Under the conditional identification \(\mathring n_{AB}=\mathcal N_{AB}\) and the corresponding equipment-derivative limit \(N\Phi^{\mathrm{norm}}_{AB}\to\dot{\mathcal N}_{AB}\), the flat companion identities \(\mathcal W=2|\dot{\mathcal N}|^2\) and \(\mathcal Z=2|D\mathcal N|^2\) give
+\begin{equation}\label{eq:flat-jet-detector-balance}
+  \alpha_\infty=2\mathcal W,
+  \qquad
+  \beta_\infty=\tfrac12\mathcal Z,
+  \qquad
+  \lim_{\Lambda\to0}\int_S N^2\|\cN^{\mathrm{jet}}_+\|^2\,\diff^2S
+  =
+  \int_S\Big(\tfrac12\mathcal W+\tfrac18\mathcal Z\Big)\diff^2S .
+\end{equation}
+Equivalently,
+\begin{equation}\label{eq:flat-jet-bondi-gradient}
+  \lim_{\Lambda\to0}\int_S N^2\|\cN^{\mathrm{jet}}_+\|^2\,\diff^2S
+  =
+  r^2\int_S\left(
+  |\partial_uN^{\mathrm{Bondi}}|^2
+  +
+  \tfrac14 D_BN^{\mathrm{Bondi}\,BC}D_DN^{\mathrm{Bondi}\,D}{}_C
+  \right)\diff^2S .
+\end{equation}
+The factor \(1/4\) on the angular term is fixed by the inverse-divergence normalization \(NC_A[n^+]=-\tfrac12\epsilon_{AC}D_Bn^{+BC}\); the first-jet norm is therefore a detector-gradient energy, not the Bondi mass-loss density \(\propto|\mathcal N|^2\), and not the unweighted wave energy of the news.  This closes the flat detector bookkeeping modulo the two conditional geometric identification inputs.  The finite algebra is formalized by \texttt{FlatJetEnergy.Algebra}, \texttt{alphaInf\_eq\_two\_wFlat}, \texttt{betaInf\_eq\_half\_zFlat}, and \texttt{jetLimit\_eq\_detector}.
+
+\paragraph{Gauge-independence of the flat detector balance.}
+\statusD The normalization above used the original transport choice \((\delta,\gamma)=(0,1)\) and \((\beta_{\mathrm F},\lambda_{\mathrm F})=(0,1)\).  The result is in fact independent of the full nondegenerate generalized transport family.  FAS VI.132 and VI.123 give, for arbitrary gauge scalars with \(\delta^2+\gamma^2>0\) and \(\beta_{\mathrm F}^2+\lambda_{\mathrm F}^2>0\),
+\begin{equation}\label{eq:generalized-normalized-squares}
+  \frac{\Phi_{AB}\Phi^{AB}}{\delta^2+\gamma^2}
+  =
+  \hat C_{AB}\hat C^{AB},
+  \qquad
+  \frac{D_Cn^{+BC}D_Dn^{+}{}_{BD}}{\beta_{\mathrm F}^2+\lambda_{\mathrm F}^2}
+  =
+  N^2 Z^+ .
+\end{equation}
+Hence the normalized combinations, not the raw transport derivatives, are the geometric detector limits.  Assume that
+\(\Phi^{\mathrm{norm}}_{AB}=\Phi_{AB}/\sqrt{\delta^2+\gamma^2}\) converges to the flat time-derivative \(\dot{\cN}_{AB}\), and that the vector-normalized news converges to the flat news \(\cN_{AB}\) in the sense
+\[
+  \frac{D_Cn^{+BC}}{\sqrt{\beta_{\mathrm F}^2+\lambda_{\mathrm F}^2}}
+  \longrightarrow
+  D_B\cN^{BA} .
+\]
+Then
+\begin{equation}\label{eq:generalized-flat-balance}
+  \alpha_\infty=4|\dot\cN|^2=2\mathcal W,
+  \qquad
+  \beta_\infty=|D\cN|^2=\tfrac12\mathcal Z,
+\end{equation}
+so the entire flat first-jet balance \eqref{eq:flat-jet-detector-balance} is unchanged by \((\delta,\gamma)\) and \((\beta_{\mathrm F},\lambda_{\mathrm F})\).  The finite cancellation is formalized by \texttt{GeneralizedTransportFlatBalance.Model}, \texttt{tensor\_normalization\_gauge\_free}, and \texttt{vector\_normalization\_gauge\_free}.  The degenerate case in which either squared norm tends to zero is not covered: there the normalized detector limits can fail even when the raw transport derivative stays bounded.  This is a new conditional subcase of the \(\Lambda\to0\) problem, not a theorem of universal convergence.
+
 \statusD The sign-flip operation in the sign-flip obstruction can be made explicit in the TT family of \cite{ashtekar2015linear}.  Writing
 \begin{equation}
   E_{\vec k}^{(s)}=c_{\vec k}^{(s)}\sin(k/H)+d_{\vec k}^{(s)}\cos(k/H),
@@ -2128,6 +2278,7 @@ Two Lean files were produced and verified.
   \item the flux-linearity obstruction \texttt{LinearFluxObstruction.no\_nonzero\_constant\_square};
   \item the linearized Hamiltonian news-flux core \texttt{HamiltonianNewsFlux.Model}, \texttt{flux\_smul}, \texttt{flux\_add}, and \texttt{flux\_zero};
   \item the conformal-Killing degeneracy core \texttt{CKVFluxDegeneracy.trace}, \texttt{ckvDerivative}, and \texttt{contract\_zero};
+  \item the second-class Bel--Robinson charge core \texttt{SecondClassBRCharge.Model}, \texttt{outgoing\_charge}, \texttt{DetectorModel}, \texttt{radiative\_charge\_may\_vanish\_on\_nonzero\_news}, \texttt{hatC2\_from\_square\_and\_charge}, \texttt{C2\_from\_square\_and\_charge}, \texttt{no\_scalar\_charge\_equals\_detector\_square}, \texttt{FlatDetectorModel}, \texttt{flat\_radiative\_charge}, \texttt{flat\_radiative\_charge\_detector}, \texttt{PairModel}, \texttt{hatC2\_from\_superEnergy\_and\_bitranslation}, \texttt{C2\_from\_superEnergy\_and\_bitranslation}, \texttt{detectorSq\_from\_superEnergy\_and\_bitranslation}, \texttt{pureTensorPair}, \texttt{pureCoulombPair}, and \texttt{pair\_charge\_blindness};
   \item the pointwise news-square obstruction \texttt{NewsSquareObstruction.no\_linear\_pointwise\_square} and the harmonic-mode obstruction \texttt{HarmonicDimensionObstruction.no\_injective\_pair\_to\_tensor};
   \item the linearized sign-flip obstruction \texttt{LinearizedFluxObstruction.SignFlipNewsModel}, \texttt{energy\_zero\_of\_sign\_flip\_square}, and \texttt{no\_sign\_flip\_square};
   \item the conditional strongly equipped radiant-news core \texttt{RadiantCutNews.StrongModel}, \texttt{nPlus\_zero\_iff\_V\_zero}, \texttt{Zplus\_iff\_V\_zero}, and \texttt{V\_zero\_iff\_Pzero};
@@ -2143,7 +2294,7 @@ Two Lean files were produced and verified.
   \item the conformal-weight core \texttt{ConformalWeightObstruction.LocalTensorOperator}, \texttt{tensor\_square\_weight}, \texttt{vector\_square\_weight}, and \texttt{no\_local\_rank\_two\_map};
   \item the arbitrary-cut polar-decomposition core \texttt{ArbitraryCutJetNews.PolarData}, \texttt{toIsometry}, and \texttt{J\_zero\_iff};
   \item the conformal-intertwiner weight algebra \texttt{ConformalJetIntertwiner.Algebra}, \texttt{input\_weight}, \texttt{output\_weight}, and \texttt{jet\_square\_scaling}, together with \texttt{PolarAlgebra} and \texttt{polar\_unique};
-  \item the symplectic dual-news core \texttt{SymplecticDualNews.Model}, \texttt{flux\_zero\_of\_news\_zero}, and \texttt{flux\_zero\_all\_iff\_dual\_zero}, together with the local-adjoint algebra \texttt{LocalDualNews.localDual}, \texttt{localDual\_add}, \texttt{localDual\_smul}, \texttt{PairingAlgebra}, \texttt{pairing}, the retarded factorization core \texttt{RetardedSquareCriterion.Model}, \texttt{square}, \texttt{nonnegative}, \texttt{zero\_iff}, and the flat flux normalization \texttt{FlatBondiBridge.Model}, \texttt{scaled\_seed\_square}, \texttt{flux\_equivalence}, together with the divergence resolution \texttt{BetaPlusDivergence.Algebra}, \texttt{beta\_eq\_div\_sq}, \texttt{beta\_nonneg}, \texttt{beta\_eq\_four\_Nsq\_Csq}, \texttt{NC\_eq\_neg\_half\_div}, \texttt{BetaPlusDivergence.LimitAlgebra}, \texttt{tendsto\_beta}, \texttt{tendsto\_NC}, and the flat normalization \texttt{FlatNewsNormalization.FlatFAS}, \texttt{betaInf\_eq\_half\_zFlat}, \texttt{zFlat\_eq\_two\_betaInf}, \texttt{BondiFrame}, \texttt{covDivSq\_eq}, \texttt{betaInf\_eq\_bondiDivSq}, and the spectral weight \texttt{BetaSpectralWeight.Mode}, \texttt{lambda\_ge\_two}, \texttt{betaSq\_eq\_flux\_weight}, \texttt{betaSq\_ge\_two\_flux}, \texttt{betaSq\_eq\_quadrupole};
+  \item the symplectic dual-news core \texttt{SymplecticDualNews.Model}, \texttt{flux\_zero\_of\_news\_zero}, and \texttt{flux\_zero\_all\_iff\_dual\_zero}, together with the local-adjoint algebra \texttt{LocalDualNews.localDual}, \texttt{localDual\_add}, \texttt{localDual\_smul}, \texttt{PairingAlgebra}, \texttt{pairing}, the retarded factorization core \texttt{RetardedSquareCriterion.Model}, \texttt{square}, \texttt{nonnegative}, \texttt{zero\_iff}, the ABK source-square core \texttt{ABKRetardedSource.Model}, \texttt{flux\_nonneg}, \texttt{flux\_zero\_of\_seedSq\_zero}, \texttt{seedSq\_zero\_of\_flux\_zero}, \texttt{flux\_zero\_iff}, and the flat flux normalization \texttt{FlatBondiBridge.Model}, \texttt{scaled\_seed\_square}, \texttt{flux\_equivalence}, together with the divergence resolution \texttt{BetaPlusDivergence.Algebra}, \texttt{beta\_eq\_div\_sq}, \texttt{beta\_nonneg}, \texttt{beta\_eq\_four\_Nsq\_Csq}, \texttt{NC\_eq\_neg\_half\_div}, \texttt{BetaPlusDivergence.LimitAlgebra}, \texttt{tendsto\_beta}, \texttt{tendsto\_NC}, and the flat normalization \texttt{FlatNewsNormalization.FlatFAS}, \texttt{betaInf\_eq\_half\_zFlat}, \texttt{zFlat\_eq\_two\_betaInf}, \texttt{BondiFrame}, \texttt{covDivSq\_eq}, \texttt{betaInf\_eq\_bondiDivSq}, and the spectral weight \texttt{BetaSpectralWeight.Mode}, \texttt{lambda\_ge\_two}, \texttt{betaSq\_eq\_flux\_weight}, \texttt{betaSq\_ge\_two\_flux}, \texttt{betaSq\_eq\_quadrupole}, and the flat detector balance \texttt{FlatJetEnergy.Algebra}, \texttt{alphaInf\_eq\_two\_wFlat}, \texttt{betaInf\_eq\_half\_zFlat}, \texttt{jetLimit\_eq\_detector}, together with its generalized-transport invariance \texttt{GeneralizedTransportFlatBalance.Model}, \texttt{tensor\_normalization\_gauge\_free}, \texttt{vector\_normalization\_gauge\_free};
   \item the flat-limit directional degeneracy core \texttt{FlatLimitDirection.Model} and \texttt{qMinus\_zero\_Qflat\_ne\_zero\_imp\_B\_one};
   \item the first-jet flat-scaling core \texttt{FirstJetFlatScaling.Algebra}, \texttt{scaled\_phi\_eq}, \texttt{scaled\_vector\_eq}, and \texttt{scaled\_jet\_eq};
   \item the regular flat-limit implication \texttt{FlatLimitConstraint.Model} and \texttt{flat\_news\_zero}.
@@ -2179,14 +2330,14 @@ Specific remaining tasks are:
   \item Fix precise function spaces and conformal rescaling conventions for the AldS state space.
   \item Extend the strongly equipped identity \(n^+_{AB}=2V_{AB}\) to a general \(X_A\).  Equivalently, construct a weight-\(\omega^{-2}\), CKV-orthogonal one-form \(X_A\), or a gauge-invariant function \(f\), whose constancy matches no radiation.
   \item Extend \(\cN^{\mathrm{jet}}_+\) beyond strongly equipped outgoing data and construct the conformally covariant analogue of \(\mathcal J\) on arbitrary cuts.  By the weight-parity obstruction, this must be a nonlocal operator of weight \(+1\), not a local curvature correction to \(\mathcal K_q\).
-  \item Prove a flux representation for \(\cN^{\mathrm{jet}}_+\), first for linearized de Sitter waves and then generally, using fixed-\(\xi\), \(\xi\)-weighted, or bilinear AldS/symplectic pairings that are not exhausted by the seven finite charge evaluations.
+  \item Prove a flux representation for \(\cN^{\mathrm{jet}}_+\), first for linearized de Sitter waves and then generally, using fixed-\(\xi\), \(\xi\)-weighted, or bilinear AldS/symplectic pairings that are not exhausted by the seven finite charge evaluations.  In particular, compute the intrinsic divergence of the FAS second-class bitranslation current \(\cR^a\); the cut charge alone is \(\hat C^2-4C^2+\tfrac32\cV\), has flat radiative limit \(|\dot{\mathcal N}|^2-|D\mathcal N|^2\), and is blind to part of the news.
   \item Prove positivity and rigidity, and determine whether a nonlocal or \(\xi\)-dependent news object is necessary.
   \item Establish a universal no-incoming condition or prove a precise substitute.
   \item Formulate and prove an analogue of peeling, or show that no such analogue exists.
-  \item Prove a controlled \(\Lambda\to0\) limit with explicit scaling assumptions.
+  \item Prove a controlled \(\Lambda\to0\) limit with explicit scaling assumptions, including the degenerate cases in which \(\delta^2+\gamma^2\) or \(\beta_{\mathrm F}^2+\lambda_{\mathrm F}^2\) tends to zero and the normalized detector limits fail.
 \end{enumerate}
 
-The positive result in this manuscript is conditional but concrete: under strong equipment, \(S^2\) leaves, and no incoming radiation, the rank-two radiant news is \(n^+_{AB}=2V_{AB}\).  The transport law \eqref{eq:radiant-flux-square} represents the radiant superenergy as the square of the equipment derivative of \(n^\pm\), while the detector-square pair \eqref{eq:detector-news-pair} represents the normal outgoing flux exactly in the outgoing sector, and its round-cut rank-two tensor-pair realization \eqref{eq:rank2-pair-news} saturates the harmonic multiplicity obstruction.  Passing to the first jet in \eqref{eq:first-jet-news} combines these structures: \(\cN^{\mathrm{jet}}_+\) has the unified zero set \eqref{eq:first-jet-zero}, its first component is the normalized FAS flux density, and its total norm is exactly \(-\tfrac12p_m\), which FAS VI.123 rewrites as a local quadratic form in the equipment derivative and divergence of \(n^+\).  The negative results narrow what remains: a single \(\xi\)-independent positive scalar cannot represent all charge fluxes; pointwise and representation-theoretic linear squares of the full outgoing detector pair into one STF tensor cannot reproduce the known positive density; \(n^+=2V\) has a spectral norm mismatch with the detector; the full linearized de Sitter energy flux cannot be a sign-definite news square; all seven de Sitter charge fluxes can vanish on nonzero news, so finite charge evaluations are not a news detector; the conformal weights of the first-jet components force any rank-two realization to use a nonlocal operator of weight \(+1\), excluding local differential constructions; and the naive Bondi shear coefficient is not free when \(\Lambda\neq0\).  The round-cut inversions \eqref{eq:codazzi-inversion} and \eqref{eq:V-round-inversion} show that both the unrestricted cut-Codazzi candidate and the strongly equipped radiant news are nonlocal on each cut.  The arbitrary-cut polar decomposition \eqref{eq:arbitrary-cut-J} extends the vector-to-tensor isometry beyond round cuts, with conformal-Killing modes as the intrinsic replacement for the discarded \(l=0,1\) harmonics; its unweighted version is metric dependent, but the weighted construction \eqref{eq:covariant-J} supplies a conformally covariant weight-\(+1\) intertwiner on arbitrary \(S^2\) cuts, after exclusion of conformal-Killing components, and \eqref{eq:polar-factor-J} identifies it as the unique isometric polar factor of the local operator \eqref{eq:weighted-local-K}.  The flat-limit analysis adds one positive result and one sharp obstruction: the tensor first-jet component renormalizes by \(N=\sqrt{\Lambda/3}\) with limiting square \(\alpha_\infty/4\), where \(\alpha_\infty\) is the outgoing rescaled-supermomentum coefficient along the limiting generator; for the vector component \(\beta_+\) is now the divergence-square of the flat radiant news, so \(N C_A[n^+]\) is the finite renormalized detector while bounded \(C_A[n^+]\) would force the flat radiant news itself to vanish; with the flat tidal normalization \(\beta_\infty=\mathcal Z/2=r^2|D N^{\mathrm{Bondi}}|^2\).  Its integrated form is a mode-weighted Bondi flux, \(\mathcal B_\infty=32\pi G\sum_l\lambda_lP_l\) with \(\lambda_l=(l-1)(l+2)/2\), so \(\mathcal B_\infty\ge64\pi GP_{\mathrm{Bondi}}\) and the ratio is unbounded over radiative harmonics.  The local dual news \eqref{eq:local-dual-news-adjoint} makes the linear flux pairing explicit, and the retarded adjoint factorization \eqref{eq:retarded-factorization} isolates exactly what is needed for a positive square.  That criterion is realized in the retarded quadrupole sector by the positive source-radiation square \eqref{eq:quadrupole-source-square}, so the linear retarded obstruction is not merely heuristic.  Moreover \eqref{eq:flat-flux-bridge} normalizes the radial \(\mathrm{tt}\)-projected source seed so that the ABK flux and the ordinary Bondi mass-loss flux agree exactly in the controlled flat limit.  The decisive open step is no longer a zero-set, detector-magnitude, cut-covariance, linear retarded-square, controlled flat-flux-normalization, or formal \(\beta_+\)-identification compatibility: it is to extend the first-jet construction beyond strongly equipped outgoing data, establish the controlled-flat identification \(\mathring n=\mathcal N\) that activates the normalization \(\beta_\infty=\mathcal Z/2=r^2|D N^{\mathrm{Bondi}}|^2\), pass from the explicit local linearized dual news to a nonlinear and cut-covariant representative, and couple \(\cN^{\mathrm{jet}}_+\) to the nonlinear AldS/symplectic charge-flux law while preserving the retarded factorization.
+The positive result in this manuscript is conditional but concrete: under strong equipment, \(S^2\) leaves, and no incoming radiation, the rank-two radiant news is \(n^+_{AB}=2V_{AB}\).  The transport law \eqref{eq:radiant-flux-square} represents the radiant superenergy as the square of the equipment derivative of \(n^\pm\), while the detector-square pair \eqref{eq:detector-news-pair} represents the normal outgoing flux exactly in the outgoing sector, and its round-cut rank-two tensor-pair realization \eqref{eq:rank2-pair-news} saturates the harmonic multiplicity obstruction.  Passing to the first jet in \eqref{eq:first-jet-news} combines these structures: \(\cN^{\mathrm{jet}}_+\) has the unified zero set \eqref{eq:first-jet-zero}, its first component is the normalized FAS flux density, and its total norm is exactly \(-\tfrac12p_m\), which FAS VI.123 rewrites as a local quadratic form in the equipment derivative and divergence of \(n^+\).  The negative results narrow what remains: a single \(\xi\)-independent positive scalar cannot represent all charge fluxes; pointwise and representation-theoretic linear squares of the full outgoing detector pair into one STF tensor cannot reproduce the known positive density; \(n^+=2V\) has a spectral norm mismatch with the detector; the full linearized de Sitter energy flux cannot be a sign-definite news square; all seven de Sitter charge fluxes can vanish on nonzero news, so finite charge evaluations are not a news detector; the second-class Bel--Robinson charge density \(\hat C^2-4C^2+\tfrac32\cV\) can likewise vanish on nonzero news; the conformal weights of the first-jet components force any rank-two realization to use a nonlocal operator of weight \(+1\), excluding local differential constructions; and the naive Bondi shear coefficient is not free when \(\Lambda\neq0\).  The round-cut inversions \eqref{eq:codazzi-inversion} and \eqref{eq:V-round-inversion} show that both the unrestricted cut-Codazzi candidate and the strongly equipped radiant news are nonlocal on each cut.  The arbitrary-cut polar decomposition \eqref{eq:arbitrary-cut-J} extends the vector-to-tensor isometry beyond round cuts, with conformal-Killing modes as the intrinsic replacement for the discarded \(l=0,1\) harmonics; its unweighted version is metric dependent, but the weighted construction \eqref{eq:covariant-J} supplies a conformally covariant weight-\(+1\) intertwiner on arbitrary \(S^2\) cuts, after exclusion of conformal-Killing components, and \eqref{eq:polar-factor-J} identifies it as the unique isometric polar factor of the local operator \eqref{eq:weighted-local-K}.  The flat-limit analysis adds one positive result and one sharp obstruction: the tensor first-jet component renormalizes by \(N=\sqrt{\Lambda/3}\) with limiting square \(\alpha_\infty/4\), where \(\alpha_\infty\) is the outgoing rescaled-supermomentum coefficient along the limiting generator; for the vector component \(\beta_+\) is now the divergence-square of the flat radiant news, so \(N C_A[n^+]\) is the finite renormalized detector while bounded \(C_A[n^+]\) would force the flat radiant news itself to vanish; with the flat tidal normalization \(\beta_\infty=\mathcal Z/2=r^2|D N^{\mathrm{Bondi}}|^2\).  Its integrated form is a mode-weighted Bondi flux, \(\mathcal B_\infty=32\pi G\sum_l\lambda_lP_l\) with \(\lambda_l=(l-1)(l+2)/2\), so \(\mathcal B_\infty\ge64\pi GP_{\mathrm{Bondi}}\) and the ratio is unbounded over radiative harmonics.  With the conditional flat identifications the whole first jet converges to \(\tfrac12\mathcal W+\tfrac18\mathcal Z\), i.e. to \(r^2(|\partial_uN^{\mathrm{Bondi}}|^2+\tfrac14|DN^{\mathrm{Bondi}}|^2)\), rather than to the Bondi mass-loss density.  The local dual news \eqref{eq:local-dual-news-adjoint} makes the linear flux pairing explicit, and the retarded adjoint factorization \eqref{eq:retarded-factorization} isolates exactly what is needed for a positive square.  That criterion is realized in the full ABK retarded-source sector by the positive source-radiation square \eqref{eq:retarded-source-square}, so the linear retarded obstruction is not merely heuristic.  Moreover \eqref{eq:flat-flux-bridge} normalizes the radial \(\mathrm{tt}\)-projected source seed so that the ABK flux and the ordinary Bondi mass-loss flux agree exactly in the controlled flat limit.  The decisive open step is no longer a zero-set, detector-magnitude, cut-covariance, linear retarded-square, controlled flat-flux-normalization, or formal \(\beta_+\)-identification compatibility: it is to extend the first-jet construction beyond strongly equipped outgoing data, establish the controlled-flat identification \(\mathring n=\mathcal N\) that activates the normalization \(\beta_\infty=\mathcal Z/2=r^2|D N^{\mathrm{Bondi}}|^2\), pass from the explicit local linearized dual news to a nonlinear and cut-covariant representative, and couple \(\cN^{\mathrm{jet}}_+\) to the nonlinear AldS/symplectic charge-flux law while preserving the retarded factorization.
 
 \bibliographystyle{plainnat}
 \bibliography{lambda_positive_bondi}
