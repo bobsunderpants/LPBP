@@ -272,7 +272,7 @@ component exists with \(X^+_{AB}=V_{AB}\), so
 This is a genuine symmetric trace-free gauge-invariant rank-two news tensor in
 that restricted sector.  Theorem 2 of the same paper gives
 \(n^+_{AB}=0\iff P^a=0\iff\) no radiation, and Corollary VI.8 gives
-\(V_{AB}=0\iff P^a=0\) under strong equipment.  If Senovilla's cut-news tensor is identified with the FAS outgoing radiant news
+\(V_{AB}=0\iff P^a=0\) under strong equipment.  FAS also allow \(n^+_{(\mu)}=2\mu V\) for constant \(\mu\); this leaves the zero set unchanged. In the present framework the arbitrary scale is fixed by two independent requirements: matching the geometric detector square \(-\tfrac12p_m\) forces \(\mu^2=1\), and nonnegative radiated power with positive base power forces \(\mu\ge0\). Thus \(\mu=1\) in the matching, radiating sector. Lean: `GeneralizedRadiantNewsNormalization.Model`, `mu_sq_eq_one`, `mu_eq_one_or_neg_one`, `mu_nonneg`, `mu_eq_one`. If Senovilla's cut-news tensor is identified with the FAS outgoing radiant news
 in this sector, then \(X^+_{AB}=V_{AB}\) corresponds to \(M_{AB}=V_{AB}\);
 umbilicity then gives
 \[
@@ -453,6 +453,17 @@ representation would force \(\mathcal H_T=0\). The algebraic core is in Lean as
 `LinearizedFluxObstruction.SignFlipNewsModel`,
 `energy_zero_of_sign_flip_square`, and `no_sign_flip_square`.
 
+This sign flip also obstructs differentiable nonlinear squares. If
+\(E[g_0]=0\), \(\sigma[g_0]=0\), and \(E[g]=\int\sigma[g]^2\), then the second
+variation \(\int\dot\sigma[\gamma]^2\) is nonnegative on the full tangent
+space. It therefore cannot equal the ABK linearized energy, which takes both
+signs. Positivity requires a constrained tangent space excluding the sign-flip
+directions; the retarded-source sector is the controlled example. The finite
+second-variation algebra is
+`NonlinearSquareLinearizationObstruction.Model`, `Q_nonneg`, `flip_nonneg`,
+`Q_zero`, and `impossible`; analytic differentiability remains an external
+hypothesis.
+
 The same ABK formulas imply that the finite de Sitter charge family is blind to
 part of the news. All seven Hamiltonian fluxes are \(E\)-\(B\) cross terms. If
 \(E_{\vec k}\) and \(B_{\vec k}\) have disjoint compact momentum support, every
@@ -494,6 +505,20 @@ genuinely necessary: \((\hat C^2,C^2,\mathcal V)=(1,0,0)\) and
 \((0,0,2/3)\) have the same second-class densities \((1,1)\) but detector
 squares \(1\) and \(0\). Lean: `pureTensorPair`, `pureCoulombPair`,
 `pair_charge_blindness`.
+
+The obstruction to turning the bitranslation charge into a flux is now
+precise. FAS explicitly state that \(D_a\mathcal R^a\) requires
+\(\mathcal L_{\vec n}d_{\alpha\beta\gamma\delta}\), which is not intrinsic
+endpoint data. The Cotton-sourced spacetime divergence of the rescaled
+Bel--Robinson tensor, the conformal field equations, the intrinsic divergences
+\(D_b\mathcal D^{ab}=0\) and \(D_b\mathcal C^{ab}=0\), and the null-frame
+Bianchi identities `eq:idbianchi1`--`eq:idbianchi8` do not determine that
+normal Lie derivative. Therefore the cut charge alone cannot supply a flux
+density without extra non-intrinsic extension data. The finite
+non-factorization algebra is `SecondClassCurrentDivergenceObstruction.Model`,
+`FactorsThroughIntrinsic`, `not_factors_through_intrinsic`, and
+`factors_with_fixed_extension`; it does not assert physical realizability of
+two extensions.
 
 There is also a conformal-weight obstruction to making the first-jet pair
 into a rank-two tensor pair on arbitrary cuts. Under \(q_{AB}\mapsto\omega^2q_{AB}\),
@@ -611,6 +636,33 @@ Thus the ABK flux and the Bondi mass-loss flux agree exactly in this retarded
 flat limit; only the radial tt-projected source field is the Bondi news image.
 Lean: `FlatBondiBridge.Model`, `scaled_seed_square`, `flux_equivalence`.
 
+The same bridge links the first-jet tensor news to the flux. Since
+\(N\Phi^{\rm norm}\) is isometric to \(\dot{\mathcal N}=\partial_u(rN^{\rm Bondi})\),
+past stationarity gives \(\mathcal N=\mathcal I[\dot{\mathcal N}]\) with
+\(\mathcal I f(u)=\int_{-\infty}^u f\), and therefore
+\[
+\frac{1}{32\pi G}\int|\mathcal I[\dot{\mathcal N}]|^2
+=\frac{G}{2\pi}\int(P^{\rm tt}\nu^{\rm src})^2
+=\lim_{H\to0}E_T^{\rm ABK}.
+\]
+The flux is thus a retarded-antiderivative square of the tensor first-jet news,
+not the pointwise derivative square of the detector-gradient energy. The vector
+component is needed for the zero set and covariance, not for this flux.
+Lean: `RetardedJetFluxBridge.Model`, `dotNewsSq_eq`,
+`seedSq_eq_integratedDotSq`, `flux_eq_integratedDotSq`,
+`flux_zero_iff_integratedDotSq_zero`.
+
+That antiderivative is not intrinsic. Changing the lower endpoint from
+\(u_0\) to \(u_1\) shifts \(\mathcal I f\) by
+\(\Delta_{01}=\int_{u_0}^{u_1}f\), so the square changes by
+\(2\langle\Delta_{01},\mathcal I_{u_0}f\rangle+|\Delta_{01}|^2\). Flat retarded
+data fixes \(-\infty\) and residual Bondi gauge absorbs the remaining shift;
+spacelike \(\scri^+\) at \(\Lambda>0\) supplies neither a canonical endpoint nor
+BMS supertranslations. The retarded flux square therefore needs explicit origin
+and foliation data before any de Sitter interpretation. Lean:
+`RetardedOriginAmbiguity.Algebra`, `square_eq`, `square_eq_iff`,
+`square_ne_of_nonzero`.
+
 In the flat limit, the FAS rescaled radiant momenta obey
 \(\lim q^\pm=((1\pm B)^3/(2\sqrt2))Q_{\rm flat}\). Since the no-incoming sector
 has \(q^-=0\), either \(Q_{\rm flat}=0\) or \(B=1\). Thus nonzero flat Bondi news
@@ -651,11 +703,18 @@ news, \(\mathring n=\mathcal N\), then
 \]
 Thus \(\beta_\infty\) is the angular-divergence square of the rescaled Bondi
 news, not an independent coefficient. The identification \(\mathring n=\mathcal N\)
-remains conditional; the residual datum is now the geometric flat-limit
-identification, not a free normalization constant. Lean:
+is now reduced: in the strongly equipped \(\kappa=0\) frame one has
+\(V_{AB}=S_{AB}-\rho_{AB}\), while flat news is
+\(\mathcal N_{AB}=S^{\rm flat}_{AB}-\rho^{\rm flat}_{AB}\); uniqueness of the
+\(S^2\) Codazzi tensor \(\rho\) turns \(C^1\) convergence of cut geometry and
+projected Schouten data into \(V_{AB}\to\mathcal N_{AB}\). The residual datum is
+therefore projected-Schouten convergence, not a free normalization constant.
+Lean:
 `FlatNewsNormalization.FlatFAS`, `betaInf_eq_half_zFlat`,
 `zFlat_eq_two_betaInf`, `BondiFrame`, `covDivSq_eq`,
-`betaInf_eq_bondiDivSq`.
+`betaInf_eq_bondiDivSq`, `ControlledFlatNewsIdentification.Model`,
+`U_eq_S_of_strong_gauge`, `V_eq_flatNews`, `V_zero_iff_flatNews_zero`,
+`ControlledFlatNewsIdentification.LimitModel`, `tendsto_U`, `tendsto_V`.
 
 The spectral form of this result is sharper. For an STF tensor harmonic on the
 unit sphere,
@@ -694,9 +753,21 @@ scalars. Since \(\Phi^2/(\delta^2+\gamma^2)=\hat C^2\) and
 \(\Phi/\sqrt{\delta^2+\gamma^2}\to\dot{\mathcal N}\) and
 \(Dn^+/\sqrt{\beta_F^2+\lambda_F^2}\to D\mathcal N\) give the same
 \(\alpha_\infty=2\mathcal W\), \(\beta_\infty=\mathcal Z/2\) for every finite
-nondegenerate transport choice. Degenerate squared-norm limits remain uncovered.
+nondegenerate transport choice. In the degenerate regime the quotient is a
+singular-perturbation limit: if the normalization squared scale
+\(\varepsilon_T^2=\delta^2+\gamma^2\) tends to zero and the raw square
+\(|\Phi^{\rm raw}|^2\) tends to a positive constant, the detector square blows
+up; if the detector square stays bounded, the raw square vanishes at least as
+fast as \(\varepsilon_T^2\); and if both vanish, the quotient rate is undetermined.
+The identical trichotomy holds for
+\(\varepsilon_V^2=\beta_F^2+\lambda_F^2\) and \(|Dn^+|^2\). FAS pointwise
+nondegeneracy does not forbid simultaneous decay of the two coefficients, so
+this is a controlled conditional subcase only.
 Lean: `GeneralizedTransportFlatBalance.Model`,
-`tensor_normalization_gauge_free`, `vector_normalization_gauge_free`.
+`tensor_normalization_gauge_free`, `vector_normalization_gauge_free`, and
+`DegenerateTransportLimit.Algebra`, `raw_eq_detector_mul_scale`,
+`detector_eq_mul_inv`, `detector_ge_of_raw_lower_bound`,
+`raw_le_of_detector_bound`.
 
 A conformal phase-space calculation adds a separate finite flux
 \[
