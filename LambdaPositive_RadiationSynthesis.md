@@ -474,6 +474,24 @@ forces radiative flux-zero, but the converse fails. Lean core:
 `ChargeFluxBlindness.Model`, `news_zero_flux_zero`,
 `not_flux_zero_imp_news_zero`.
 
+A parity-kernel obstruction excludes the remaining naive fix. A single
+even-parity retarded multipole has positive energy flux but vanishing momentum
+flux by parity; mixed-parity sectors can have nonzero momentum flux. If
+\(F_K=c_K\|\mathcal N\|^2\) for one common news square, the even sector forces
+\(c_{\rm mom}=0\), and the mixed sector then contradicts nonzero momentum flux.
+Thus a central theorem cannot use one fixed square for all generators; it must
+use generator-dependent duals or bilinear pairings. Lean:
+`FluxGeneratorKernelObstruction.Sector`, `Model`,
+`evenMomentumCoefficient_zero`, `no_universal_news_square`.
+
+On the full linearized TT phase space this becomes a no-go for the unrestricted
+central theorem. The ABK blind state has zero time-translation flux but nonzero
+news. If the central object must satisfy both \(\mathcal N=0\iff\) no radiation
+and \(\mathcal F_T=0\iff\) no radiation, the two equivalences contradict. The
+central theorem therefore cannot be universal; it must be formulated on a
+restricted retarded/no-incoming sector. Lean: `UnrestrictedCentralNoGo.Model`,
+`impossible`.
+
 FAS VII.116--VII.119 define a second-class Bel--Robinson bitranslation charge
 whose outgoing radiative density is
 \(\hat C^2-4C^2\), compared with the first-jet detector square
@@ -662,6 +680,17 @@ BMS supertranslations. The retarded flux square therefore needs explicit origin
 and foliation data before any de Sitter interpretation. Lean:
 `RetardedOriginAmbiguity.Algebra`, `square_eq`, `square_eq_iff`,
 `square_ne_of_nonzero`.
+
+The assembled pieces form a central theorem in the linear retarded-source
+sector. With \(\mathcal N^{\rm ret}=P^{\rm tt}\nu^{\rm src}\), this is a round-cut
+STF field whose vanishing is equivalent to vanishing retarded source radiation
+and time-translation flux; its square gives the nonnegative ABK energy flux;
+all generator fluxes are \(\xi\)-linear symplectic pairings with
+generator-dependent duals; and its flat limit is Bondi news with the standard
+mass-loss normalization. The theorem does not extend to arbitrary AldS boundary
+data or nonlinear gravity. Lean packaging: `LinearRetardedCentralCore.Model`,
+`flux_nonneg`, `flux_zero_of_news_zero`, `newsSq_zero_of_flux_zero`,
+`flux_zero_iff_news_zero`.
 
 In the flat limit, the FAS rescaled radiant momenta obey
 \(\lim q^\pm=((1\pm B)^3/(2\sqrt2))Q_{\rm flat}\). Since the no-incoming sector
