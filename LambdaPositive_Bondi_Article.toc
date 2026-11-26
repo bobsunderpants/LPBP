@@ -36,7 +36,7 @@
 \contentsline {subsection}{\numberline {7.2}Explicit TT modes and Hamiltonian fluxes}{36}{subsection.7.2}%
 \contentsline {subsection}{\numberline {7.3}Finite de Sitter charges do not detect all news}{37}{subsection.7.3}%
 \contentsline {subsection}{\numberline {7.4}Conditional symplectic dual-news representation}{39}{subsection.7.4}%
-\contentsline {subsubsection}{\numberline {7.4.1}Local adjoint representative in the linearized sector}{40}{subsubsection.7.4.1}%
+\contentsline {subsubsection}{\numberline {7.4.1}Local adjoint representative in the linearized sector}{41}{subsubsection.7.4.1}%
 \contentsline {paragraph}{Retarded adjoint factorization criterion.}{42}{section*.5}%
 \contentsline {subsection}{\numberline {7.5}Conformal phase-space flux}{43}{subsection.7.5}%
 \contentsline {section}{\numberline {8}Exact-solution benchmark}{43}{section.8}%
@@ -45,12 +45,12 @@
 \contentsline {paragraph}{First-jet tensor news and retarded flux.}{45}{section*.6}%
 \contentsline {subsubsection}{\numberline {9.0.2}Exact first-jet scaling in the flat limit}{48}{subsubsection.9.0.2}%
 \contentsline {paragraph}{Divergence resolution of \(\beta _+\).}{49}{section*.7}%
-\contentsline {paragraph}{Flat news normalization from the companion tidal theory.}{49}{section*.8}%
-\contentsline {paragraph}{Controlled identification of the flat radiant news.}{50}{section*.9}%
-\contentsline {paragraph}{Spectral weight of the flat detector square.}{51}{section*.10}%
+\contentsline {paragraph}{Flat news normalization from the companion tidal theory.}{50}{section*.8}%
+\contentsline {paragraph}{Controlled identification of the flat radiant news.}{51}{section*.9}%
+\contentsline {paragraph}{Spectral weight of the flat detector square.}{52}{section*.10}%
 \contentsline {paragraph}{Flat first-jet detector balance.}{52}{section*.11}%
-\contentsline {paragraph}{Gauge-independence of the flat detector balance.}{52}{section*.12}%
+\contentsline {paragraph}{Gauge-independence of the flat detector balance.}{53}{section*.12}%
 \contentsline {section}{\numberline {10}Lean formalization of the conditional core}{54}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Core scaffold}{54}{subsection.10.1}%
-\contentsline {subsection}{\numberline {10.2}Mathlib scaffold}{54}{subsection.10.2}%
-\contentsline {section}{\numberline {11}Conclusion and open problems}{57}{section.11}%
+\contentsline {subsection}{\numberline {10.1}Core scaffold}{55}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Mathlib scaffold}{55}{subsection.10.2}%
+\contentsline {section}{\numberline {11}Conclusion and open problems}{58}{section.11}%

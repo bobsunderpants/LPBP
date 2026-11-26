@@ -492,6 +492,14 @@ central theorem therefore cannot be universal; it must be formulated on a
 restricted retarded/no-incoming sector. Lean: `UnrestrictedCentralNoGo.Model`,
 `impossible`.
 
+A finite-dimensional shadow explains the count: the local detector pair has
+\(5+3=8\) components while the de Sitter algebra has seven generators, so a
+linear map \(\mathbb R^8\to\mathbb R^7\) cannot be injective; on the \(l\)-th
+radiative harmonic the pair has dimension \(4l+2\ge10\). This is weaker than the
+global ABK blindness, since charges are integrals, but it shows why finite
+charge evaluations cannot be a complete unrestricted news detector. Lean:
+`FiniteChargeDetectionObstruction.no_injective_fin8_to_fin7`.
+
 FAS VII.116--VII.119 define a second-class Bel--Robinson bitranslation charge
 whose outgoing radiative density is
 \(\hat C^2-4C^2\), compared with the first-jet detector square
